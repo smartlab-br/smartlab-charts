@@ -1,22 +1,3 @@
-// D3plus-based
-import TopoJsonChartBuilderService from './d3plus/topoJsonChartBuilderService'
-import LineChartBuilderService from './d3plus/lineChartBuilderService'
-import StackedLineChartBuilderService from './d3plus/stackedLineChartBuilderService'
-import BarChartBuilderService from './d3plus/barChartBuilderService'
-import TreemapChartBuilderService from './d3plus/treemapChartBuilderService'
-import ScatterChartBuilderService from './d3plus/scatterChartBuilderService'
-import BoxplotChartBuilderService from './d3plus/boxplotChartBuilderService'
-
-// D3-based
-import SankeyChartBuilderService from './d3/sankeyChartBuilderService'
-import CalendarChartBuilderService from './d3/calendarChartBuilderService'
-
-// Leaflet-based
-import BubblesChartBuilderService from './leaflet/bubblesChartBuilderService'
-import ClusterChartBuilderService from './leaflet/clusterChartBuilderService'
-import HeatChartBuilderService from './leaflet/heatChartBuilderService'
-import PolygonsChartBuilderService from './leaflet/polygonsChartBuilderService'
-
 class ChartBuilderService {
     constructor() {}
 
@@ -30,45 +11,58 @@ class ChartBuilderService {
                     switch (type) {
                         // D3Plus based
                         case 'MAP_TOPOJSON':
-                            builder = new TopoJsonChartBuilderService();
+                            let clsDef = require('./d3plus/topoJsonChartBuilderService');
+                            builder = new clsDef.clsDef.TopoJsonChartBuilderService();
                             break;
                         case 'LINE':
-                            builder = new LineChartBuilderService();
+                            let clsDef = require('./d3plus/lineChartBuilderService');
+                            builder = new clsDef.LineChartBuilderService();
                             break;
                         case 'STACKED': // Unused
-                            builder = new StackedLineChartBuilderService();
+                            let clsDef = require('./d3plus/stackedLineChartBuilderService');
+                            builder = new clsDef.StackedLineChartBuilderService();
                             break;
                         case 'BAR':
-                            builder = new BarChartBuilderService();
+                            let clsDef = require('./d3plus/barChartBuilderService');
+                            builder = new clsDef.BarChartBuilderService();
                             break;
                         case 'TREEMAP':
-                            builder = new TreemapChartBuilderService();
+                            let clsDef = require('./d3plus/treemapChartBuilderService');
+                            builder = new clsDef.TreemapChartBuilderService();
                             break;
                         case 'SCATTERPLOT': // Unused
-                            builder = new ScatterChartBuilderService();
+                            let clsDef = require('./d3plus/scatterChartBuilderService');
+                            builder = new clsDef.ScatterChartBuilderService();
                             break;
                         case 'BOXPLOT': // Unused
-                            builder = new BoxplotChartBuilderService();
+                            let clsDef = require('./d3plus/boxplotChartBuilderService');
+                            builder = new clsDef.BoxplotChartBuilderService();
                             break;
                         // D3 based
                         case 'CALENDAR': // Unused
-                            builder = new CalendarChartBuilderService();
+                            let clsDef = require('./d3plus/calendarChartBuilderService');
+                            builder = new clsDef.CalendarChartBuilderService();
                             break;
                         case 'SANKEYD3': // Unused
-                            builder = new SankeyChartBuilderService();
+                            let clsDef = require('./d3plus/sankeyChartBuilderService');
+                            builder = new clsDef.SankeyChartBuilderService();
                             break;
                         // Leaflet based
                         case 'MAP_BUBBLES':
-                            builder = new BubblesChartBuilderService();
+                            let clsDef = require('./d3plus/bubblesChartBuilderService');
+                            builder = new clsDef.BubblesChartBuilderService();
                             break;
                         case 'MAP_CLUSTER':
-                            builder = new ClusterChartBuilderService();
+                            let clsDef = require('./d3plus/clusterChartBuilderService');
+                            builder = new clsDef.ClusterChartBuilderService();
                             break;
                         case 'MAP_HEAT':
-                            builder = new HeatChartBuilderService();
+                            let clsDef = require('./d3plus/heatChartBuilderService');
+                            builder = new clsDef.HeatChartBuilderService();
                             break;
                         case 'MAP_POLYGON': // Unused
-                            builder = new PolygonsChartBuilderService();
+                            let clsDef = require('./d3plus/polygonsChartBuilderService');
+                            builder = new clsDef.PolygonsChartBuilderService();
                             break;
                         default:
                             break;
@@ -78,7 +72,6 @@ class ChartBuilderService {
                             let chart = builder.generateChart(containerId, dataset, options, additionalOptions);
                             resolve(chart);
                         } catch (err) {
-                            console.log(err);
                             reject(err);
                         }
                     } else {
@@ -99,4 +92,4 @@ class ChartBuilderService {
     }
 }
 
-export default  ChartBuilderService
+module.exports = ChartBuilderService
