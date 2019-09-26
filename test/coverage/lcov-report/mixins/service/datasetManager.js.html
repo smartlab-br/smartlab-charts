@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for mixins/service/datasetManager.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">mixins/service</a> datasetManager.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10.29% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>18/175</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/200</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10.65% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>18/169</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">96x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios from 'axios'
+&nbsp;
+const DatasetManager = {
+  install(Vue, options) {
+    Vue.mixin({
+      data() {
+        return {
+          datasetEndpoints: {
+            centralindicadores: {
+              municipio: '/indicadoresmunicipais?categorias=nm_municipio_uf,cd_uf,cd_dimensao,ds_indicador,ds_indicador_curto,ds_indicador_prefixo,ds_agreg_primaria,ds_agreg_secundaria,ds_indicador_radical,cd_indicador,nu_competencia,nu_competencia_min,nu_competencia_max,cd_mun_ibge,ds_fonte,vl_indicador,rank_uf,rank_br,rank_uf_total,rank_br_total,pct_uf,pct_br,media_uf,media_br,vl_indicador_br,vl_indicador_uf&amp;filtros=eq-cd_mun_ibge-{0}&amp;agregacao=DISTINCT',
+              estado: '/indicadoresestaduais?categorias=nm_uf,cd_dimensao,ds_indicador,ds_indicador_curto,ds_indicador_prefixo,ds_agreg_primaria,ds_agreg_secundaria,ds_indicador_radical,cd_indicador,nu_competencia,nu_competencia_max,nu_competencia_min,cd_mun_ibge,ds_fonte,vl_indicador,vl_indicador_br,rank_br,rank_br_total,rank_uf_total,pct_br,media_br&amp;filtros=eq-cd_mun_ibge-{0}&amp;agregacao=DISTINCT',
+              brasil: '/indicadoresnacionais?categorias=cd_dimensao,ds_indicador,ds_indicador_curto,ds_indicador_prefixo,ds_agreg_primaria,ds_agreg_secundaria,ds_indicador_radical,cd_indicador,nu_competencia,nu_competencia_min,nu_competencia_max,ds_fonte,vl_indicador&amp;agregacao=DISTINCT',
+              mptreg: '/indicadoresmptunidades?categorias=cd_dimensao,ds_indicador,ds_indicador_curto,ds_indicador_prefixo,ds_agreg_primaria,ds_agreg_secundaria,ds_indicador_radical,cd_indicador,nu_competencia,nu_competencia_max,nu_competencia_min,cd_prt,ds_fonte,vl_indicador,vl_indicador_br,rank_br,rank_br_total,rank_prt_total,pct_br,media_br&amp;filtros=eq-cd_prt-{0}&amp;agregacao=DISTINCT',
+              prtptm: '/indicadoresmptunidades?categorias=cd_dimensao,ds_indicador,ds_indicador_curto,ds_indicador_prefixo,ds_agreg_primaria,ds_agreg_secundaria,ds_indicador_radical,cd_indicador,nu_competencia,nu_competencia_max,nu_competencia_min,cd_unidade,cd_prt,nm_unidade,sg_unidade,ds_fonte,vl_indicador,vl_indicador_br,rank_br,rank_br_total,rank_prt_total,pct_br,media_br&amp;filtros=eq-cd_unidade-{0}&amp;agregacao=DISTINCT',
+            },
+            trabalho_escravo: {
+              municipio: '/te/indicadoresmunicipais?categorias=nm_municipio_uf,cd_uf,cd_indicador,nu_competencia,nu_competencia_min,nu_competencia_max,cd_mun_ibge_dv,vl_indicador,rank_uf,rank_br,rank_uf_total,rank_br_total,pct_uf,pct_br,media_uf,media_br,vl_indicador_br,vl_indicador_uf&amp;filtros=eq-cd_mun_ibge_dv-{0},and,nn-vl_indicador&amp;agregacao=DISTINCT',
+              estado: '/te/indicadoresestaduais?categorias=nm_uf,cd_uf,cd_indicador,nu_competencia,nu_competencia_min,nu_competencia_max,vl_indicador,rank_br,rank_br_total,pct_br,media_br,vl_indicador_br&amp;filtros=eq-cd_uf-{0},and,nn-vl_indicador&amp;agregacao=DISTINCT',
+              brasil: '/te/indicadoresnacionais?categorias=cd_indicador,nu_competencia,nu_competencia_min,nu_competencia_max,vl_indicador&amp;agregacao=DISTINCT&amp;filtros=nn-vl_indicador'
+            },
+            trabalho_escravo_agr: {
+              municipio: '/te/indicadoresmunicipais?categorias=nm_municipio_uf,cd_uf,cd_indicador,nu_competencia_min,nu_competencia_max,cd_mun_ibge_dv&amp;valor=vl_indicador&amp;agregacao=SUM&amp;filtros=eq-cd_mun_ibge_dv-{0},and,nn-vl_indicador',
+              estado: '/te/indicadoresestaduais?categorias=nm_uf,cd_uf,cd_indicador,nu_competencia_min,nu_competencia_max&amp;valor=vl_indicador&amp;agregacao=SUM&amp;filtros=eq-cd_uf-{0},and,nn-vl_indicador',
+              brasil: '/te/indicadoresnacionais?categorias=cd_indicador,nu_competencia_min,nu_competencia_max&amp;valor=vl_indicador&amp;agregacao=SUM&amp;filtros=nn-vl_indicador'
+            },
+            censo_agro_2017: {
+              municipio: "/ti/censoagromunicipal?categorias='agro_menores'-cd_indicador,'2017'-nu_competencia,cod_mun,qt_ocupados,qt_ocupados_menores14,percent_ocupados_men_14&amp;filtros=eq-cod_mun-{0}",
+              estado: "/ti/censoagroestadual?categorias='agro_menores'-cd_indicador,'2017'-nu_competencia,cd_uf,tot_ocupados,tot_ocup_men14,perc_tot_14,men_14_parente,part_com_parentesco,men_14_sem_parente,part_sem_parentesco&amp;filtros=eq-cd_uf-{0}",
+              brasil: "/ti/censoagronacional?categorias='agro_menores'-cd_indicador,'2017'-nu_competencia,tot_ocupados,tot_ocup_men14,perc_tot_14,men_14_parente,part_com_parentesco,men_14_sem_parente,part_sem_parentesco"
+            },
+            munic: {
+              municipio: '/estadicmunic?categorias=cd_indicador_spai-cd_indicador,cd_indicador-cd_indicador_externo,spai_ds,spai_ds_texto,ds_fonte,nu_ano_indicador-nu_competencia,vl_indicador,spai_vl_indicador_txt,ds_indicador,tema,sub_tema,spai_vl_indicador,total_br,presenca_total_br,pct_presenca_br,total_uf,presenca_total_uf,pct_presenca_uf,nm_municipio,nm_uf,sg_uf,nm_municipio_uf&amp;filtros=eq-cd_mun_ibge-{0}',
+              estado: '/estadicmunic?categorias=cd_indicador_spai-cd_indicador,cd_indicador-cd_indicador_externo,spai_ds,spai_ds_texto,ds_fonte,nu_ano_indicador-nu_competencia,vl_indicador,spai_vl_indicador_txt,ds_indicador,tema,sub_tema,spai_vl_indicador,total_br,presenca_total_br,pct_presenca_br,total_uf,presenca_total_uf,pct_presenca_uf,rank_pct_uf,rank_pct_uf_max,nm_municipio,nm_uf,sg_uf,nm_municipio_uf&amp;valor=cd_uf&amp;agregacao=DISTINCT&amp;filtros=eq-cd_uf-{0}',
+              brasil: '/estadicmunic?categorias=cd_indicador_spai-cd_indicador,cd_indicador-cd_indicador_externo,nu_ano_indicador-nu_competencia,tema,sub_tema,ds_indicador,ds_fonte,presenca_total_br,total_br,pct_presenca_br,spai_ds_texto&amp;valor=cd_indicador_spai&amp;agregacao=DISTINCT'
+            },
+            estadic: {
+              estado: '/estadicuf?categorias=cd_indicador_spai-cd_indicador,cd_indicador-cd_indicador_externo,spai_ds,spai_ds_texto,ds_fonte,nu_ano_indicador-nu_competencia,vl_indicador,spai_vl_indicador_txt,ds_indicador,tema,sub_tema,spai_vl_indicador,total_br,presenca_total_br,pct_presenca_br,nm_uf,sg_uf&amp;filtros=eq-cd_uf-{0}',
+              brasil: '/estadicuf?categorias=cd_indicador_spai-cd_indicador,cd_indicador-cd_indicador_externo,spai_ds,spai_ds_texto,tema,ds_indicador,ds_fonte,sub_tema,presenca_total_br,pct_presenca_br,nu_ano_indicador-nu_competencia&amp;agregacao=DISTINCT'
+            }
+          }
+        }
+      },
+&nbsp;
+      methods: {
+        melt(dataset, value_field, layer_fields, layer_field, 
+             label_fields, label_field, value_function) {
+          var meltedDS = [];
+          for (var indxDS in dataset) {
+            // Instantiates the base object for all layers in each dataset row
+            var baseNuRow = dataset[indxDS];
+&nbsp;
+            // Sets layer value fields
+            for (var indxLayer in layer_fields) {
+              // Instantiates a new object for each layer
+              var nuRow = {};
+              Object.assign(nuRow, baseNuRow);
+              nuRow[layer_field] = layer_fields[indxLayer];
+              nuRow[label_field] = label_fields[indxLayer];
+&nbsp;
+              <span class="missing-if-branch" title="if path not taken" >I</span>if (value_function) {
+<span class="cstat-no" title="statement not covered" >                nuRow[value_field] = value_function(dataset[indxDS][layer_fields[indxLayer]]);</span>
+              } else {
+                nuRow[value_field] = dataset[indxDS][layer_fields[indxLayer]];
+              }
+              
+              // Pushes each row to the resulting dataset
+              meltedDS.push(nuRow);
+            }
+          }
+          // Returns the resuting melted dataset
+          return meltedDS;
+        },
+&nbsp;
+        // UNTESTED
+        cast(dataset, col_fields, value_field, layer_field) {
+          let result = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >          for (var indxDS in dataset) {</span>
+            // Verifica se já existe a entrada no dataset de resultado
+            let found = <span class="cstat-no" title="statement not covered" >true;</span>
+<span class="cstat-no" title="statement not covered" >            loopResult: <span class="cstat-no" title="statement not covered" >for (var indxRes in result) {</span></span>
+              // Itera nos campos de identificação, para checar se é a mesma ocorrência
+<span class="cstat-no" title="statement not covered" >              for (let indxCol in col_fields) {</span>
+<span class="cstat-no" title="statement not covered" >                if (result[indxRes][col_fields[indxCol]] != dataset[indxDS][col_fields[indxCol]]) {</span>
+<span class="cstat-no" title="statement not covered" >                  found = false;</span>
+<span class="cstat-no" title="statement not covered" >                  break loopResult;</span>
+                }
+              }
+              // Found is true and it'the current indxRes
+              // Sets the new value column to the existing result row
+<span class="cstat-no" title="statement not covered" >              result[dataset[indxDS][layer_field]] = dataset[indxDS][value_field];</span>
+            }
+&nbsp;
+            // Creates new row if not found in result
+<span class="cstat-no" title="statement not covered" >            if (!found) {</span>
+              // Instantiates the base object for all layers in each dataset row
+              var nuRow = <span class="cstat-no" title="statement not covered" >{};</span>
+              // Sets identifier columns' values
+<span class="cstat-no" title="statement not covered" >              for (let indxCol in col_fields) {</span>
+<span class="cstat-no" title="statement not covered" >                nuRow[col_fields[indxCol]] = dataset[indxDS][col_fields[indxCol]];</span>
+              }
+              // Sets the pivot value
+<span class="cstat-no" title="statement not covered" >              nuRow[dataset[indxDS][layer_field]] = dataset[indxDS][value_field];</span>
+              // Adds row to the result
+<span class="cstat-no" title="statement not covered" >              result.push(nuRow);</span>
+            }
+          }
+        },
+&nbsp;
+        sortObject(object, order_field){
+          return object.sort(function(a,b){ 
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (a[order_field] &gt; b[order_field]) {
+              return 1;
+            }
+<span class="cstat-no" title="statement not covered" >            if (a[order_field] &lt; b[order_field]) {</span>
+<span class="cstat-no" title="statement not covered" >              return -1;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            return 0;}</span>);
+        },
+&nbsp;
+        setDataset(dataset, rules, structure, addedParams, metadata) {
+          let limCoords = <span class="cstat-no" title="statement not covered" >{ xmin: null, ymin: null, xmax: null, ymax: null };</span> // Obtém coordenadas limítrofes (se mapa)
+  
+          let options = <span class="cstat-no" title="statement not covered" >structure.chart_options;</span>
+<span class="cstat-no" title="statement not covered" >          if (options === null || options === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >            options = structure.options;</span>
+          }
+  
+<span class="cstat-no" title="statement not covered" >          for (var eachRow in dataset) {</span>
+<span class="cstat-no" title="statement not covered" >            if (options.pct_field !== null &amp;&amp; options.pct_field !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >              dataset[eachRow].pct_indicador = dataset[eachRow][options.pct_field];</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (structure.chart_type == 'TREEMAP' &amp;&amp; options.format_function !== null &amp;&amp; options.format_function !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >              if (this.customFunctions &amp;&amp; this.customFunctions[options.format_function]) {</span>
+<span class="cstat-no" title="statement not covered" >                dataset[eachRow][options.id] = this.customFunctions[options.format_function](dataset[eachRow], options);</span>
+              } else {
+<span class="cstat-no" title="statement not covered" >                dataset[eachRow][options.id] = this[options.format_function](dataset[eachRow], options);</span>
+              }
+            }
+  
+            // Obtém coordenadas limítrofes (se mapa)
+<span class="cstat-no" title="statement not covered" >            if (structure.chart_type === 'MAP_LEAFLET') { // Só avalia as coordenadas caso o gráfico seja um mapa.</span>
+              // Ignora os pontos 0x0
+<span class="cstat-no" title="statement not covered" >              if (parseFloat(dataset[eachRow][options.long]) != 0 &amp;&amp; </span>
+                  parseFloat(dataset[eachRow][options.long]) != 0) {
+<span class="cstat-no" title="statement not covered" >                if (limCoords.xmin === null || limCoords.xmin === undefined) { // Primeiro valor de indicador</span>
+<span class="cstat-no" title="statement not covered" >                  limCoords.xmin = parseFloat(dataset[eachRow][options.long]);</span>
+<span class="cstat-no" title="statement not covered" >                  limCoords.xmax = parseFloat(dataset[eachRow][options.long]);</span>
+<span class="cstat-no" title="statement not covered" >                  limCoords.ymin = parseFloat(dataset[eachRow][options.lat]);</span>
+<span class="cstat-no" title="statement not covered" >                  limCoords.ymax = parseFloat(dataset[eachRow][options.lat]);</span>
+                } else {
+                  var lat = <span class="cstat-no" title="statement not covered" >parseFloat(dataset[eachRow][options.lat]);</span>
+                  var long = <span class="cstat-no" title="statement not covered" >parseFloat(dataset[eachRow][options.long]);</span>
+<span class="cstat-no" title="statement not covered" >                  if (limCoords.xmin &gt; long) {</span>
+<span class="cstat-no" title="statement not covered" >                    limCoords.xmin = long;</span>
+                  }
+<span class="cstat-no" title="statement not covered" >                  if (limCoords.xmax &lt; long) {</span>
+<span class="cstat-no" title="statement not covered" >                    limCoords.xmax = long;</span>
+                  }
+<span class="cstat-no" title="statement not covered" >                  if (limCoords.ymin &gt; lat) {</span>
+<span class="cstat-no" title="statement not covered" >                    limCoords.ymin = lat;</span>
+                  }
+<span class="cstat-no" title="statement not covered" >                  if (limCoords.ymax &lt; lat) {</span>
+<span class="cstat-no" title="statement not covered" >                    limCoords.ymax = lat;</span>
+                  }
+                }
+              }
+            }
+          }
+  
+          // Define as coordenadas apenas se for um mapa do leaflet
+<span class="cstat-no" title="statement not covered" >          if (structure.chart_type === 'MAP_LEAFLET') {</span>
+<span class="cstat-no" title="statement not covered" >            this.customParams.limCoords = limCoords;</span>
+          }
+  
+<span class="cstat-no" title="statement not covered" >          if (options.order_field !== null &amp;&amp; options.order_field !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >            dataset = this.sortObject(dataset, options.order_field);</span>
+          }
+  
+<span class="cstat-no" title="statement not covered" >          if (addedParams &amp;&amp; addedParams.id) {</span>
+            // Múltiplos gráficos
+<span class="cstat-no" title="statement not covered" >            this.dataset[addedParams.id] = dataset;</span>
+<span class="cstat-no" title="statement not covered" >            this.metadata[addedParams.id] = metadata;</span>
+<span class="cstat-no" title="statement not covered" >            this.datasetsComplete++;</span>
+          } else <span class="cstat-no" title="statement not covered" >if (addedParams &amp;&amp; addedParams.props) {</span>
+<span class="cstat-no" title="statement not covered" >            if (addedParams.props.dataset) <span class="cstat-no" title="statement not covered" >this[addedParams.props.dataset] = dataset;</span></span>
+<span class="cstat-no" title="statement not covered" >            if (addedParams.props.metadata) <span class="cstat-no" title="statement not covered" >this[addedParams.props.metadata] = metadata;</span></span>
+          } else {
+            // Dataset único
+<span class="cstat-no" title="statement not covered" >            this.dataset = dataset;</span>
+<span class="cstat-no" title="statement not covered" >            this.metadata = metadata;</span>
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (addedParams &amp;&amp; addedParams.fnCallback) {</span>
+<span class="cstat-no" title="statement not covered" >            addedParams.fnCallback();</span>
+          }
+        },
+        
+        getSourceDesc(structure, dataset, metadata) {
+<span class="cstat-no" title="statement not covered" >          if (structure) {</span>
+<span class="cstat-no" title="statement not covered" >            if (structure.source &amp;&amp; structure.source.desc) {</span>
+<span class="cstat-no" title="statement not covered" >              return structure.source.desc;</span>
+            } else <span class="cstat-no" title="statement not covered" >if (dataset &amp;&amp; structure.source &amp;&amp; structure.source.desc_field &amp;&amp; dataset[0]) {</span>
+<span class="cstat-no" title="statement not covered" >              return dataset[0][structure.source.desc_field] != null ? dataset[0][structure.source.desc_field] : null;</span>
+            } else <span class="cstat-no" title="statement not covered" >if (metadata &amp;&amp; metadata.fonte) {</span>
+<span class="cstat-no" title="statement not covered" >              return metadata.fonte;</span>
+            }
+          } else <span class="cstat-no" title="statement not covered" >if (metadata &amp;&amp; metadata.fonte) {</span>
+<span class="cstat-no" title="statement not covered" >            return metadata.fonte;</span>
+          }  
+<span class="cstat-no" title="statement not covered" >          return null;</span>
+        },
+&nbsp;
+        getSourceLink(structure, dataset, metadata) {
+<span class="cstat-no" title="statement not covered" >          if (structure) {</span>
+<span class="cstat-no" title="statement not covered" >            if (structure.source &amp;&amp; structure.source.link) {</span>
+<span class="cstat-no" title="statement not covered" >              return structure.source.link;</span>
+            } else <span class="cstat-no" title="statement not covered" >if (dataset !== null &amp;&amp; structure.source &amp;&amp; structure.source.link_field &amp;&amp; dataset[0]) {</span>
+<span class="cstat-no" title="statement not covered" >              return dataset[0][structure.source.link_field] != null ? dataset[0][structure.source.link_field] : null;</span>
+            }
+          } else <span class="cstat-no" title="statement not covered" >if (metadata &amp;&amp; metadata.link) {</span>
+<span class="cstat-no" title="statement not covered" >            return metadata.link;</span>
+          }
+<span class="cstat-no" title="statement not covered" >          return null;</span>
+        },
+&nbsp;
+        getAnalysisDesc(structure, dataset, metadata) {
+<span class="cstat-no" title="statement not covered" >          if (structure) {</span>
+<span class="cstat-no" title="statement not covered" >            if (structure.analysis &amp;&amp; structure.analysis.desc) {</span>
+<span class="cstat-no" title="statement not covered" >              return structure.analysis.desc;</span>
+            } else <span class="cstat-no" title="statement not covered" >if (dataset &amp;&amp; structure.analysis &amp;&amp; structure.analysis.desc_field &amp;&amp; dataset[0]) {</span>
+<span class="cstat-no" title="statement not covered" >              return dataset[0][structure.analysis.desc_field] != null ? dataset[0][structure.analysis.desc_field] : null;</span>
+            }
+          } else <span class="cstat-no" title="statement not covered" >if (metadata &amp;&amp; metadata.analysis) {</span>
+<span class="cstat-no" title="statement not covered" >            return metadata.analysis;</span>
+          }  
+<span class="cstat-no" title="statement not covered" >          return "SmartLab";</span>
+        },
+&nbsp;
+        getAnalysisLink(structure, dataset, metadata) {
+<span class="cstat-no" title="statement not covered" >          if (structure) {</span>
+<span class="cstat-no" title="statement not covered" >            if (structure.analysis &amp;&amp; structure.analysis.link) {</span>
+<span class="cstat-no" title="statement not covered" >              return structure.analysis.link;</span>
+            } else <span class="cstat-no" title="statement not covered" >if (dataset !== null &amp;&amp; structure.analysis &amp;&amp; structure.analysis.link_field &amp;&amp; dataset[0]) {</span>
+<span class="cstat-no" title="statement not covered" >              return dataset[0][structure.analysis.link_field] != null ? dataset[0][structure.analysis.link_field] : null;</span>
+            }
+          } else <span class="cstat-no" title="statement not covered" >if (metadata &amp;&amp; metadata.analyis &amp;&amp; metadata.analysis.link) {</span>
+<span class="cstat-no" title="statement not covered" >            return metadata.analysis.link;</span>
+          }
+<span class="cstat-no" title="statement not covered" >          return null;</span>
+        },
+&nbsp;
+        getMinMax(dataset, value_field) {
+          // Obtém o min e o max
+          let min, max = <span class="cstat-no" title="statement not covered" >null;</span>
+<span class="cstat-no" title="statement not covered" >          for (let indxDS in dataset) {</span>
+<span class="cstat-no" title="statement not covered" >            if (min == null || min &gt; parseFloat(dataset[indxDS][value_field])) {</span>
+<span class="cstat-no" title="statement not covered" >              min = parseFloat(dataset[indxDS][value_field]);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (max == null || max &lt; parseFloat(dataset[indxDS][value_field])) {</span>
+<span class="cstat-no" title="statement not covered" >              max = parseFloat(dataset[indxDS][value_field]);</span>
+            }
+          }
+<span class="cstat-no" title="statement not covered" >          return [min, max];</span>
+        },
+&nbsp;
+        getMinMaxEachIndicator(dataset, value_field) {
+          // Obtém o min e o max
+          let min = <span class="cstat-no" title="statement not covered" >[];</span>
+          let max = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >          for (let indxDS in dataset) {</span>
+<span class="cstat-no" title="statement not covered" >            if (this.$indicatorsModel.isMinInYear({}, dataset, dataset[indxDS], value_field)) {</span>
+<span class="cstat-no" title="statement not covered" >              min.push(dataset[indxDS]);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (this.$indicatorsModel.isMaxInYear({}, dataset, dataset[indxDS], value_field)) {</span>
+<span class="cstat-no" title="statement not covered" >              max.push(dataset[indxDS]);</span>
+            }
+          }
+&nbsp;
+          // Itera no dataset, incluindo os atributos minVal e maxVal
+<span class="cstat-no" title="statement not covered" >          for (let indxDS in dataset) {</span>
+            // Atribui o minimo
+<span class="cstat-no" title="statement not covered" >            for (let indxMin in min) {</span>
+<span class="cstat-no" title="statement not covered" >              if (dataset[indxDS].cd_indicador !== min[indxMin].cd_indicador) {</span>
+<span class="cstat-no" title="statement not covered" >                continue;</span>
+              }
+<span class="cstat-no" title="statement not covered" >              if (dataset[indxDS].nu_competencia !== min[indxMin].nu_competencia) {</span>
+<span class="cstat-no" title="statement not covered" >                continue;</span>
+              }
+<span class="cstat-no" title="statement not covered" >              dataset[indxDS].minVal = min[indxMin][value_field];</span>
+<span class="cstat-no" title="statement not covered" >              break;</span>
+            }
+            // Atribui o maximo
+<span class="cstat-no" title="statement not covered" >            for (let indxMax in max) {</span>
+<span class="cstat-no" title="statement not covered" >              if (dataset[indxDS].cd_indicador !== max[indxMax].cd_indicador) {</span>
+<span class="cstat-no" title="statement not covered" >                continue;</span>
+              }
+<span class="cstat-no" title="statement not covered" >              if (dataset[indxDS].nu_competencia !== max[indxMax].nu_competencia) {</span>
+<span class="cstat-no" title="statement not covered" >                continue;</span>
+              }
+<span class="cstat-no" title="statement not covered" >              dataset[indxDS].maxVal = max[indxMax][value_field];</span>
+<span class="cstat-no" title="statement not covered" >              break;</span>
+            }
+          }
+          // Retorna o dataset preenchido
+<span class="cstat-no" title="statement not covered" >          return dataset;</span>
+        },
+&nbsp;
+        getGlobalDatasets() {
+<span class="cstat-no" title="statement not covered" >          return this.$store.state.gDatasets;</span>
+        },
+&nbsp;
+        getGlobalDataset(dataset, scope, msg_erro, auId = <span class="branch-0 cbranch-no" title="branch not covered" >null,</span> cb = <span class="branch-0 cbranch-no" title="branch not covered" >null,</span> suffix = <span class="branch-0 cbranch-no" title="branch not covered" >"")</span> {
+          let datasetSuffix = <span class="cstat-no" title="statement not covered" >dataset + suffix;</span>
+<span class="cstat-no" title="statement not covered" >          if (this.$store.state.gDatasets[datasetSuffix] == null || this.$store.state.gDatasets[datasetSuffix] == undefined ||</span>
+              this.$store.state.gDatasets[datasetSuffix].analysisUnit == null || this.$store.state.gDatasets[datasetSuffix].analysisUnit == undefined ||
+              this.$store.state.gDatasets[datasetSuffix].analysisUnit.type != scope || this.$store.state.gDatasets[datasetSuffix].analysisUnit.id != auId
+            ) {
+<span class="cstat-no" title="statement not covered" >            this.$store.state.gDatasets[datasetSuffix] = { ds: null, valid: false, analysisUnit: { type: scope, id: auId } };</span>
+<span class="cstat-no" title="statement not covered" >            this.setGlobalDataset(dataset, scope, msg_erro, auId, cb, suffix);</span>
+          } else <span class="cstat-no" title="statement not covered" >if (cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null);</span>
+          }
+        },
+&nbsp;
+        getMultipleGlobalDatasets(thematicDatasets, scope, auId, cb = <span class="branch-0 cbranch-no" title="branch not covered" >null,</span> suffix = <span class="branch-0 cbranch-no" title="branch not covered" >"")</span> {
+          let nLoadedDS = <span class="cstat-no" title="statement not covered" >0;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          for (let indxDS in thematicDatasets) {</span>
+            let dataset = <span class="cstat-no" title="statement not covered" >thematicDatasets[indxDS] + suffix;</span>
+            let endpointName = <span class="cstat-no" title="statement not covered" >thematicDatasets[indxDS];</span>
+<span class="cstat-no" title="statement not covered" >            if (this.$store.state.gDatasets[dataset] == null || this.$store.state.gDatasets[dataset] == undefined ||</span>
+              this.$store.state.gDatasets[dataset].analysisUnit == null || this.$store.state.gDatasets[dataset].analysisUnit == undefined ||
+              this.$store.state.gDatasets[dataset].analysisUnit.type != scope || this.$store.state.gDatasets[dataset].analysisUnit.id != auId
+              ) {
+<span class="cstat-no" title="statement not covered" >              this.$store.state.gDatasets[dataset] = { ds: null, valid: false, analysisUnit: { type: scope, id: auId } };</span>
+              
+              let url = <span class="cstat-no" title="statement not covered" >this.$textTransformService.replaceArgs(this.datasetEndpoints[endpointName][scope], [auId]);</span>
+&nbsp;
+              // Busca o dataset da localidade
+<span class="cstat-no" title="statement not covered" >              axios(this.$axiosCallSetupService.getAxiosOptions(url))</span>
+                .then(<span class="fstat-no" title="function not covered" >re</span>sult =&gt; {
+<span class="cstat-no" title="statement not covered" >                  this.$store.state.gDatasets[dataset] = {</span>
+                    ds: JSON.parse(result.data).dataset,
+                    valid: true
+                  };
+<span class="cstat-no" title="statement not covered" >                  if (cb &amp;&amp; ++nLoadedDS == thematicDatasets.length) <span class="cstat-no" title="statement not covered" >cb(null);</span></span>
+                }, <span class="fstat-no" title="function not covered" >er</span>ror =&gt; {
+<span class="cstat-no" title="statement not covered" >                  this.sendError('Erro ao carregar dataset temático');</span>
+                });
+            } else {
+<span class="cstat-no" title="statement not covered" >              if (cb &amp;&amp; ++nLoadedDS == thematicDatasets.length) <span class="cstat-no" title="statement not covered" >cb(null);</span></span>
+            }
+          }
+        },
+&nbsp;
+        setGlobalDataset(dataset, scope, msg_erro, auId = <span class="branch-0 cbranch-no" title="branch not covered" >null,</span> cb = <span class="branch-0 cbranch-no" title="branch not covered" >null,</span> suffix = <span class="branch-0 cbranch-no" title="branch not covered" >"")</span> {
+          let url = <span class="cstat-no" title="statement not covered" >this.$textTransformService.replaceArgs(this.datasetEndpoints[dataset][scope], [auId]);</span>
+          //busca indicadores da localidade
+<span class="cstat-no" title="statement not covered" >          axios(this.$axiosCallSetupService.getAxiosOptions(url))</span>
+            .then(<span class="fstat-no" title="function not covered" >re</span>sult =&gt; {
+<span class="cstat-no" title="statement not covered" >              this.$store.state.gDatasets[dataset + suffix] = {</span>
+                ds: JSON.parse(result.data).dataset,
+                valid: true
+              };
+<span class="cstat-no" title="statement not covered" >              if (cb) <span class="cstat-no" title="statement not covered" >cb(null);</span></span>
+            }, <span class="fstat-no" title="function not covered" >er</span>ror =&gt; {
+<span class="cstat-no" title="statement not covered" >              console.error(error.toString());</span>
+<span class="cstat-no" title="statement not covered" >              this.sendError(msg_erro);</span>
+            });
+        }
+      }
+    })
+  }
+}
+&nbsp;
+export default  DatasetManager;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 03 2019 15:07:08 GMT-0300 (GMT-03:00)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

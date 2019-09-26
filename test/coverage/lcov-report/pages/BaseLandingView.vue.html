@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for pages/BaseLandingView.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\prettify.css" />
+    <link rel="stylesheet" href="..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\index.html">All files</a> / <a href="index.html">pages</a> BaseLandingView.vue
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/39</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/38</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;script&gt;
+  export default  {
+<span class="fstat-no" title="function not covered" >    data () {</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        itemBusca: null,
+        visibleTitle: true,
+        dialog: null
+      }
+    },
+    computed: {
+<span class="fstat-no" title="function not covered" >      loadingStatusSearchOptions: function() {</span>
+<span class="cstat-no" title="statement not covered" >        var minStatus = 'SUCCESS';</span>
+<span class="cstat-no" title="statement not covered" >        for (var indx in this.statusOption) {</span>
+<span class="cstat-no" title="statement not covered" >          if (this.statusOption[indx] == 'ERROR') {</span>
+<span class="cstat-no" title="statement not covered" >            return 'ERROR';</span>
+<span class="cstat-no" title="statement not covered" >          } else if (this.statusOption[indx] == 'LOADING') {</span>
+<span class="cstat-no" title="statement not covered" >            minStatus = 'LOADING';</span>
+          }
+        }
+<span class="cstat-no" title="statement not covered" >        return minStatus;</span>
+      }
+    },
+<span class="fstat-no" title="function not covered" >    mounted () {</span>
+<span class="cstat-no" title="statement not covered" >      window.addEventListener('scroll', this.assessVisibleTitle);</span>
+    },
+<span class="fstat-no" title="function not covered" >    beforeDestroy () {</span>
+<span class="cstat-no" title="statement not covered" >      window.removeEventListener('scroll', this.assessVisibleTitle);</span>
+    },
+    methods: {
+&nbsp;
+<span class="fstat-no" title="function not covered" >      assessVisibleTitle() {</span>
+        // const vHeight = (window.innerHeight || document.documentElement.clientHeight);
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >        if (document.getElementById("screenTitle")) {</span></span>
+          var { top, bottom } = document.getElementById("screenTitle").getBoundingClientRect();
+<span class="cstat-no" title="statement not covered" >          if (top &lt; 0 &amp;&amp; bottom - 88 &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            this.visibleTitle = false;</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            this.visibleTitle = true;</span>
+          }
+        } else {
+<span class="cstat-no" title="statement not covered" >          this.visibleTitle = false;</span>
+        }
+      },
+      
+<span class="fstat-no" title="function not covered" >      showDialogContext() {</span>
+<span class="cstat-no" title="statement not covered" >        this.dialog = true;</span>
+      },
+&nbsp;
+<span class="fstat-no" title="function not covered" >      customFilter (item, queryText, itemText) {</span>
+<span class="cstat-no" title="statement not covered" >        queryText = this.$textTransformService.replaceSpecialCharacters(queryText).toLowerCase();</span>
+<span class="cstat-no" title="statement not covered" >        itemText = this.$textTransformService.replaceSpecialCharacters(itemText).toLowerCase();</span>
+<span class="cstat-no" title="statement not covered" >        return itemText.indexOf(queryText) &gt; -1 </span>
+      },
+&nbsp;
+<span class="fstat-no" title="function not covered" >      openLinkFonte() {</span>
+<span class="cstat-no" title="statement not covered" >        window.open(this.sourceLink, '_blank');</span>
+      },
+&nbsp;
+<span class="fstat-no" title="function not covered" >      openLinkAnalysis() {</span>
+<span class="cstat-no" title="statement not covered" >        window.open(this.analysisLink, '_blank');</span>
+      },
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      getClientGeoCallback(info){</span></span>
+<span class="cstat-no" title="statement not covered" >        var status = info.city;</span>
+<span class="cstat-no" title="statement not covered" >        if (status === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >          this.$emit('showLocationDialog');</span>
+          // console.error(info.message);
+          // this.sendError("Falha ao determinar a localidade. (Código 2)");
+        } else {
+          // this.infoGeoIp = info;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >          this.$analysisUnitModel.getIdLocalidade(this, info.state, info.city)</span></span>
+            .then(
+              (result) =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (result != null) {</span>
+<span class="cstat-no" title="statement not covered" >                  this.idLocalidade = result.cd_municipio_ibge_dv;</span>
+<span class="cstat-no" title="statement not covered" >                  this.$analysisUnitModel.setCurrentAnalysisUnit(result.cd_municipio_ibge_dv);</span>
+<span class="cstat-no" title="statement not covered" >                  this.$emit('alterMiddleToolbar', { "localidade": result });</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                  this.$emit('showLocationDialog');</span>
+                  // console.error("Falha ao consultar API de municípios.");
+                  // this.sendError("Não foi possível determinar a localidade IBGE.");
+                }
+<span class="fstat-no" title="function not covered" >              }</span>
+            )
+<span class="cstat-no" title="statement not covered" >            .catch((error) =&gt; { this.$emit('showLocationDialog'); });</span>
+        }
+      },
+&nbsp;
+<span class="fstat-no" title="function not covered" >      checkCurrentAnalysisUnit() {</span>
+<span class="cstat-no" title="statement not covered" >        let currAU = this.$analysisUnitModel.getCurrentAnalysisUnit();</span>
+<span class="cstat-no" title="statement not covered" >        if (this.idObservatorio &amp;&amp; this.idObservatorio == 'td' &amp;&amp; currAU &amp;&amp; currAU.toString().length != 7) {</span>
+<span class="cstat-no" title="statement not covered" >          this.$emit('showLocationDialog');</span>
+<span class="cstat-no" title="statement not covered" >        } else if (!currAU) { // Se não houver cookie, invoca o cliente geo_ip</span>
+<span class="cstat-no" title="statement not covered" >          this.getClientGeo(this.getClientGeoCallback);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          this.currentAnalysisUnit = currAU;</span>
+        }
+      }
+    }
+  }
+&lt;/script&gt;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 17 2019 15:11:22 GMT-0300 (GMT-03:00)
+</div>
+</div>
+<script src="..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\sorter.js"></script>
+</body>
+</html>

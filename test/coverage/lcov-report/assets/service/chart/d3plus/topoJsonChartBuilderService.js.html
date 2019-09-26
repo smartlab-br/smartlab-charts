@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for assets/service/chart/d3plus/topoJsonChartBuilderService.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\index.html">All files</a> / <a href="index.html">assets/service/chart/d3plus</a> topoJsonChartBuilderService.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/84</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/80</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/83</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import ColorsService from '../../singleton/colorsService'</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import D3PlusChartBuilderService from './d3plusChartBuilderService'</span>
+<span class="cstat-no" title="statement not covered" >import TooltipBuildingService from '../../singleton/tooltipBuildingService'</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import * as d3plus from 'd3plus'</span>
+&nbsp;
+class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
+    static _tilesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor() <span class="cstat-no" title="statement not covered" ></span>{</span>
+        super();
+    }
+&nbsp;
+    prepareChart(viz, slicedDS, containerId, options, additionalOptions) { 
+<span class="cstat-no" title="statement not covered" >        if(!options.colorScale){ //default</span>
+<span class="cstat-no" title="statement not covered" >            options.colorScale = {};</span>
+<span class="cstat-no" title="statement not covered" >            options.colorScale.type = 'singleHue';</span>
+<span class="cstat-no" title="statement not covered" >            options.colorScale.order = 'asc';</span>
+        } else <span class="cstat-no" title="statement not covered" >if(options.colorScale.type == null || options.colorScale.type == undefined){</span>
+<span class="cstat-no" title="statement not covered" >            options.colorScale.type = 'singleHue';</span>
+        }
+        
+<span class="cstat-no" title="statement not covered" >        if (options.colorScale.type == "fixed"){</span>
+<span class="cstat-no" title="statement not covered" >            viz = viz.shapeConfig({ </span>
+                Path: {
+                    fill: <span class="fstat-no" title="function not covered" >function(</span>d) { 
+                        let color = <span class="cstat-no" title="statement not covered" >options.colorScale.color_array[d[options.value_field]];</span>
+<span class="cstat-no" title="statement not covered" >                        return color ? color : "transparent";</span>
+                    }
+                }
+            }).legend(false);
+        } else <span class="cstat-no" title="statement not covered" >if (options.colorScale.type == "bipolar"){</span>
+<span class="cstat-no" title="statement not covered" >            viz = viz.shapeConfig({ </span>
+                Path: {
+                    fill: <span class="fstat-no" title="function not covered" >function(</span>d) { 
+                        let color = <span class="cstat-no" title="statement not covered" >options.colorScale.color_array.zero;</span>
+<span class="cstat-no" title="statement not covered" >                        if (d[options.value_field] &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >                            color = options.colorScale.color_array.positive;</span>
+                        } else <span class="cstat-no" title="statement not covered" >if (d[options.value_field] &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >                            color = options.colorScale.color_array.negative;</span>
+                        }
+<span class="cstat-no" title="statement not covered" >                        return color;</span>
+                    }
+                }
+            }).legend(false);
+        } else <span class="cstat-no" title="statement not covered" >{</span>
+            let aColorScale = <span class="cstat-no" title="statement not covered" >ColorsService.getColorScale(options.colorScale.name, options.colorScale.type, options.colorScale.order, 9);</span>
+&nbsp;
+            let distValues = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >            for (let reg of slicedDS) <span class="cstat-no" title="statement not covered" >{  </span></span>
+<span class="cstat-no" title="statement not covered" >                if (!distValues.includes(reg[options.value_field])){</span>
+<span class="cstat-no" title="statement not covered" >                    distValues.push(reg[options.value_field]);</span>
+                }
+<span class="cstat-no" title="statement not covered" >                if (distValues.length &gt; 2){</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                }
+            }
+&nbsp;
+            // if (distValues.length == 2){
+<span class="cstat-no" title="statement not covered" >            if (distValues.length &gt; 1){</span>
+<span class="cstat-no" title="statement not covered" >                aColorScale = aColorScale.slice(1,-1);</span>
+            } else <span class="cstat-no" title="statement not covered" >if (distValues.length == 1){</span>
+<span class="cstat-no" title="statement not covered" >                if (options.single_data_color &amp;&amp; options.single_data_color[distValues[0]]) {</span>
+<span class="cstat-no" title="statement not covered" >                    aColorScale = options.single_data_color[distValues[0]];</span>
+                } else <span class="cstat-no" title="statement not covered" >if (options.single_data_color &amp;&amp; options.single_data_color.default) {</span>
+<span class="cstat-no" title="statement not covered" >                    aColorScale = options.single_data_color.default;</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                    aColorScale = aColorScale[4];</span>
+                }
+            }
+&nbsp;
+            var objAxisConfig = <span class="cstat-no" title="statement not covered" >TopoJsonChartBuilderService.getTransparentXYConfig();</span>
+            
+<span class="cstat-no" title="statement not covered" >            if (options.colorScale &amp;&amp; options.colorScale.inv_function) {</span>
+                var inv_tickFn = <span class="cstat-no" title="statement not covered" >this.customFunctions[options.colorScale.inv_function.name];</span>
+                var inv_args = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >                for (var indxInvArg in options.colorScale.inv_function.args) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (options.colorScale.inv_function.args[indxInvArg].fixed) {</span>
+<span class="cstat-no" title="statement not covered" >                        inv_args.push(options.colorScale.inv_function.args[indxInvArg].fixed);</span>
+                    } else <span class="cstat-no" title="statement not covered" >if (options.colorScale.inv_function.args[indxInvArg].first_row_prop) {</span>
+<span class="cstat-no" title="statement not covered" >                        inv_args.push(slicedDS[0][options.colorScale.inv_function.args[indxInvArg].first_row_prop]);</span>
+                    }
+                }            
+<span class="cstat-no" title="statement not covered" >                objAxisConfig.tickFormat = <span class="fstat-no" title="function not covered" >(</span>t) =&gt; {</span>
+                    let t_args = <span class="cstat-no" title="statement not covered" >inv_args.slice();</span>
+<span class="cstat-no" title="statement not covered" >                    t_args.unshift(t);</span>
+<span class="cstat-no" title="statement not covered" >                    return inv_tickFn.apply(null, t_args);</span>
+                };
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (distValues.length != 1){</span>
+<span class="cstat-no" title="statement not covered" >                viz = viz.colorScaleConfig({</span>
+                    color: aColorScale,
+                    axisConfig: objAxisConfig,            
+                    rectConfig: { stroke: ColorsService.assessZebraTitleColor(additionalOptions.sectionIndex, null, additionalOptions.theme) }
+                });
+<span class="cstat-no" title="statement not covered" >                viz = viz.colorScale(options.value_field);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                viz = viz.shapeConfig({ </span>
+                    Path: {
+                    fill: <span class="fstat-no" title="function not covered" >function(</span>d) { <span class="cstat-no" title="statement not covered" >return d[options.value_field] ? aColorScale: "transparent"; }</span>
+                    }
+                }).legend(false);
+            }
+        }
+        
+        let grafico = <span class="cstat-no" title="statement not covered" >viz</span>
+            .select(containerId)  // container DIV to hold the visualization
+            .data(slicedDS)  // data to use with the visualization
+            .groupBy(options.id_field)         // key for which our data is unique on
+            .topojsonId(<span class="fstat-no" title="function not covered" >(</span>t) =&gt; { <span class="cstat-no" title="statement not covered" >return t.properties[options.topo_key]; })</span>
+            .detectResize(true);
+            
+        let searchFunction = <span class="cstat-no" title="statement not covered" >this.searchAnalysisUnit;</span>
+        let clickedPlace = <span class="cstat-no" title="statement not covered" >"";</span>
+        let hasTouch = <span class="cstat-no" title="statement not covered" >TopoJsonChartBuilderService.hasTouch;</span>
+<span class="cstat-no" title="statement not covered" >        if (options.clickable){</span>
+<span class="cstat-no" title="statement not covered" >            viz = viz.on("click", <span class="fstat-no" title="function not covered" >function(</span>d) {</span>
+<span class="cstat-no" title="statement not covered" >                if (clickedPlace == d[options.id_field] || !hasTouch()) {</span>
+                    let place = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >                    place.id = String(d[options.id_field]);</span>
+<span class="cstat-no" title="statement not covered" >                    place.to = '/localidade/' + d[options.id_field] + '?';</span>
+<span class="cstat-no" title="statement not covered" >                    if (this._tooltip) {</span>
+<span class="cstat-no" title="statement not covered" >                            this._tooltipClass.data([]).render();</span>
+                    }                
+<span class="cstat-no" title="statement not covered" >                    searchFunction(place);</span>
+                }
+<span class="cstat-no" title="statement not covered" >                clickedPlace = d[options.id_field];</span>
+                });     
+        }  
+<span class="cstat-no" title="statement not covered" >        return grafico;</span>
+    }
+    
+    hasTouch() { //identify touchable devices (mobile and tablet)
+<span class="cstat-no" title="statement not covered" >        return (('ontouchstart' in window) ||       // html5 browsers</span>
+            (navigator.maxTouchPoints &gt; 0) ||   // future IE
+            (navigator.msMaxTouchPoints &gt; 0));  // current IE10
+    }      
+        
+    generateViz(options, additionalOptions) {
+        var tooltip_function = <span class="cstat-no" title="statement not covered" >options.tooltip_function ? options.tooltip_function : TooltipBuildingService.defaultTooltip;</span>
+        let tooltip_context = <span class="cstat-no" title="statement not covered" >options.tooltip_function ? this : null;</span>
+<span class="cstat-no" title="statement not covered" >        options.clickable = options.clickable == true || options.clickable == undefined  ? true : false;</span>
+        var removed_text_list = <span class="cstat-no" title="statement not covered" >options.removed_text_list;</span>
+&nbsp;
+        var viz = <span class="cstat-no" title="statement not covered" >new d3plus.Geomap()</span>
+            .shapeConfig({ 
+                labelConfig: { fontFamily: "titulos-observatorio" },
+                Path: {
+                    fillOpacity: 0.9,
+                    strokeWidth: <span class="fstat-no" title="function not covered" >function(</span>d) { <span class="cstat-no" title="statement not covered" >return (additionalOptions.idAU !== null &amp;&amp; additionalOptions.idAU !== undefined &amp;&amp; (d[options.id_field] == additionalOptions.idAU || (d.properties &amp;&amp; d.properties[options.topo_key] == additionalOptions.idAU) ) )  ? 5 : 0.2 },</span>
+                    stroke: 'black'
+                }
+            })
+            .tileUrl(options.tiles_url ? options.tiles_url : TopoJsonChartBuilderService._tilesUrl)
+            .topojson(options.topology &amp;&amp; options.topology == 'uf' ? additionalOptions.topologyUf : additionalOptions.topology) 
+            .tooltipConfig({
+                body: <span class="fstat-no" title="function not covered" >function(</span>d) {
+<span class="cstat-no" title="statement not covered" >                    return tooltip_function.apply(tooltip_context, [d, additionalOptions.route, additionalOptions.headers, removed_text_list, options]);</span>
+                },
+                title: <span class="fstat-no" title="function not covered" >function(</span>d) { <span class="cstat-no" title="statement not covered" >return ""; }</span>
+            })
+            .colorScalePosition("right");
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return viz;</span>
+    }
+}
+&nbsp;
+export default  TopoJsonChartBuilderService</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 17 2019 15:11:22 GMT-0300 (GMT-03:00)
+</div>
+</div>
+<script src="..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\sorter.js"></script>
+</body>
+</html>

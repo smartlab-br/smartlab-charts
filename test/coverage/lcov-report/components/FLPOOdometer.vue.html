@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/FLPOOdometer.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\prettify.css" />
+    <link rel="stylesheet" href="..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\index.html">All files</a> / <a href="index.html">components</a> FLPOOdometer.vue
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/70</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/68</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;v-layout row wrap align-center pt-0&gt;
+    &lt;v-flex xs12 :style="'background-color:' + (bgColor ? bgColor : 'black') + ';color:'+ (titleFontColor ? titleFontColor : 'white')"&gt;
+      &lt;v-layout row wrap align-start justify-center pt-0 py-3&gt;
+        &lt;v-flex  v-for="(odometer, odoIndex) of odometerItems " :key="'odo_'+odoIndex" :class="odometer.cls ? odometer.cls : 'xs12'"
+        px-2 py-2&gt;
+          &lt;v-layout row wrap align-start justify-center fill-height&gt;
+            &lt;v-flex xs12 text-xs-center&gt;
+            &lt;div :id="'odm_' + odometer.id" :ref="odometer.id" :class="odometer.options.cls_format?odometer.options.cls_format:''"&gt;
+            &lt;/div&gt;
+            &lt;/v-flex&gt;
+            &lt;v-flex xs12 pa-0 class="odometer-title caption text-xs-center" v-html="odometer.title ? odometer.title : ''"&gt;&lt;/v-flex&gt;
+            &lt;v-flex xs12 pa-0 class="odometer-title caption text-xs-center" v-if="odometer.show_pace &amp;&amp; dtOdometros"&gt;{{ odometer.pace_description ? odometer.pace_description : ""}} {{ $numberTransformService.getPaceString(dtOdometros[odometer.id_odometer].delta_por_ms, true) }}&lt;/v-flex&gt;
+          &lt;/v-layout&gt;
+        &lt;/v-flex&gt;
+      &lt;/v-layout&gt;
+    &lt;/v-flex&gt;
+    &lt;v-flex py-3 px-0 class="title-obs"&gt;{{ commentTitle ? commentTitle : "" }}&lt;/v-flex&gt;
+    &lt;v-flex xs12 v-if="comment_items.lenght == odometerItems.lenght" v-for="(comment, commentIndex) of this.comment_items " :key="'comment_'+commentIndex" class="pb-2"&gt;
+      &lt;span 
+        v-if="comment"
+        v-html="(commentIndex + 1) + '. ' + comment"&gt;
+      &lt;/span&gt;
+    &lt;/v-flex&gt;
+  &lt;/v-layout&gt;
+&lt;/template&gt;
+&nbsp;
+&lt;script&gt;
+<span class="cstat-no" title="statement not covered" >  import axios from 'axios';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  import FLPOBaseLayout from './FLPOBaseLayout.vue';</span>
+&nbsp;
+  export default  {
+    extends: FLPOBaseLayout,
+    props: ['odometerItems', 'commentTitle', 'bgColor', 'titleFontColor'],
+<span class="fstat-no" title="function not covered" >    data() {</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        comment_items: [],
+        commentData: null,
+        dtOdometros: null
+      };
+    },
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    mounted() {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      axios(this.$axiosCallSetupService.getAxiosOdometrosOptions("/sst", 'ACIDENTOMETROS'))</span></span>
+<span class="cstat-no" title="statement not covered" >        .then(result =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          let dtOdometros = JSON.parse(result.data);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          let objOdo = "{";</span>
+<span class="cstat-no" title="statement not covered" >          for (let indxOdo in dtOdometros){</span>
+            // console.log("{ "+ dtOdometros[indxOdo].cd_indicador + ":" + JSON.stringify(dtOdometros[indxOdo]) + "}");
+<span class="cstat-no" title="statement not covered" >            if (indxOdo != 0){</span>
+<span class="cstat-no" title="statement not covered" >              objOdo += ",";</span>
+            }
+<span class="cstat-no" title="statement not covered" >            objOdo += "\""+ dtOdometros[indxOdo].cd_indicador + "\":" + JSON.stringify(dtOdometros[indxOdo]) ;</span>
+          }
+<span class="cstat-no" title="statement not covered" >          objOdo += "}";</span>
+<span class="cstat-no" title="statement not covered" >          dtOdometros = JSON.parse(objOdo);</span>
+<span class="cstat-no" title="statement not covered" >          this.dtOdometros = dtOdometros;</span>
+          // console.log(this.dtOdometros)
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >          for(let odometer of this.odometerItems){</span></span>
+<span class="cstat-no" title="statement not covered" >            let options = Object.assign({}, odometer.options);</span>
+<span class="cstat-no" title="statement not covered" >            options.start = dtOdometros[odometer.id_odometer].vl_estimado;</span>
+<span class="cstat-no" title="statement not covered" >            options.pace = dtOdometros[odometer.id_odometer].delta_por_ms;</span>
+<span class="cstat-no" title="statement not covered" >            this.startCounter(odometer.id, options);</span>
+          }
+      })
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >      for(let odometer of this.odometerItems){</span></span>
+<span class="cstat-no" title="statement not covered" >        if (odometer.api) {</span>
+<span class="cstat-no" title="statement not covered" >          let url = odometer.api.fixed;</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >          axios(this.$axiosCallSetupService.getAxiosOptions(url))</span></span>
+            .then(result =&gt; {
+<span class="cstat-no" title="statement not covered" >              let options = Object.assign({}, odometer.options);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              let tickerData = JSON.parse(result.data).dataset[0];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              let max, min = null;            </span>
+<span class="cstat-no" title="statement not covered" >              if (options.date_part == 'ano') {</span>
+<span class="cstat-no" title="statement not covered" >                max = new Date(parseInt(tickerData[options.max_date_prop].toString()), 11, 31, 23, 59, 59);</span>
+<span class="cstat-no" title="statement not covered" >                options.max = tickerData[options.max_date_prop].toString();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                min = new Date(parseInt(tickerData[options.min_date_prop].toString()), 0, 1);</span>
+<span class="cstat-no" title="statement not covered" >                options.min = tickerData[options.min_date_prop].toString()</span>
+              } else {
+<span class="cstat-no" title="statement not covered" >                max = new Date(</span>
+                  parseInt(tickerData[options.max_date_prop].toString().substring(0, 4)),
+                  //parseInt(tickerData[this.options.max_date_prop].toString().substring(4, 6)) - 1,
+                  //parseInt(tickerData[this.options.max_date_prop].toString().substring(6))
+                  11, 31, 23, 59, 59
+                );
+<span class="cstat-no" title="statement not covered" >                options.max = tickerData[options.max_date_prop].toString().substring(0, 4);</span>
+                
+<span class="cstat-no" title="statement not covered" >                min = new Date(</span>
+                  parseInt(tickerData[options.min_date_prop].toString().substring(0, 4)),
+                  //parseInt(tickerData[this.options.min_date_prop].toString().substring(4, 6)) - 1,
+                  //parseInt(tickerData[this.options.min_date_prop].toString().substring(6))
+                  0, 1
+                );
+<span class="cstat-no" title="statement not covered" >                options.min = tickerData[options.min_date_prop].toString().substring(0, 4);</span>
+              }
+              
+<span class="cstat-no" title="statement not covered" >              options.val_prop = tickerData[options.count_prop] ? tickerData[options.count_prop] : tickerData[options.val_prop];</span>
+              
+<span class="cstat-no" title="statement not covered" >              let val = tickerData[options.count_prop] ? tickerData[options.count_prop] : 0;</span>
+<span class="cstat-no" title="statement not covered" >              let pace = (val + (options.offset ? options.offset : 0)) / (max.getTime() - min.getTime());</span>
+<span class="cstat-no" title="statement not covered" >              options.pace = pace;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              let interval = 1 / pace;</span>
+<span class="cstat-no" title="statement not covered" >              options.interval = interval;</span>
+<span class="cstat-no" title="statement not covered" >              options.str_interval = this.$numberTransformService.getPaceString(interval);</span>
+              
+<span class="cstat-no" title="statement not covered" >              let now = new Date();</span>
+<span class="cstat-no" title="statement not covered" >              options.start = val + (now.getTime() - max.getTime()) * pace;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              this.startCounter(odometer.id, options, odometer.comment);</span>
+            });
+        // } else {
+        //   this.startCounter(odometer.id, odometer.options);
+        }
+      }
+    },
+<span class="fstat-no" title="function not covered" >    destroyed() {</span>
+<span class="cstat-no" title="statement not covered" >      clearInterval(this.updateOdometer);</span>
+    },
+    methods: {
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      startCounter(id, options, comment = "") {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (comment) this.buildCommentData(comment, options);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        const Odometer = require('../node_modules/odometer')</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        let start = options.start;</span>
+<span class="cstat-no" title="statement not covered" >        if (options.offset) start += options.offset;</span>
+&nbsp;
+        // console.log(this.$refs[id]);
+        // console.log(start);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        let element = this.$refs[id];</span>
+<span class="cstat-no" title="statement not covered" >        if (Array.isArray(element)) element =element[0];</span>
+<span class="cstat-no" title="statement not covered" >        let odometer = new Odometer({</span>
+          el: element,
+          theme: options.theme ? options.theme : 'car',
+          format: options.format ? options.format : '(.ddd)',
+          animation: options.animation ? options.animation : 'count',
+          value: start          
+        });
+<span class="cstat-no" title="statement not covered" >        odometer.render();</span>
+<span class="cstat-no" title="statement not covered" >        odometer.value_float =  start;</span>
+<span class="cstat-no" title="statement not covered" >        setInterval(this.updateOdometer, 5000, odometer, options);</span>
+&nbsp;
+      },
+&nbsp;
+<span class="fstat-no" title="function not covered" >      updateOdometer(odometer, options){</span>
+<span class="cstat-no" title="statement not covered" >        odometer.value_float = odometer.value_float + options.pace * (options.updateRate ? options.updateRate : 5000)</span>
+<span class="cstat-no" title="statement not covered" >        odometer.update(Math.trunc(odometer.value_float));</span>
+      },
+&nbsp;
+<span class="fstat-no" title="function not covered" >      buildCommentData(comment, options) {</span>
+<span class="cstat-no" title="statement not covered" >        this.commentData = "";</span>
+<span class="cstat-no" title="statement not covered" >        if (comment.fixed !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >          if (comment.format) {</span>
+<span class="cstat-no" title="statement not covered" >            this.commentData = this.$numberTransformService.constructor.formatNumber(comment.fixed, comment.format, comment.precision, comment.multiplier, comment.collapse, comment.signed, comment.uiTags);</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            this.commentData = comment.fixed;</span>
+          }
+<span class="cstat-no" title="statement not covered" >        } else if (comment.template !== undefined) { //caso o campo tenha um texto fixo, o valor é ajustado e o loop segue para a próxima iteração</span>
+<span class="cstat-no" title="statement not covered" >          this.setComplexAttribute(options, [comment], comment, {attribute: 'commentData'});</span>
+        }
+<span class="cstat-no" title="statement not covered" >        this.comment_items.push(this.commentData);</span>
+      }
+    }
+  };
+&lt;/script&gt;
+&nbsp;
+&lt;style&gt;
+  @import "../node_modules/odometer/themes/odometer-theme-car.css";
+&nbsp;
+  .odometer {
+	  font-size: 1.5rem;
+    font-weight: normal;
+  }
+&nbsp;
+  .monetario .odometer-inside:before {
+    content: "R$";
+  }
+&nbsp;
+  .odometer .odometer-inside:before {
+    display: inline-block;
+    vertical-align: sup;
+    opacity: .6;
+    font-size: .85rem;
+    margin-right: .12em;
+  }
+&nbsp;
+  .odometer-title {
+    color: #eee0d3 !important;
+  }
+&nbsp;
+&lt;/style&gt;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 17 2019 15:11:22 GMT-0300 (GMT-03:00)
+</div>
+</div>
+<script src="..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\sorter.js"></script>
+</body>
+</html>

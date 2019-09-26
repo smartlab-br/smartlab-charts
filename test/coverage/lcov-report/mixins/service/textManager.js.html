@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for mixins/service/textManager.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">mixins/service</a> textManager.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>40/60</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.92% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>40/52</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>40/60</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const TextManager = {
+  install(Vue, options) {
+    Vue.mixin({
+      methods: {
+        applyInterpol(struct, customParams = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> customFunctions = <span class="branch-0 cbranch-no" title="branch not covered" >[],</span> base_object = null, cbInvalidate = null) {
+          if (struct !== null &amp;&amp; struct !== undefined) {
+            if (struct.fixed !== null &amp;&amp; struct.fixed !== undefined) {
+              return struct.fixed;
+            }
+            var tmplt = struct.template;
+            var args = [];
+            for (var indx in struct.args) {
+              var iterArg = null;
+              if (struct.args[indx].function) {
+                iterArg = this.runNamedFunction(struct.args[indx], base_object, customFunctions);
+              } else if (struct.args[indx].value) {
+                iterArg = struct.args[indx].value;
+              } else <span class="missing-if-branch" title="if path not taken" >I</span>if (struct.args[indx].fixed) {
+<span class="cstat-no" title="statement not covered" >                iterArg = struct.args[indx].fixed;</span>
+              } else <span class="missing-if-branch" title="if path not taken" >I</span>if (Array.isArray(base_object) &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >struct.args[indx].id)</span>{
+<span class="cstat-no" title="statement not covered" >                iterArg = this.$indicatorsModel.getIndicatorValueFromStructure(this, struct.args[indx], null, base_object);</span>
+<span class="cstat-no" title="statement not covered" >                args.push(iterArg);</span>
+<span class="cstat-no" title="statement not covered" >                continue;</span>
+              } else if (struct.args[indx].named_prop) {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (base_object){
+                  iterArg = base_object[struct.args[indx].named_prop];
+                }
+                if (iterArg === null || iterArg === undefined){
+                  <span class="missing-if-branch" title="if path not taken" >I</span>if(struct.args[indx].base_object){
+<span class="cstat-no" title="statement not covered" >                    iterArg = customParams[struct.args[indx].base_object][struct.args[indx].named_prop];</span>
+                  } else {
+                    iterArg = customParams[struct.args[indx].named_prop];
+                  }
+                } 
+              } else <span class="missing-if-branch" title="else path not taken" >E</span>if (struct.args[indx].link) {
+                iterArg = "&lt;a href='" + struct.args[indx].link + "'&gt;" + struct.args[indx].text + "&lt;/a&gt;";
+              }
+&nbsp;
+              if (iterArg != null) {
+                if (struct.args[indx].format) {
+                  let formatRules = struct.args[indx];
+                  <span class="missing-if-branch" title="if path not taken" >I</span>if (struct.args[indx].format == 'auto') {
+<span class="cstat-no" title="statement not covered" >                    formatRules = this.getFormatRules(struct.args[indx], iterArg);</span>
+                  }
+                  iterArg = this.formatNumber(
+                    iterArg, formatRules.format, formatRules.precision,
+                    formatRules.multiplier, formatRules.collapse, formatRules.signed, 
+                    formatRules.uiTags
+                  );
+                }
+                args.push(iterArg);
+              } else if (struct.args[indx].required &amp;&amp; cbInvalidate !== null) {
+                cbInvalidate.apply(null);
+              } else {
+                args.push(struct.args[indx].default);
+              }
+            }
+            return this.replaceArgs(tmplt, args, cbInvalidate);
+          }
+          return '';
+        },
+&nbsp;
+        // Reposiciona os parâmetros, uma vez que recebe automaticamente um row do dataset como primeiro
+        applyInterpolReplaceDatasetParam(dataset_object, struct, customFunctions = <span class="branch-0 cbranch-no" title="branch not covered" >[],</span> base_object = <span class="branch-0 cbranch-no" title="branch not covered" >null,</span> cbInvalidate = <span class="branch-0 cbranch-no" title="branch not covered" >null)</span> {
+<span class="cstat-no" title="statement not covered" >          return this.applyInterpol(struct, {}, customFunctions, dataset_object, cbInvalidate);</span>
+        },
+&nbsp;
+        replaceArgs(string, args, cbInvalidate = null) {
+          if (string === null || string === undefined) {
+            return '';
+          }
+          for (var i = 0; i &lt; args.length; i ++) {
+            var reg = new RegExp('\\{' + i + '\\}', 'gm');
+            string = string.replace(reg, args[i]);
+          }
+          return string;
+        },
+        replaceSpecialCharacters(string){
+<span class="cstat-no" title="statement not covered" >          string = string.replace(/[áàâãä]/,"a");</span>
+<span class="cstat-no" title="statement not covered" >          string = string.replace(/[ÁÀÂÃÄ]/,"A");</span>
+<span class="cstat-no" title="statement not covered" >          string = string.replace(/[éèê]/, "e");</span>
+<span class="cstat-no" title="statement not covered" >          string = string.replace(/[ÉÈÊ]/, "E");</span>
+<span class="cstat-no" title="statement not covered" >          string = string.replace(/[íì]/, "i");</span>
+<span class="cstat-no" title="statement not covered" >          string = string.replace(/[ÍÌ]/, "I");</span>
+<span class="cstat-no" title="statement not covered" >          string = string.replace(/[óòôõö]/, "o");</span>
+<span class="cstat-no" title="statement not covered" >          string = string.replace(/[ÓÒÔÕÖ]/, "O");</span>
+<span class="cstat-no" title="statement not covered" >          string = string.replace(/[úùü]/, "u");</span>
+<span class="cstat-no" title="statement not covered" >          string = string.replace(/[ÚÙÜ]/, "U");</span>
+<span class="cstat-no" title="statement not covered" >          string = string.replace(/ç/, "c");</span>
+<span class="cstat-no" title="statement not covered" >          string = string.replace(/Ç/, "C");</span>
+<span class="cstat-no" title="statement not covered" >          return string;</span>
+        }
+      }
+    });
+  }
+}
+&nbsp;
+export default  TextManager;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Aug 27 2019 13:34:42 GMT-0300 (GMT-03:00)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

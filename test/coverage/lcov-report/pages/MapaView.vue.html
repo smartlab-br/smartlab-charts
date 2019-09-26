@@ -1,0 +1,2498 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for pages/MapaView.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\prettify.css" />
+    <link rel="stylesheet" href="..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\index.html">All files</a> / <a href="index.html">pages</a> MapaView.vue
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/236</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/184</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/235</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;v-layout row wrap class="map_geo_full"&gt;
+    &lt;v-flex xs4 class="pa-4 filter_section"&gt;
+      &lt;v-layout class="headline-obs"&gt;Apresentação&lt;/v-layout&gt;
+&nbsp;
+      &lt;!-- Tipo de mapa a ser plotado --&gt;
+      &lt;v-autocomplete :items="mapTypes" v-model="mapType"
+        label="Tipo de Mapa" item-text="name" item-value="id"
+        return-object&gt;
+      &lt;/v-autocomplete&gt;
+&nbsp;
+      &lt;v-layout class="headline-obs"&gt;Dados&lt;/v-layout&gt;
+&nbsp;
+      &lt;!-- Área do mapa que deve ser estudada --&gt;
+      &lt;v-layout row wrap&gt;
+        &lt;v-autocomplete :items="places" v-model="place"
+          label="Escopo" item-text="label" item-value="id"
+          return-object&gt;
+          &lt;template slot="item" slot-scope="data"&gt;
+            &lt;template&gt;
+              &lt;v-list-tile-avatar&gt;
+                &lt;v-icon&gt;{{ data.item.icon }}&lt;/v-icon&gt;
+              &lt;/v-list-tile-avatar&gt;
+              &lt;v-list-tile-content&gt;
+                &lt;v-list-tile-title v-html="data.item.label"&gt;&lt;/v-list-tile-title&gt;
+                &lt;v-list-tile-sub-title v-html="data.item.detail"&gt;&lt;/v-list-tile-sub-title&gt;
+              &lt;/v-list-tile-content&gt;
+            &lt;/template&gt;
+          &lt;/template&gt;  
+        &lt;/v-autocomplete&gt;
+        &lt;v-progress-circular
+          v-if="placesStatus !== 'SUCCESS'"
+          size="20" class="mt-4"
+          :indeterminate="placesStatus == 'LOADING'"
+          :value="placesStatus == 'LOADING' ? 0 : 100"
+          :color="placesStatus == 'ERROR' ? 'error' :
+                  (placesStatus == 'LOADING' ? 'warning' : 'success')"
+          background-color="primary"&gt;
+        &lt;/v-progress-circular&gt;
+      &lt;/v-layout&gt;
+&nbsp;
+      &lt;!-- Agregação dos dados de indicador (uf, microrregião etc) --&gt;
+      &lt;v-autocomplete :items="mapAggregations" v-model="mapAggregation"
+        label="Agregação" item-text="name" item-value="id"
+        return-object&gt;
+      &lt;/v-autocomplete&gt;
+&nbsp;
+      &lt;!-- Indicadores a serem apresentados --&gt;
+      &lt;v-layout class="title-obs"&gt;Indicadores&lt;/v-layout&gt;
+      &lt;!-- Múltiplos indicadores quando for mapa de bolhas --&gt;
+      &lt;v-list v-show="mapType == null || mapType == undefined || mapType.id == 'bubbles'"&gt;
+        &lt;v-divider&gt;&lt;/v-divider&gt;
+        &lt;v-list-tile v-for="eachSelectedIndicator in selectedIndicators"
+          :key="'sel_indic_' + eachSelectedIndicator.id"&gt;
+          &lt;v-list-tile-action&gt;
+            &lt;v-switch class="ma-0"
+              v-model="eachSelectedIndicator.visible"
+              :color="eachSelectedIndicator.color !== null ? eachSelectedIndicator.color : 'primary'"
+              v-on:change="toggleLayer(eachSelectedIndicator)"&gt;
+            &lt;/v-switch&gt;
+          &lt;/v-list-tile-action&gt;
+          &lt;v-list-tile-content&gt;
+            &lt;v-list-tile-title&gt;
+              {{ eachSelectedIndicator.id }}
+            &lt;/v-list-tile-title&gt;
+            &lt;v-list-tile-sub-title&gt;
+              {{ eachSelectedIndicator.label }}
+            &lt;/v-list-tile-sub-title&gt;
+          &lt;/v-list-tile-content&gt;
+          &lt;v-list-tile-action&gt;
+            &lt;v-icon v-on:click="removeLayer(eachSelectedIndicator)"&gt;
+              delete
+            &lt;/v-icon&gt;
+          &lt;/v-list-tile-action&gt;
+        &lt;/v-list-tile&gt;
+        &lt;v-divider&gt;&lt;/v-divider&gt;
+        &lt;v-list-tile&gt;
+          &lt;v-list-tile-content&gt;
+            &lt;v-layout row wrap pt-1&gt;
+              &lt;v-autocomplete :items="indicators" v-model="indicator"
+                label="Adicione um Indicador" item-text="label" item-value="id"
+                v-on:change="addLayer()"
+                return-object&gt;
+                &lt;template slot="item" slot-scope="data"&gt;
+                  &lt;template&gt;
+                    &lt;v-list-tile-avatar&gt;
+                      &lt;v-icon&gt;{{ data.item.icon }}&lt;/v-icon&gt;
+                    &lt;/v-list-tile-avatar&gt;
+                    &lt;v-list-tile-content&gt;
+                      &lt;v-list-tile-title v-html="data.item.label"&gt;&lt;/v-list-tile-title&gt;
+                      &lt;v-list-tile-sub-title v-html="data.item.detail"&gt;&lt;/v-list-tile-sub-title&gt;
+                    &lt;/v-list-tile-content&gt;
+                  &lt;/template&gt;
+                &lt;/template&gt;  
+              &lt;/v-autocomplete&gt;
+              &lt;v-progress-circular
+                v-if="indicatorsStatus !== 'SUCCESS'"
+                size="20" class="mt-4"
+                :indeterminate="indicatorsStatus == 'LOADING'"
+                :value="indicatorsStatus == 'LOADING' ? 0 : 100"
+                :color="indicatorsStatus == 'ERROR' ? 'error' :
+                        (indicatorsStatus == 'LOADING' ? 'warning' : 'success')"
+                background-color="primary"&gt;
+              &lt;/v-progress-circular&gt;
+            &lt;/v-layout&gt;
+          &lt;/v-list-tile-content&gt;
+        &lt;/v-list-tile&gt;
+        &lt;v-divider&gt;&lt;/v-divider&gt;
+      &lt;/v-list&gt;
+      &lt;!-- Único indicador, caso contrário --&gt;
+      &lt;v-layout row wrap v-show="mapType &amp;&amp; mapType.id != 'bubbles'"&gt;
+        &lt;v-autocomplete :items="indicators" v-model="indicator"
+          label="Selecione um Indicador" item-text="label" item-value="id"
+          v-on:change="addLayer()"
+          return-object&gt;
+          &lt;template slot="item" slot-scope="data"&gt;
+            &lt;template&gt;
+              &lt;v-list-tile-avatar&gt;
+                &lt;v-icon&gt;{{ data.item.icon }}&lt;/v-icon&gt;
+              &lt;/v-list-tile-avatar&gt;
+              &lt;v-list-tile-content&gt;
+                &lt;v-list-tile-title v-html="data.item.label"&gt;&lt;/v-list-tile-title&gt;
+                &lt;v-list-tile-sub-title v-html="data.item.detail"&gt;&lt;/v-list-tile-sub-title&gt;
+              &lt;/v-list-tile-content&gt;
+            &lt;/template&gt;
+          &lt;/template&gt;  
+        &lt;/v-autocomplete&gt;
+        &lt;v-progress-circular
+          v-if="indicatorsStatus !== 'SUCCESS'"
+          size="20" class="mt-4"
+          :indeterminate="indicatorsStatus == 'LOADING'"
+          :value="indicatorsStatus == 'LOADING' ? 0 : 100"
+          :color="indicatorsStatus == 'ERROR' ? 'error' :
+                  (indicatorsStatus == 'LOADING' ? 'warning' : 'success')"
+          background-color="primary"&gt;
+        &lt;/v-progress-circular&gt;
+      &lt;/v-layout&gt;
+&nbsp;
+      &lt;v-layout class="headline-obs"&gt;Filtros&lt;/v-layout&gt;
+&nbsp;
+      &lt;!-- Filtro geral de ano --&gt;
+      &lt;v-layout v-if="filters &amp;&amp; filters.year" column&gt;
+        &lt;flpo-slider-emitter
+          :custom-params="customParams"
+          :structure="descSection"
+          :custom-functions="customFunctions"
+          v-on:selection="triggerSelect"&gt;
+        &lt;/flpo-slider-emitter&gt;
+      &lt;/v-layout&gt;
+&nbsp;
+      &lt;!-- Gatilho da renderização do mapa com os parâmetros --&gt;
+      &lt;v-btn v-on:click="filter"&gt;Aplicar &gt;&lt;/v-btn&gt;
+    &lt;/v-flex&gt;
+    &lt;v-flex xs8 class="pa-0"&gt;
+      &lt;div :v-if="indicator" class="map_container fill-height" id="map" ref="map"&gt;
+      &lt;/div&gt;
+    &lt;/v-flex&gt;
+    &lt;v-layout 
+      pa-3 row wrap justify-center align-center fill-height
+      v-show="checkLoading"
+      class="loading"&gt;
+      &lt;v-progress-circular
+        :size="120"
+        :width="8"
+        color="primary"
+        indeterminate&gt;
+        Atualizando o mapa...
+      &lt;/v-progress-circular&gt;
+    &lt;/v-layout&gt;
+  &lt;/v-layout&gt;
+&lt;/template&gt;
+&nbsp;
+&lt;script&gt;
+<span class="cstat-no" title="statement not covered" >import axios from "axios";</span>
+<span class="cstat-no" title="statement not covered" >import * as d3 from 'd3';</span>
+<span class="cstat-no" title="statement not covered" >import * as d3chrom from 'd3-scale-chromatic'</span>
+<span class="cstat-no" title="statement not covered" >import * as d3plus from 'd3plus';</span>
+&nbsp;
+export default  {
+<span class="fstat-no" title="function not covered" >  data() {</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      show: false,
+      municipio: null,
+      dataset: {},
+      filters: {},
+      options: {
+        tiles_url: 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',
+        tiles_attribution: '&amp;copy; &lt;a href="http://www.openstreetmap.org/copyright"&gt;OpenStreetMap&lt;/a&gt;',
+        topo_key: "codarea",
+        lat: "latitude",
+        long: "longitude",
+        value: "valor",
+<span class="fstat-no" title="function not covered" >        tooltip_function: data =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          return "I am a circle.";</span>
+        },
+        radiusMultiplier: 100000, // Multiplica o valor do log do indicador normalizado (em metros)
+        radiusBase: 20000 // Define um tamanho mínimo para as bolhas (em metros)
+      },
+      leafletMap: null,
+      topoMap: null,
+      colorArray: null,
+      mapTypes: [
+        { id: "bubbles", name: "Bolhas" },
+        { id: "cluster", name: "Grupos" },
+        { id: "heat", name: "Calor" },
+        { id: "poligonos", name: "Polígonos" }
+      ],
+      mapAggregations: [
+        { id: "regiao", name: "Região" },
+        { id: "uf", name: "Unidade Federativa" },
+        { id: "mesorregiao", name: "Mesorregião" },
+        { id: "microrregiao", name: "Microrregião" },
+        { id: "municipio", name: "Município" }
+      ],
+      mapType: null,
+      mapAggregation: null,
+      indicators: [],
+      selectedIndicators: [],
+      indicatorsStatus: "LOADING",
+      indicator: null,
+      additionalIndicators: [],
+      places: [],
+      placesStatus: "LOADING",
+      place: null,
+&nbsp;
+      layers: {},
+      loadedLayers: null
+    };
+  },
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  created() {</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    this.$indicatorsModel.buildIndicatorsOptions(this.$observatories.constructor.identifyObservatory(this.$route.path.split('/')[1]))</span></span>
+<span class="cstat-no" title="statement not covered" >      .then((result) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >        for (let option of result) {</span></span>
+<span class="cstat-no" title="statement not covered" >          this.indicators.push(option);</span>
+<span class="cstat-no" title="statement not covered" >          if (this.indicator == null &amp;&amp; option.id == this.$route.params.nmIndicador) {</span>
+<span class="cstat-no" title="statement not covered" >            this.indicator = option;</span>
+<span class="cstat-no" title="statement not covered" >            option.color = this.colorArray[0];</span>
+<span class="cstat-no" title="statement not covered" >            option.visible = true;</span>
+<span class="cstat-no" title="statement not covered" >            this.selectedIndicators[0] = option;</span>
+          }
+<span class="cstat-no" title="statement not covered" >          if (this.additionalIndicators) {</span>
+<span class="cstat-no" title="statement not covered" >            for (let indxAdditionalInd in this.additionalIndicators) {</span>
+<span class="cstat-no" title="statement not covered" >              if (this.additionalIndicators[indxAdditionalInd].id == option.id</span>
+                &amp;&amp; this.selectedIndicators[indxAdditionalInd + 1] == null) {
+<span class="cstat-no" title="statement not covered" >                option.color = this.colorArray[indxAdditionalInd + 1];</span>
+<span class="cstat-no" title="statement not covered" >                option.visible = true;</span>
+<span class="cstat-no" title="statement not covered" >                this.selectedIndicators[indxAdditionalInd + 1] = option;</span>
+              }
+            }
+          }
+        }
+<span class="fstat-no" title="function not covered" >      })</span>
+<span class="cstat-no" title="statement not covered" >      .catch((error) =&gt; { this.sendError("Falha ao carregar as opções de indicadores"); });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    this.$analysisUnitModel.buildPlacesOptions()</span></span>
+<span class="cstat-no" title="statement not covered" >      .then((response) =&gt; { this.setPlaceStatusOption(this.$analysisUnitModel.getOptions()); });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var tp = this.$route.query.type;</span>
+<span class="cstat-no" title="statement not covered" >    if (tp === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      tp = "poligonos";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    for (var indxTypes in this.mapTypes) {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.mapTypes[indxTypes].id == tp) {</span>
+<span class="cstat-no" title="statement not covered" >        this.mapType = this.mapTypes[indxTypes];</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var aggr = this.$route.query.aggregation;</span>
+<span class="cstat-no" title="statement not covered" >    if (aggr === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      aggr = "municipio";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    for (var indxAggr in this.mapAggregations) {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.mapAggregations[indxAggr].id == aggr) {</span>
+<span class="cstat-no" title="statement not covered" >        this.mapAggregation = this.mapAggregations[indxAggr];</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (</span>
+      this.$route.query.adicionais !== null &amp;&amp;
+      this.$route.query.adicionais !== undefined
+    ) {
+<span class="cstat-no" title="statement not covered" >      this.additionalIndicators = this.$route.query.adicionais.split(",");</span>
+    }
+  },
+  computed: {
+<span class="fstat-no" title="function not covered" >    checkLoading: function() {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.mapType == null || this.mapType.id == 'bubbles') {</span>
+<span class="cstat-no" title="statement not covered" >        return this.loadedLayers != this.selectedIndicators.length;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (this.mapType &amp;&amp; this.mapType.id != 'poligonos') {</span>
+<span class="cstat-no" title="statement not covered" >        return this.loadedLayers != 1;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return false;</span>
+    }
+  },
+<span class="fstat-no" title="function not covered" >  mounted: function() {</span>
+<span class="cstat-no" title="statement not covered" >    require("../node_modules/leaflet/dist/leaflet.js");</span>
+<span class="cstat-no" title="statement not covered" >    require('../node_modules/leaflet-easyprint/dist/bundle.js')</span>
+<span class="cstat-no" title="statement not covered" >    require('../node_modules/leaflet.heat/dist/leaflet-heat.js');</span>
+<span class="cstat-no" title="statement not covered" >    require('../node_modules/leaflet.markercluster/dist/leaflet.markercluster.js');</span>
+    
+<span class="cstat-no" title="statement not covered" >    this.reloadMap();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this.$route.query.adicionais) {</span>
+<span class="cstat-no" title="statement not covered" >      this.fetchDataArray([this.$route.params.nmIndicador].concat(this.additionalIndicators));</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.fetchDataArray([this.$route.params.nmIndicador]);</span>
+    }
+  },
+  methods: {
+<span class="fstat-no" title="function not covered" >    pushPlaceOption(option) {</span>
+<span class="cstat-no" title="statement not covered" >      if (option.type == "place") {</span>
+<span class="cstat-no" title="statement not covered" >        this.places.push(option);</span>
+<span class="cstat-no" title="statement not covered" >        if (</span>
+          this.place === null &amp;&amp;
+          (option.id == this.$route.params.scope ||
+            (option.id == 0 &amp;&amp;
+              (this.$route.params.scope === null ||
+                this.$route.params.scope === undefined)))
+        ) {
+<span class="cstat-no" title="statement not covered" >          this.place = option;</span>
+        }
+      }
+    },
+&nbsp;
+<span class="fstat-no" title="function not covered" >    setPlaceStatusOption(obj) {</span>
+<span class="cstat-no" title="statement not covered" >      if (obj.id == "places") {</span>
+<span class="cstat-no" title="statement not covered" >        this.placesStatus = obj.value;</span>
+      }
+    },
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    reloadMap() {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (this.leafletMap !== null &amp;&amp; this.leafletMap !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        this.leafletMap.off();</span>
+<span class="cstat-no" title="statement not covered" >        this.leafletMap.remove();</span>
+<span class="cstat-no" title="statement not covered" >        this.leafletMap = null;</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var chartContainer = d3.select('map');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (chartContainer != null) {</span>
+<span class="cstat-no" title="statement not covered" >        chartContainer.innerHTML = "";</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (this.mapType == null || this.mapType.id != "poligonos") {</span>
+<span class="cstat-no" title="statement not covered" >        this.colorArray = d3chrom.schemeDark2;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var leaflet_map = L.map("map").setView([-15.793889, -47.882778], 4);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        L.tileLayer(this.options.tiles_url, {</span>
+          attribution: this.options.tiles_attribution
+        }).addTo(leaflet_map);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.leafletMap = leaflet_map;</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        let topoFile = "/static/topojson/" + this.mapAggregation.id + "/" + this.place.scope + "/" + this.place.id + ".json";</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        axios.get(topoFile)</span></span>
+          .then(response =&gt; {
+<span class="cstat-no" title="statement not covered" >            this.topology = response.data;</span>
+          }
+        );
+      }
+    },
+&nbsp;
+<span class="fstat-no" title="function not covered" >    generateLeafletLayer(fullDS, value_field, indicador, pos) {</span>
+<span class="cstat-no" title="statement not covered" >      let dataset = fullDS.data;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var tooltip_function = this.options.tooltip_function ? this.options.tooltip_function : this.defaultTooltip;</span>
+<span class="cstat-no" title="statement not covered" >      var headers = this.headers;</span>
+<span class="cstat-no" title="statement not covered" >      var removed_text_list = this.options.removed_text_list;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var circles = [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (this.mapType == null || this.mapType.id == 'bubbles') {</span>
+<span class="cstat-no" title="statement not covered" >        for(let each_row in dataset) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (dataset[each_row][this.options.lat] &amp;&amp;</span>
+              dataset[each_row][this.options.long]) {
+<span class="cstat-no" title="statement not covered" >            var eachCircle = L.circle(</span>
+              [dataset[each_row][this.options.lat], dataset[each_row][this.options.long]],
+              {
+                color: this.colorArray[pos],
+                weight: this.options.weight != null ? this.options.weight : (dataset[each_row].weight != null ? dataset[each_row].weight : 0),
+                fillColor: this.colorArray[pos],
+                fillOpacity: 0.7,
+                radius: dataset[each_row][value_field] != null ? dataset[each_row][value_field] * this.options.radiusMultiplier + this.options.radiusBase : 0
+              }
+            ).bindPopup(tooltip_function(dataset[each_row], headers, removed_text_list));
+<span class="cstat-no" title="statement not covered" >            circles.push(eachCircle);</span>
+          }
+        }
+<span class="cstat-no" title="statement not covered" >        let group = L.layerGroup(circles)</span>
+          .on('add', this.addLoadedLayer)
+          .on('remove', this.subLoadedLayer);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.layers[indicador] = group;</span>
+<span class="cstat-no" title="statement not covered" >        group.addTo(this.leafletMap);</span>
+<span class="cstat-no" title="statement not covered" >      } else if (this.mapType &amp;&amp; this.mapType.id == 'heat') {</span>
+<span class="cstat-no" title="statement not covered" >        var heatPoints = [];</span>
+<span class="cstat-no" title="statement not covered" >        for (let each_row in dataset) {</span>
+<span class="cstat-no" title="statement not covered" >          heatPoints.push([</span>
+            dataset[each_row][this.options.lat],
+            dataset[each_row][this.options.long],
+            dataset[each_row][this.options.value_field]
+          ]);
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        let group = L.heatLayer(heatPoints, {radius: 25})</span>
+          .on('add', this.addLoadedLayer)
+          .on('remove', this.subLoadedLayer);
+        
+<span class="cstat-no" title="statement not covered" >        group.addTo(this.leafletMap);</span>
+<span class="cstat-no" title="statement not covered" >      } else if (this.mapType &amp;&amp; this.mapType.id == 'cluster') {</span>
+<span class="cstat-no" title="statement not covered" >        var markers = L.markerClusterGroup();</span>
+<span class="cstat-no" title="statement not covered" >        for (let each_row in dataset) {</span>
+<span class="cstat-no" title="statement not covered" >          markers.addLayer(</span>
+            L.marker([
+              dataset[each_row][this.options.lat],
+              dataset[each_row][this.options.long]
+            ])
+          );
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        markers = markers</span>
+          .on('add', this.addLoadedLayer)
+          .on('remove', this.subLoadedLayer);
+        
+<span class="cstat-no" title="statement not covered" >        markers.addTo(this.leafletMap);</span>
+<span class="cstat-no" title="statement not covered" >      } else if (this.mapType &amp;&amp; this.mapType.id == 'poligonos') {</span>
+        // https://blog.webkid.io/maps-with-leaflet-and-topojson/
+        // Gera o range
+<span class="cstat-no" title="statement not covered" >        var range = [null, null];</span>
+<span class="cstat-no" title="statement not covered" >        for (let each_row in dataset) {</span>
+<span class="cstat-no" title="statement not covered" >          if (range[0] === null || range[0] &gt; dataset[each_row][this.options.value_field]) {</span>
+<span class="cstat-no" title="statement not covered" >            range[0] = dataset[each_row][this.options.value_field];</span>
+          }
+<span class="cstat-no" title="statement not covered" >          if (range[1] === null || range[1] &lt; dataset[each_row][this.options.value_field]) {</span>
+<span class="cstat-no" title="statement not covered" >            range[1] = dataset[each_row][this.options.value_field];</span>
+          }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.range = range;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        L.TopoJSON = L.GeoJSON.extend({  </span>
+<span class="fstat-no" title="function not covered" >          addData: function(jsonData) {    </span>
+<span class="cstat-no" title="statement not covered" >            if (jsonData.type === 'Topology') {</span>
+<span class="cstat-no" title="statement not covered" >              for (var key in jsonData.objects) {</span>
+<span class="cstat-no" title="statement not covered" >                var geojson = topojson.feature(jsonData, jsonData.objects[key]);</span>
+<span class="cstat-no" title="statement not covered" >                L.GeoJSON.prototype.addData.call(this, geojson);               </span>
+              }
+            }    
+            else {
+<span class="cstat-no" title="statement not covered" >              L.GeoJSON.prototype.addData.call(this, jsonData);</span>
+            }
+          }  
+        });
+        
+<span class="cstat-no" title="statement not covered" >        let layer = new L.TopoJSON();</span>
+<span class="cstat-no" title="statement not covered" >        layer.addData(this.topology);</span>
+<span class="cstat-no" title="statement not covered" >        layer.addTo(this.leafletMap);</span>
+<span class="cstat-no" title="statement not covered" >        layer.eachLayer(this.handlePoligon);</span>
+      }
+    },
+&nbsp;
+<span class="fstat-no" title="function not covered" >    addLoadedLayer(event) {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.loadedLayers == null) this.loadedLayers = 0;</span>
+<span class="cstat-no" title="statement not covered" >      this.loadedLayers++;</span>
+    },
+<span class="fstat-no" title="function not covered" >    subLoadedLayer(event) {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.loadedLayers == null) this.loadedLayers = 0;</span>
+<span class="cstat-no" title="statement not covered" >      this.loadedLayers--;</span>
+    },
+&nbsp;
+<span class="fstat-no" title="function not covered" >    toggleLayer(indicator) {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.mapType == null || this.mapType.id == 'bubbles') {</span>
+<span class="cstat-no" title="statement not covered" >        if (indicator.visible) {</span>
+<span class="cstat-no" title="statement not covered" >          this.leafletMap.addLayer(this.layers[indicator.id]);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          this.leafletMap.removeLayer(this.layers[indicator.id]);</span>
+        }
+      }
+    },
+&nbsp;
+<span class="fstat-no" title="function not covered" >    removeLayer(indicator) {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.mapType == null || this.mapType.id == 'bubbles') {</span>
+<span class="cstat-no" title="statement not covered" >        this.leafletMap.removeLayer(this.layers[indicator.id]);</span>
+<span class="cstat-no" title="statement not covered" >        this.layers[indicator.id] = null;</span>
+<span class="cstat-no" title="statement not covered" >        this.selectedIndicators.splice(indicator.label, 1);</span>
+<span class="cstat-no" title="statement not covered" >        this.reloadMap();</span>
+<span class="cstat-no" title="statement not covered" >        let arrIndicatorsIds = []</span>
+<span class="cstat-no" title="statement not covered" >        for (let indxInd in this.selectedIndicators) {</span>
+<span class="cstat-no" title="statement not covered" >          arrIndicatorsIds.push(this.selectedIndicators[indxInd].id);</span>
+<span class="cstat-no" title="statement not covered" >          this.selectedIndicators[indxInd].color = this.colorArray[indxInd];</span>
+        }
+<span class="cstat-no" title="statement not covered" >        this.fetchDataArray(arrIndicatorsIds);</span>
+      }
+    },
+&nbsp;
+<span class="fstat-no" title="function not covered" >    addLayer() {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.mapType == null || this.mapType.id == 'bubbles') {</span>
+<span class="cstat-no" title="statement not covered" >        this.indicator.visible = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.indicator.color = this.colorArray[this.selectedIndicators.length];</span>
+<span class="cstat-no" title="statement not covered" >        this.selectedIndicators.push(this.indicator);</span>
+<span class="cstat-no" title="statement not covered" >        this.fetchData(this.indicator.id, this.selectedIndicators.length - 1);</span>
+      }
+    },
+&nbsp;
+<span class="fstat-no" title="function not covered" >    filter() {</span>
+<span class="cstat-no" title="statement not covered" >      let arrIndicatorsIds = [];</span>
+<span class="cstat-no" title="statement not covered" >      this.reloadMap();</span>
+<span class="cstat-no" title="statement not covered" >      if (this.mapType == null || this.mapType.id == 'bubbles') {</span>
+<span class="cstat-no" title="statement not covered" >        for (let indxInd in this.selectedIndicators) {</span>
+<span class="cstat-no" title="statement not covered" >          arrIndicatorsIds.push(this.selectedIndicators[indxInd].id);</span>
+<span class="cstat-no" title="statement not covered" >          this.selectedIndicators[indxInd].color = this.colorArray[indxInd];</span>
+        }
+      } else {
+<span class="cstat-no" title="statement not covered" >        arrIndicatorsIds.push(this.indicator.id);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      this.fetchDataArray(arrIndicatorsIds);</span>
+    },
+&nbsp;
+<span class="fstat-no" title="function not covered" >    selectCoords(aggr) {</span>
+<span class="cstat-no" title="statement not covered" >      var coords = "";</span>
+<span class="cstat-no" title="statement not covered" >      switch (aggr.id) {</span>
+        case "microrregiao":
+<span class="cstat-no" title="statement not covered" >          coords = "/static/topojson/microrregiao.json";</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
+        case "mesorregiao":
+<span class="cstat-no" title="statement not covered" >          coords = "/static/topojson/mesorregiao.json";</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
+        case "municipio":
+<span class="cstat-no" title="statement not covered" >          coords = "/static/topojson/municipio.json";</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
+        default:
+<span class="cstat-no" title="statement not covered" >          coords = "/static/topojson/uf.json";</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return coords;</span>
+    },
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    generateTopoMap(dataset, value_field = 'vl_lognormal') {</span></span>
+<span class="cstat-no" title="statement not covered" >      let viz = new d3plus.Geomap()</span>
+        .shapeConfig({ 
+          labelConfig: { fontFamily: "titulos-observatorio" },
+          Path: {
+            fillOpacity: 0.9,
+            //strokeWidth: function(d) { return d[options.id_field] == idLocalidade ? 5 : 0.2 },
+            stroke: 'black'
+          }
+        })
+        .tileUrl('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}')
+        .topojson(this.topology)
+        .tooltipConfig({
+          // body: function(d) {
+          //   return tooltip_function(d, headers, removed_text_list)
+          // },
+<span class="fstat-no" title="function not covered" >          title: function(d) {</span>
+<span class="cstat-no" title="statement not covered" >            return "";</span>
+          }
+        })
+        .colorScalePosition("right")
+<span class="fstat-no" title="function not covered" >        .colorScaleConfig({</span>
+          color: this.$colorsService.constructor.getColorScale("Blues", "singleHue", "asc", 9),
+          axisConfig: {
+            labels: [],
+            gridConfig: {stroke: "transparent"},
+            ticks: [],
+            barConfig: {"stroke-width": 0}
+          }
+        })
+        .colorScale(value_field)
+        .select("#map")  // container DIV to hold the visualization
+        .data(dataset)  // data to use with the visualization
+        .groupBy('cd_place')         // key for which our data is unique on
+<span class="cstat-no" title="statement not covered" >        .topojsonId((t) =&gt; { return t.properties[this.options.topo_key]; })</span>
+        // .height(parseInt(size.height))
+        // .width(parseInt(size.width))
+        .render();
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return viz;</span>
+    },
+&nbsp;
+<span class="fstat-no" title="function not covered" >    fetchDataArray(arrIndicators) {</span>
+<span class="cstat-no" title="statement not covered" >      for (var indIndex = 0; indIndex &lt; arrIndicators.length; indIndex++) {</span>
+<span class="cstat-no" title="statement not covered" >        this.fetchData(arrIndicators[indIndex], indIndex);</span>
+      }
+    },
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    fetchData(indicador, pos, value_field = 'valor') {</span></span>
+      // Defines the observatory namespace
+<span class="cstat-no" title="statement not covered" >      let urlPrefix = this.$observatories.constructor.identifyObservatory(this.$route.path.split('/')[1]);</span>
+<span class="cstat-no" title="statement not covered" >      if (urlPrefix &amp;&amp; urlPrefix == 'td') {</span>
+<span class="cstat-no" title="statement not covered" >        urlPrefix = '';</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        urlPrefix = '/' + urlPrefix;</span>
+      }
+      // Default: municipio
+<span class="cstat-no" title="statement not covered" >      var url = urlPrefix +</span>
+      "/indicadoresmunicipais?categorias=cd_municipio_ibge_dv-cd_place,nm_municipio-nm_place,nm_indicador,ds_indicador_radical-indicador,nu_competencia-ano,ds_fonte,cd_dimensao,vl_indicador-valor,latitude,longitude&amp;valor=nu_competencia&amp;agregacao=max&amp;filtros=eq-cd_indicador-'" +
+        indicador +
+        "'";
+<span class="cstat-no" title="statement not covered" >      if (this.mapAggregation.id == "regiao") {</span>
+<span class="cstat-no" title="statement not covered" >        url =</span>
+          "/indicadoresregionais?categorias=cd_regiao-cd_place,nm_regiao-nm_place,nm_indicador,ds_indicador_radical-indicador,nu_competencia-ano,ds_fonte,cd_dimensao,ds_grupo,ds_subgrupo,ds_operador,vl_indicador-valor&amp;valor=nu_competencia&amp;agregacao=max&amp;filtros=eq-nm_indicador-'" +
+          indicador +
+          "'";
+<span class="cstat-no" title="statement not covered" >      } else if (this.mapAggregation.id == "microrregiao") {</span>
+<span class="cstat-no" title="statement not covered" >        url =</span>
+          "/indicadoresmicrorregionais?categorias=cd_microrregiao-cd_place,nm_microrregiao-nm_place,nm_indicador,ds_indicador_radical-indicador,nu_competencia-ano,ds_fonte,cd_dimensao,ds_grupo,ds_subgrupo,ds_operador,vl_indicador-valor&amp;valor=nu_competencia&amp;agregacao=max&amp;filtros=eq-nm_indicador-'" +
+          indicador +
+          "'";
+<span class="cstat-no" title="statement not covered" >      } else if (this.mapAggregation.id == "uf") {</span>
+<span class="cstat-no" title="statement not covered" >        url =</span>
+          "/indicadoresestaduais?categorias=cd_uf,sg_uf-cd_place,nm_uf-nm_place,nm_indicador,ds_indicador_radical-indicador,nu_competencia-ano,ds_fonte,cd_dimensao,ds_grupo,ds_subgrupo,ds_operador,vl_indicador-valor&amp;valor=nu_competencia&amp;agregacao=max&amp;filtros=eq-nm_indicador-'" +
+          indicador +
+          "'";
+<span class="cstat-no" title="statement not covered" >      } else if (this.mapAggregation.id == "mesorregiao") {</span>
+<span class="cstat-no" title="statement not covered" >        url =</span>
+          "/indicadoresmesorregionais?categorias=cd_mesorregiao-cd_place,nm_mesorregiao-nm_place,nm_indicador,ds_indicador_radical-indicador,nu_competencia-ano,ds_fonte,cd_dimensao,ds_grupo,ds_subgrupo,ds_operador,vl_indicador-valor&amp;valor=nu_competencia&amp;agregacao=max&amp;filtros=eq-nm_indicador-'" +
+          indicador +
+          "'";
+      }
+&nbsp;
+      // Limitação do escopo
+<span class="cstat-no" title="statement not covered" >      var appendUrl = "";</span>
+<span class="cstat-no" title="statement not covered" >      var scopeId =</span>
+        this.place !== null &amp;&amp; this.place !== undefined
+          ? this.place.id
+          : this.$route.params.scope;
+<span class="cstat-no" title="statement not covered" >      if (scopeId === null || scopeId === undefined || scopeId == 0) {</span>
+        // Brasil
+      } else if (scopeId.toString().length == 1) {
+        // Região
+<span class="cstat-no" title="statement not covered" >        if (this.mapAggregation.id == "regiao") {</span>
+<span class="cstat-no" title="statement not covered" >          appendUrl = ",and,eq-cd_regiao-" + scopeId;</span>
+<span class="cstat-no" title="statement not covered" >        } else if (this.mapAggregation.id == "uf") {</span>
+<span class="cstat-no" title="statement not covered" >          appendUrl =</span>
+            ",and,ge-cd_uf-" + scopeId + "0,and,le-cd_uf-" + scopeId + "9";
+<span class="cstat-no" title="statement not covered" >        } else if (this.mapAggregation.id == "mesorregiao") {</span>
+<span class="cstat-no" title="statement not covered" >          appendUrl =</span>
+            ",and,ge-cd_mesorregiao-" +
+            scopeId +
+            "000,and,le-cd_mesorregiao-" +
+            scopeId +
+            "999";
+<span class="cstat-no" title="statement not covered" >        } else if (this.mapAggregation.id == "microrregiao") {</span>
+<span class="cstat-no" title="statement not covered" >          appendUrl =</span>
+            ",and,ge-cd_microrregiao-" +
+            scopeId +
+            "0000,and,le-cd_microrregiao-" +
+            scopeId +
+            "9999";
+<span class="cstat-no" title="statement not covered" >        } else if (this.mapAggregation.id == "municipio") {</span>
+<span class="cstat-no" title="statement not covered" >          appendUrl =</span>
+            ",and,ge-cd_municipio_ibge_dv-" +
+            scopeId +
+            "000000,and,le-cd_municipio_ibge_dv-" +
+            scopeId +
+            "999999";
+        } else {
+<span class="cstat-no" title="statement not covered" >          this.sendError("Agregação máxima para uma região: Região");</span>
+        }
+<span class="cstat-no" title="statement not covered" >      } else if (scopeId.toString().length == 2) {</span>
+        // UF
+<span class="cstat-no" title="statement not covered" >        if (this.mapAggregation.id == "uf") {</span>
+<span class="cstat-no" title="statement not covered" >          appendUrl = ",and,eq-cd_uf-" + scopeId;</span>
+<span class="cstat-no" title="statement not covered" >        } else if (this.mapAggregation.id == "mesorregiao") {</span>
+<span class="cstat-no" title="statement not covered" >          appendUrl =</span>
+            ",and,ge-cd_mesorregiao-" +
+            scopeId +
+            "00,and,le-cd_mesorregiao-" +
+            scopeId +
+            "99";
+<span class="cstat-no" title="statement not covered" >        } else if (this.mapAggregation.id == "microrregiao") {</span>
+<span class="cstat-no" title="statement not covered" >          appendUrl =</span>
+            ",and,ge-cd_microrregiao-" +
+            scopeId +
+            "000,and,le-cd_microrregiao-" +
+            scopeId +
+            "999";
+<span class="cstat-no" title="statement not covered" >        } else if (this.mapAggregation.id == "municipio") {</span>
+<span class="cstat-no" title="statement not covered" >          appendUrl =</span>
+            ",and,ge-cd_municipio_ibge_dv-" +
+            scopeId +
+            "00000,and,le-cd_municipio_ibge_dv-" +
+            scopeId +
+            "99999";
+        } else {
+<span class="cstat-no" title="statement not covered" >          this.sendError(</span>
+            "Agregação máxima para uma Unidade Federativa: Unidade Federativa"
+          );
+        }
+<span class="cstat-no" title="statement not covered" >      } else if (scopeId.toString().length == 4) {</span>
+        // Mesorregião
+<span class="cstat-no" title="statement not covered" >        if (this.mapAggregation.id == "mesorregiao") {</span>
+<span class="cstat-no" title="statement not covered" >          appendUrl = ",and,eq-cd_mesorregiao-" + scopeId;</span>
+<span class="cstat-no" title="statement not covered" >        } else if (this.mapAggregation.id == "microrregiao") {</span>
+          // TODO a microrregiao tem que guardar elo com a mesorregião
+<span class="cstat-no" title="statement not covered" >          appendUrl =</span>
+            ",and,ge-cd_microrregiao-" +
+            scopeId +
+            "0,and,le-cd_microrregiao-" +
+            scopeId +
+            "9";
+<span class="cstat-no" title="statement not covered" >        } else if (this.mapAggregation.id == "municipio") {</span>
+<span class="cstat-no" title="statement not covered" >          appendUrl = ",and,eq-cd_mesorregiao-" + scopeId;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          this.sendError("Agregação máxima para uma mesorregião: Mesorregião");</span>
+        }
+<span class="cstat-no" title="statement not covered" >      } else if (scopeId.toString().length == 5) {</span>
+        // Microrregião
+<span class="cstat-no" title="statement not covered" >        if (</span>
+          this.mapAggregation.id == "microrregiao" ||
+          this.mapAggregation.id == "municipio"
+        ) {
+<span class="cstat-no" title="statement not covered" >          appendUrl = ",and,eq-cd_microrregiao-" + scopeId;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          this.sendError(</span>
+            "Agregação máxima para uma microrregião: Microrregião"
+          );
+        }
+<span class="cstat-no" title="statement not covered" >      } else if (scopeId.toString().length == 7) {</span>
+        // Município
+<span class="cstat-no" title="statement not covered" >        if (this.mapAggregation.id == "municipio") {</span>
+<span class="cstat-no" title="statement not covered" >          appendUrl = ",and,eq-cd_municipio_ibge_dv-" + scopeId;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          this.sendError("Agregação máxima para uma município: Município");</span>
+        }
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      url += appendUrl;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      axios(this.$axiosCallSetupService.getAxiosOptions(url)).then(</span></span>
+        result =&gt; {
+<span class="cstat-no" title="statement not covered" >          let dataset = JSON.parse(result.data).dataset;</span>
+          // Percorre o dataset, calculando o log do valor normalizado para cálculo do tamanho da bolhas e escala de cores.
+          // Obtém o min e o max
+<span class="cstat-no" title="statement not covered" >          var minMax = this.$indicatorsModel.getMinMax(dataset, value_field);</span>
+          
+          // Aplica o log sobre o valor normalizado
+<span class="cstat-no" title="statement not covered" >          for (let indxDS in dataset) {</span>
+<span class="cstat-no" title="statement not covered" >            if (dataset[indxDS][value_field] != null) {</span>
+<span class="cstat-no" title="statement not covered" >              dataset[indxDS].vl_lognormal = Math.log(</span>
+                // Adiciona valor irrisório apenas para mover a curva, impedindo que cruze o eixo
+                (parseFloat(dataset[indxDS][value_field]) / minMax[1]) + 1.0001
+              );
+            }
+          }
+        
+          // Armazena localmente o dataset obtido, usando o ID do indicador como chave
+<span class="cstat-no" title="statement not covered" >          dataset[indicador.id] = {</span>
+            data: dataset,
+            metadata: JSON.parse(result.data).metadata //,
+            //color: { color: this.colorArray[pos], fillColor: this.colorArray[pos], fillOpacity: 0.5 }
+          };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (this.mapType == null || this.mapType.id != "poligonos") {</span>
+<span class="cstat-no" title="statement not covered" >            this.generateLeafletLayer(</span>
+              {
+                data: dataset,
+                metadata: JSON.parse(result.data).metadata,
+                color: {
+                  color: this.colorArray[pos],
+                  fillColor: this.colorArray[pos],
+                  fillOpacity: 0.5
+                }
+              },
+              'vl_lognormal',
+              indicador,
+              pos
+            );
+            //layer.addTo(this.leafletMap);
+          } else {
+<span class="cstat-no" title="statement not covered" >            this.topoMap = this.generateTopoMap(dataset);</span>
+          }
+<span class="fstat-no" title="function not covered" >        },</span>
+        error =&gt; {
+<span class="cstat-no" title="statement not covered" >          console.error(error.toString());</span>
+<span class="cstat-no" title="statement not covered" >          this.sendError("Falha ao buscar dados do indicador");</span>
+<span class="cstat-no" title="statement not covered" >          return null;</span>
+        }
+      );
+    }
+  }
+};
+&lt;/script&gt;
+&nbsp;
+&lt;style&gt;
+  @import "../node_modules/leaflet/dist/leaflet.css";
+  @import "../node_modules/leaflet.markercluster/dist/MarkerCluster.css";
+  @import "../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css";
+&nbsp;
+  .map_geo_full {
+    position: fixed;
+    height: 100vh;
+    z-index: 99;
+  }
+&nbsp;
+  .map_geo_full .loading{
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: +1;
+  }
+&nbsp;
+  .map_geo_full .filter_section {
+    overflow: scroll;
+  }
+&lt;/style&gt;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 17 2019 15:11:22 GMT-0300 (GMT-03:00)
+</div>
+</div>
+<script src="..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\sorter.js"></script>
+</body>
+</html>

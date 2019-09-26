@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for assets/app.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\prettify.css" />
+    <link rel="stylesheet" href="..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\index.html">All files</a> / <a href="index.html">assets</a> app.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/67</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/67</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import Vue from 'vue'</span>
+<span class="cstat-no" title="statement not covered" >import Vuetify from 'vuetify'</span>
+<span class="cstat-no" title="statement not covered" >import VueCookies from 'vue-cookies'</span>
+<span class="cstat-no" title="statement not covered" >import VueAnalytics from 'vue-analytics'</span>
+<span class="cstat-no" title="statement not covered" >import 'vuetify/dist/vuetify.css'</span>
+<span class="cstat-no" title="statement not covered" >import App from './App.vue'</span>
+<span class="cstat-no" title="statement not covered" >import Components from 'components/_index'</span>
+<span class="cstat-no" title="statement not covered" >import colors from 'vuetify/es5/util/colors'</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import { createStore } from 'store/index'</span>
+<span class="cstat-no" title="statement not covered" >import { createRouter } from 'router/index'</span>
+<span class="cstat-no" title="statement not covered" >import { sync } from 'vuex-router-sync'</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import fontawesome from '@fortawesome/fontawesome'</span>
+// import solid from '@fortawesome/fontawesome-free-solid'
+<span class="cstat-no" title="statement not covered" >import brands from '@fortawesome/fontawesome-free-brands'</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >fontawesome.library.add(brands, brands.faGithub)</span>
+<span class="cstat-no" title="statement not covered" >fontawesome.library.add(brands, brands.faDocker)</span>
+<span class="cstat-no" title="statement not covered" >fontawesome.library.add(brands, brands.faLinkedinIn)</span>
+<span class="cstat-no" title="statement not covered" >fontawesome.library.add(brands, brands.faFacebookF)</span>
+<span class="cstat-no" title="statement not covered" >fontawesome.library.add(brands, brands.faTwitter)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >Vue.use(Vuetify, {</span>
+  options: {
+    customProperties: true
+  },    
+  theme: {
+    primary: colors.grey.darken4,
+    secondary: colors.amber.accent4,
+    accent: colors.amber.accent4,
+    error: colors.red.base,
+    warning: colors.amber.base,
+    info: colors.blue.base,
+    success: colors.green.base,
+    toolbar: colors.grey.darken4
+  }
+});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >Vue.use(VueCookies)</span>
+&nbsp;
+///////////////////////////////
+// Habilitando plugins in-house
+// 1. Models (singletons)
+<span class="cstat-no" title="statement not covered" >import ObservatoriesModel from './model/singleton/observatoriesModel'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$observatories = new ObservatoriesModel();</span>
+<span class="cstat-no" title="statement not covered" >import AboutModel from './model/singleton/aboutModel'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$about = new AboutModel();</span>
+<span class="cstat-no" title="statement not covered" >import DimensionsModel from './model/singleton/dimensionsModel'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$dimensions = new DimensionsModel();</span>
+<span class="cstat-no" title="statement not covered" >import TranslationModel from './model/singleton/translationModel'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$translationModel = new TranslationModel();</span>
+<span class="cstat-no" title="statement not covered" >import AnalysisUnitModel from './model/singleton/analysisUnitModel'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$analysisUnitModel = new AnalysisUnitModel();</span>
+<span class="cstat-no" title="statement not covered" >import IndicatorsModel from './model/singleton/indicatorsModel'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$indicatorsModel = new IndicatorsModel();</span>
+&nbsp;
+// 2. Services
+// 2.1. Singletons
+<span class="cstat-no" title="statement not covered" >import AxiosCallSetupService from './service/singleton/axiosCallSetupService.js'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$axiosCallSetupService = new AxiosCallSetupService();</span>
+<span class="cstat-no" title="statement not covered" >import DateFormatService from './service/singleton/dateFormatService.js'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$dateFormatService = new DateFormatService();</span>
+<span class="cstat-no" title="statement not covered" >import NumberTransformService from './service/singleton/numberTransformService.js'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$numberTransformService = new NumberTransformService();</span>
+<span class="cstat-no" title="statement not covered" >import ObjectTransformService from './service/singleton/objectTransformService.js'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$objectTransformService = new ObjectTransformService();</span>
+<span class="cstat-no" title="statement not covered" >import TextTransformService from './service/singleton/textTransformService.js'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$textTransformService = new TextTransformService();</span>
+<span class="cstat-no" title="statement not covered" >import ColorsService from './service/singleton/colorsService'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$colorsService = new ColorsService();</span>
+<span class="cstat-no" title="statement not covered" >import TooltipBuildingService from './service/singleton/tooltipBuildingService'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$tooltipBuildingService = new TooltipBuildingService();</span>
+<span class="cstat-no" title="statement not covered" >import YamlFetcherService from './service/singleton/yamlFetcherService'</span>
+<span class="cstat-no" title="statement not covered" >Vue.prototype.$yamlFetcherService = new YamlFetcherService();</span>
+&nbsp;
+// import ChartBuilderService from './service/chart/chartBuilderService'
+// Vue.prototype.$chartBuilderService = new ChartBuilderService();
+&nbsp;
+// 2.2. Global Mixins
+<span class="cstat-no" title="statement not covered" >import GeoIpClient from '../mixins/service/geoIpClient.js'</span>
+<span class="cstat-no" title="statement not covered" >Vue.use(GeoIpClient)</span>
+<span class="cstat-no" title="statement not covered" >import NavigationManager from '../mixins/service/navigationManager.js'</span>
+<span class="cstat-no" title="statement not covered" >Vue.use(NavigationManager)</span>
+<span class="cstat-no" title="statement not covered" >import SnackbarManager from '../mixins/service/snackbarManager.js'</span>
+<span class="cstat-no" title="statement not covered" >Vue.use(SnackbarManager)</span>
+<span class="cstat-no" title="statement not covered" >import ViewConfReader from '../mixins/service/viewConfReader.js'</span>
+<span class="cstat-no" title="statement not covered" >Vue.use(ViewConfReader)</span>
+///////////////////////////////
+&nbsp;
+<span class="cstat-no" title="statement not covered" >Object.keys(Components).forEach(<span class="fstat-no" title="function not covered" >key =&gt; </span>{</span>
+<span class="cstat-no" title="statement not covered" >  Vue.component(key, Components[key])</span>
+})
+&nbsp;
+// Expose a factory function that creates a fresh set of store, router,
+// app instances on each call (which is called for each SSR request)
+export function <span class="fstat-no" title="function not covered" >createApp (ssrContext, secrets) {</span>
+  // create store and router instances
+  const store = <span class="cstat-no" title="statement not covered" >createStore(secrets)</span>
+  const router = <span class="cstat-no" title="statement not covered" >createRouter()</span>
+&nbsp;
+  // sync the router with the vuex store.
+  // this registers `store.state.route`
+<span class="cstat-no" title="statement not covered" >  sync(store, router)</span>
+  
+  const ga_id = <span class="cstat-no" title="statement not covered" >process.env.GA_ID_BASE + process.env.GA_ID_DV;</span>
+  //console.log(ga_id)
+<span class="cstat-no" title="statement not covered" >  if (ga_id) {</span>
+<span class="cstat-no" title="statement not covered" >    Vue.use(VueAnalytics, { id: ga_id })</span>
+  }
+&nbsp;
+  // create the app instance.
+  // here we inject the router, store and ssr context to all child components,
+  // making them available everywhere as `this.$router` and `this.$store`.
+  const app = <span class="cstat-no" title="statement not covered" >new Vue({</span>
+    router,
+    store,
+    ssrContext,
+    render: <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >h =&gt; h(App)</span></span>
+  })
+&nbsp;
+  // expose the app, the router and the store.
+  // note we are not mounting the app here, since bootstrapping will be
+  // different depending on whether we are in a browser or on the server.
+<span class="cstat-no" title="statement not covered" >  return { app, router, store }</span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 17 2019 15:11:22 GMT-0300 (GMT-03:00)
+</div>
+</div>
+<script src="..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\sorter.js"></script>
+</body>
+</html>

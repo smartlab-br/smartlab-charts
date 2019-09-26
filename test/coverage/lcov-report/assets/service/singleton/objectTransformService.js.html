@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for assets/service/singleton/objectTransformService.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">assets/service/singleton</a> objectTransformService.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>14/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">41.94% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>13/31</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>14/28</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import DateFormatService from './dateFormatService.js'
+import NumberTransformService from './numberTransformService'
+import TextTransformService from './textTransformService'
+import IndicatorsModel from '../../model/singleton/indicatorsModel'
+&nbsp;
+class ObjectTransformService {
+  constructor() {
+    this.dateFormatService = new DateFormatService();
+    this.numberTransformService = new NumberTransformService();
+  }
+&nbsp;
+  runNamedFunction(struct, base_object, localFunctions = <span class="branch-0 cbranch-no" title="branch not covered" >null,</span> initialArgs = []) {
+    // Runs function with args defines in yaml structure
+    var args = initialArgs;
+    
+    for (var indx in struct.fn_args) {
+      // Gets the args for the yaml-defined function
+      if (struct.fn_args[indx].fixed != null &amp;&amp; struct.fn_args[indx].fixed != undefined) {
+        // Apply fized value to arg
+        args.push(struct.fn_args[indx].fixed);
+      } else if (struct.fn_args[indx].named_prop) {
+        if (base_object) {
+          args.push(base_object[struct.fn_args[indx].named_prop]);
+        } else {
+          args.push(undefined);
+        }
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (struct.fn_args[indx].function) {
+        // If arg has an internal function defined with args, apply it
+        args.push(this.runNamedFunction(struct.fn_args[indx], base_object, localFunctions));
+      }
+    }
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (localFunctions &amp;&amp; localFunctions[struct.function]) {
+      // Checks if the function exist in the localFunctions argument
+      return localFunctions[struct.function].apply(null, args);
+    }
+<span class="cstat-no" title="statement not covered" >    if (['formatDate', 'getWeekDay'].includes(struct.function)) {</span>
+<span class="cstat-no" title="statement not covered" >      return this.dateFormatService[struct.function].apply(null, args);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (['calcClassIdh', 'getClassIdh', 'calcProportionSalary'].includes(struct.function)) {</span>
+      let model = <span class="cstat-no" title="statement not covered" >new IndicatorsModel();</span>
+<span class="cstat-no" title="statement not covered" >      return model[struct.function].apply(model, args);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (['calcIndexPercentage', 'calcDeltaPercentage', 'getAbsoluteValue', 'getPaceString'].includes(struct.function)) {</span>
+<span class="cstat-no" title="statement not covered" >      return this.numberTransformService[struct.function].apply(null, args);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (['applyInterpolReplaceDatasetParam'].includes(struct.function)) {</span>
+      let textTransformService = <span class="cstat-no" title="statement not covered" >new TextTransformService();</span>
+<span class="cstat-no" title="statement not covered" >      return textTransformService[struct.function].apply(textTransformService, args);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (this[struct.function]) {</span>
+<span class="cstat-no" title="statement not covered" >      return this[struct.function].apply(null, args);</span>
+    }
+    
+    // Returns null otherwise
+<span class="cstat-no" title="statement not covered" >    return null;</span>
+  }
+  
+<span class="fstat-no" title="function not covered" >  va</span>lueCheck(value, baseValue = <span class="branch-0 cbranch-no" title="branch not covered" >0,</span> returnTextInCaseOfHigherThanBaseValue = <span class="branch-0 cbranch-no" title="branch not covered" >'',</span> returnTextInCaseOfLowerThanBaseValue = <span class="branch-0 cbranch-no" title="branch not covered" >'')</span> {
+<span class="cstat-no" title="statement not covered" >    return value &gt; baseValue ? returnTextInCaseOfHigherThanBaseValue : returnTextInCaseOfLowerThanBaseValue ;</span>
+  }
+}
+&nbsp;
+export default  ObjectTransformService;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 17 2019 15:11:22 GMT-0300 (GMT-03:00)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>
