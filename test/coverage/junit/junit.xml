@@ -1,2 +1,6 @@
-<testsuites name="jest tests" tests="0" failures="0" time="3.858">
+<testsuites name="jest tests" tests="1" failures="0" time="1.848">
+  <testsuite name="\test\proto\sum.test.js" errors="0" failures="0" skipped="0" timestamp="2019-09-30T18:47:28" time="0.866" tests="1">
+    <testcase classname=" adds 1 + 2 to equal 3" name=" adds 1 + 2 to equal 3" time="0.003">
+    </testcase>
+  </testsuite>
 </testsuites>

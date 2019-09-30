@@ -1,4 +1,4 @@
-import ColorsService from '../singleton/colorsService'
+import ColorsService from '../singleton/colorsService' // TODO Decouple
 
 class GeneralChartBuilderService {
     _fontFamily = "titulos-observatorio";
