@@ -1,6 +1,4 @@
-import D3PlusChartBuilderService from './d3plusChartBuilderService'
-
-import * as d3plus from 'd3plus'
+const D3PlusChartBuilderService = require('./d3plusChartBuilderService');
 
 class TreemapChartBuilderService extends D3PlusChartBuilderService {
     constructor() {
@@ -130,4 +128,4 @@ class TreemapChartBuilderService extends D3PlusChartBuilderService {
     }
 }
 
-export default  TreemapChartBuilderService
+module.exports = TreemapChartBuilderService

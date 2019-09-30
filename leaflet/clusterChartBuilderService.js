@@ -1,4 +1,4 @@
-import LeafletChartBuilderService from './leafletChartBuilderService'
+const LeafletChartBuilderService = require('./leafletChartBuilderService');
 
 class ClusterChartBuilderService extends LeafletChartBuilderService {
     constructor() {
@@ -54,4 +54,4 @@ class ClusterChartBuilderService extends LeafletChartBuilderService {
     }
 }
 
-export default  ClusterChartBuilderService
+module.exports = ClusterChartBuilderService

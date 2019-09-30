@@ -1,6 +1,4 @@
-import D3PlusChartBuilderService from './d3plusChartBuilderService'
-
-import * as d3plus from 'd3plus'
+const D3PlusChartBuilderService = require('./d3plusChartBuilderService');
 
 class BoxplotChartBuilderService extends D3PlusChartBuilderService {
     constructor() {
@@ -43,4 +41,4 @@ class BoxplotChartBuilderService extends D3PlusChartBuilderService {
     }
 }
 
-export default  BoxplotChartBuilderService
+module.exports = BoxplotChartBuilderService

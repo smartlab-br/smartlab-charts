@@ -1,6 +1,7 @@
-import GeneralChartBuilderService from '../generalChartBuilderService'
+const GeneralChartBuilderService = require('../generalChartBuilderService');
 
-import * as d3chrom from 'd3-scale-chromatic'
+const d3 = require('d3');
+const d3chrom = require('d3-scale-chromatic');
 
 class LeafletChartBuilderService extends GeneralChartBuilderService {
     tiles = {

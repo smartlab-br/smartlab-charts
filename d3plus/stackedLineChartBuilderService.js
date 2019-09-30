@@ -1,6 +1,4 @@
-import D3PlusChartBuilderService from './d3plusChartBuilderService'
-
-import * as d3plus from 'd3plus'
+const D3PlusChartBuilderService = require('./d3plusChartBuilderService');
 
 class StackedLineChartBuilderService extends D3PlusChartBuilderService {
     constructor() {
@@ -93,4 +91,4 @@ class StackedLineChartBuilderService extends D3PlusChartBuilderService {
     }
 }
 
-export default  StackedLineChartBuilderService
+module.exports = StackedLineChartBuilderService

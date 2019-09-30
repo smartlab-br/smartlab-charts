@@ -1,6 +1,4 @@
-import D3PlusChartBuilderService from './d3plusChartBuilderService'
-
-import * as d3plus from 'd3plus'
+const D3PlusChartBuilderService = require('./d3plusChartBuilderService');
 
 class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
     static _tilesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
@@ -166,4 +164,4 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
     }
 }
 
-export default  TopoJsonChartBuilderService
+module.exports = TopoJsonChartBuilderService

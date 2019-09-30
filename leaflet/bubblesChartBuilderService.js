@@ -1,8 +1,6 @@
-import LeafletChartBuilderService from './leafletChartBuilderService'
+const LeafletChartBuilderService = require('./leafletChartBuilderService');
 
-import * as d3 from 'd3'
-
-import IndicatorsModel from '../../../model/singleton/indicatorsModel'
+import IndicatorsModel from '../../../model/singleton/indicatorsModel' // Decouple
 
 class BubblesChartBuilderService extends LeafletChartBuilderService {
     radius = { multiplier: 1600000, base: 5000 };
@@ -98,4 +96,4 @@ class BubblesChartBuilderService extends LeafletChartBuilderService {
       
 }
 
-export default  BubblesChartBuilderService
+module.exports = BubblesChartBuilderService

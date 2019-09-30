@@ -11,58 +11,58 @@ class ChartBuilderService {
                     switch (type) {
                         // D3Plus based
                         case 'MAP_TOPOJSON':
-                            let clsDef = require('./d3plus/topoJsonChartBuilderService');
-                            builder = new clsDef.clsDef.TopoJsonChartBuilderService();
+                            let TopoJsonChartBuilderService = require('./d3plus/topoJsonChartBuilderService');
+                            builder = new TopoJsonChartBuilderService();
                             break;
                         case 'LINE':
-                            let clsDef = require('./d3plus/lineChartBuilderService');
-                            builder = new clsDef.LineChartBuilderService();
+                            let LineChartBuilderService = require('./d3plus/lineChartBuilderService');
+                            builder = new LineChartBuilderService();
                             break;
                         case 'STACKED': // Unused
-                            let clsDef = require('./d3plus/stackedLineChartBuilderService');
-                            builder = new clsDef.StackedLineChartBuilderService();
+                            let StackedLineChartBuilderService = require('./d3plus/stackedLineChartBuilderService');
+                            builder = new StackedLineChartBuilderService();
                             break;
                         case 'BAR':
-                            let clsDef = require('./d3plus/barChartBuilderService');
-                            builder = new clsDef.BarChartBuilderService();
+                            let BarChartBuilderService = require('./d3plus/barChartBuilderService');
+                            builder = new BarChartBuilderService();
                             break;
                         case 'TREEMAP':
-                            let clsDef = require('./d3plus/treemapChartBuilderService');
-                            builder = new clsDef.TreemapChartBuilderService();
+                            let TreemapChartBuilderService = require('./d3plus/treemapChartBuilderService');
+                            builder = new TreemapChartBuilderService();
                             break;
                         case 'SCATTERPLOT': // Unused
-                            let clsDef = require('./d3plus/scatterChartBuilderService');
-                            builder = new clsDef.ScatterChartBuilderService();
+                            let ScatterChartBuilderService = require('./d3plus/scatterChartBuilderService');
+                            builder = new ScatterChartBuilderService();
                             break;
                         case 'BOXPLOT': // Unused
-                            let clsDef = require('./d3plus/boxplotChartBuilderService');
-                            builder = new clsDef.BoxplotChartBuilderService();
+                            let BoxplotChartBuilderService = require('./d3plus/boxplotChartBuilderService');
+                            builder = new BoxplotChartBuilderService();
                             break;
                         // D3 based
                         case 'CALENDAR': // Unused
-                            let clsDef = require('./d3plus/calendarChartBuilderService');
-                            builder = new clsDef.CalendarChartBuilderService();
+                            let CalendarChartBuilderService = require('./d3plus/calendarChartBuilderService');
+                            builder = new CalendarChartBuilderService();
                             break;
                         case 'SANKEYD3': // Unused
-                            let clsDef = require('./d3plus/sankeyChartBuilderService');
-                            builder = new clsDef.SankeyChartBuilderService();
+                            let SankeyChartBuilderService = require('./d3plus/sankeyChartBuilderService');
+                            builder = new SankeyChartBuilderService();
                             break;
                         // Leaflet based
                         case 'MAP_BUBBLES':
-                            let clsDef = require('./d3plus/bubblesChartBuilderService');
-                            builder = new clsDef.BubblesChartBuilderService();
+                            let BubblesChartBuilderService = require('./d3plus/bubblesChartBuilderService');
+                            builder = new BubblesChartBuilderService();
                             break;
                         case 'MAP_CLUSTER':
-                            let clsDef = require('./d3plus/clusterChartBuilderService');
-                            builder = new clsDef.ClusterChartBuilderService();
+                            let ClusterChartBuilderService = require('./d3plus/clusterChartBuilderService');
+                            builder = new ClusterChartBuilderService();
                             break;
                         case 'MAP_HEAT':
-                            let clsDef = require('./d3plus/heatChartBuilderService');
-                            builder = new clsDef.HeatChartBuilderService();
+                            let HeatChartBuilderService = require('./d3plus/heatChartBuilderService');
+                            builder = new HeatChartBuilderService();
                             break;
                         case 'MAP_POLYGON': // Unused
-                            let clsDef = require('./d3plus/polygonsChartBuilderService');
-                            builder = new clsDef.PolygonsChartBuilderService();
+                            let PolygonsChartBuilderService = require('./d3plus/polygonsChartBuilderService');
+                            builder = new PolygonsChartBuilderService();
                             break;
                         default:
                             break;

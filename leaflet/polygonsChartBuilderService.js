@@ -1,6 +1,4 @@
-import LeafletChartBuilderService from './leafletChartBuilderService'
-
-import * as d3chrom from 'd3-scale-chromatic'
+const LeafletChartBuilderService = require('./leafletChartBuilderService');
 
 class PolygonsChartBuilderService extends LeafletChartBuilderService {
     constructor() {
@@ -80,4 +78,4 @@ class PolygonsChartBuilderService extends LeafletChartBuilderService {
 
 }
 
-export default  PolygonsChartBuilderService
+module.exports = PolygonsChartBuilderService
