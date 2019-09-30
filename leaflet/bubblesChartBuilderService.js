@@ -1,6 +1,6 @@
 const LeafletChartBuilderService = require('./leafletChartBuilderService');
 
-import IndicatorsModel from '../../../model/singleton/indicatorsModel' // Decouple
+import IndicatorsModel from '../../../model/singleton/indicatorsModel' // TODO Decouple
 
 class BubblesChartBuilderService extends LeafletChartBuilderService {
     radius = { multiplier: 1600000, base: 5000 };
