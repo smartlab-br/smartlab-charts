@@ -4,16 +4,15 @@ import * as d3 from 'd3';
 import * as d3chrom from 'd3-scale-chromatic';
 
 class LeafletChartBuilderService extends GeneralChartBuilderService {
-    tiles = {
-        url: 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }
-	clickable = true
-	layers = {}
-    L = require('../../../../node_modules/leaflet/dist/leaflet.js');
-    
     constructor() {
         super();
+        this.tiles = {
+            url: 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }
+        this.clickable = true
+        this.layers = {}
+        this.L = require('../../../../node_modules/leaflet/dist/leaflet.js');
         this.L = Object.assign(this.L, require('../../../../node_modules/leaflet-easyprint/dist/bundle.js'));
         this.L = Object.assign(this.L, require('../../../../node_modules/leaflet.heat/dist/leaflet-heat.js'));
         this.L = Object.assign(this.L, require('../../../../node_modules/leaflet.markercluster/dist/leaflet.markercluster.js'));

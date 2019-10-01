@@ -1,19 +1,19 @@
 import * as d3 from 'd3';
 
 class CalendarChartBuilderService {
-    quantileStyles = {
-        'q0-9': '#800026',
-        'q1-9': '#bd0026',
-        'q2-9': '#e31a1c',
-        'q3-9': '#fc4e2a',
-        'q4-9': '#fd8d3c',
-        'q5-9': '#feb24c',
-        'q6-9': '#fed976',
-        'q7-9': '#ffeda0',
-        'q8-9': '#ffffcc'
+    constructor() {
+        this.quantileStyles = {
+            'q0-9': '#800026',
+            'q1-9': '#bd0026',
+            'q2-9': '#e31a1c',
+            'q3-9': '#fc4e2a',
+            'q4-9': '#fd8d3c',
+            'q5-9': '#feb24c',
+            'q6-9': '#fed976',
+            'q7-9': '#ffeda0',
+            'q8-9': '#ffffcc'
+        }
     }
-
-    constructor() {}
 
     generateChart(containerId, dataset, options, additionalOptions) {
         // Preparando os dados, pois o dataset vem quebrado por atributo.

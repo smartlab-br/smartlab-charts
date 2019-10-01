@@ -1,10 +1,9 @@
 import D3PlusChartBuilderService from './d3plusChartBuilderService';
 
 class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
-    static _tilesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
-
     constructor() {
         super();
+        this._tilesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
     }
 
     prepareChart(viz, slicedDS, containerId, options, additionalOptions) { 
@@ -146,7 +145,7 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
                     stroke: 'black'
                 }
             })
-            .tileUrl(options.tiles_url ? options.tiles_url : TopoJsonChartBuilderService._tilesUrl)
+            .tileUrl(options.tiles_url ? options.tiles_url : this._tilesUrl)
             .topojson(options.topology && options.topology == 'uf' ? additionalOptions.topologyUf : additionalOptions.topology) 
             .tooltipConfig({
                 body: function(d) {

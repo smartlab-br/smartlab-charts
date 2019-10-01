@@ -1,11 +1,10 @@
 import LeafletChartBuilderService from './leafletChartBuilderService';
 
 class BubblesChartBuilderService extends LeafletChartBuilderService {
-    radius = { multiplier: 1600000, base: 5000 };
-    fCircleSize = d3.scaleLog().range([1, 4001]);
-
     constructor() {
         super();
+        this.radius = { multiplier: 1600000, base: 5000 };
+        this.fCircleSize = d3.scaleLog().range([1, 4001]);
     }
 
     fillLayers(dataset, options, boundsZoom = null) {
