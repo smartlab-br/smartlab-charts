@@ -78,4 +78,4 @@ class PolygonsChartBuilderService extends LeafletChartBuilderService {
 
 }
 
-export default PolygonsChartBuilderService
+module.exports = PolygonsChartBuilderService

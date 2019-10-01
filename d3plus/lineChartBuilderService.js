@@ -94,4 +94,4 @@ class LineChartBuilderService extends D3PlusChartBuilderService {
     }
 }
 
-export default LineChartBuilderService
+module.exports = LineChartBuilderService

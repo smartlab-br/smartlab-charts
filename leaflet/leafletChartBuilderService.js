@@ -244,4 +244,4 @@ class LeafletChartBuilderService extends GeneralChartBuilderService {
       }
 }
 
-export default  LeafletChartBuilderService
+module.exports =  LeafletChartBuilderService

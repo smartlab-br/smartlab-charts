@@ -54,4 +54,4 @@ class ClusterChartBuilderService extends LeafletChartBuilderService {
     }
 }
 
-export default ClusterChartBuilderService
+module.exports = ClusterChartBuilderService

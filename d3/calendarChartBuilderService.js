@@ -141,4 +141,4 @@ class CalendarChartBuilderService {
     }
 }
 
-export default CalendarChartBuilderService
+module.exports = CalendarChartBuilderService

@@ -87,4 +87,4 @@ class BubblesChartBuilderService extends LeafletChartBuilderService {
       
 }
 
-export default BubblesChartBuilderService
+module.exports = BubblesChartBuilderService

@@ -56,4 +56,4 @@ class ScatterChartBuilderService extends D3PlusChartBuilderService {
     }
 }
 
-export default ScatterChartBuilderService
+module.exports = ScatterChartBuilderService

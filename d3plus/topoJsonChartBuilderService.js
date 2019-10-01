@@ -1,4 +1,4 @@
-import D3PlusChartBuilderService from './d3plusChartBuilderService';
+const D3PlusChartBuilderService = require('./d3plusChartBuilderService');
 
 class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
     constructor() {
@@ -163,4 +163,4 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
     }
 }
 
-export default TopoJsonChartBuilderService
+module.exports = TopoJsonChartBuilderService

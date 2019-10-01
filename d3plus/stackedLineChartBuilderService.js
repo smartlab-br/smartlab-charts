@@ -91,4 +91,4 @@ class StackedLineChartBuilderService extends D3PlusChartBuilderService {
     }
 }
 
-export default StackedLineChartBuilderService
+module.exports = StackedLineChartBuilderService

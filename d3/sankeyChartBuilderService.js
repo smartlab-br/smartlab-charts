@@ -83,4 +83,4 @@ class SankeyChartBuilderService {
     }
 }
 
-export default SankeyChartBuilderService
+module.exports = SankeyChartBuilderService

@@ -1,19 +1,3 @@
-import TopoJsonChartBuilderService from './d3plus/topoJsonChartBuilderService';
-import LineChartBuilderService from './d3plus/lineChartBuilderService';
-import StackedLineChartBuilderService from './d3plus/stackedLineChartBuilderService';
-import BarChartBuilderService from './d3plus/barChartBuilderService';
-import TreemapChartBuilderService from './d3plus/treemapChartBuilderService';
-import ScatterChartBuilderService from './d3plus/scatterChartBuilderService';
-import BoxplotChartBuilderService from './d3plus/boxplotChartBuilderService';
-
-import CalendarChartBuilderService from './d3/calendarChartBuilderService';
-import SankeyChartBuilderService from './d3/sankeyChartBuilderService';
-
-import BubblesChartBuilderService from './leaflet/bubblesChartBuilderService';
-import ClusterChartBuilderService from './leaflet/clusterChartBuilderService';
-import HeatChartBuilderService from './leaflet/heatChartBuilderService';
-import PolygonsChartBuilderService from './leaflet/polygonsChartBuilderService';
-
 class ChartBuilderService {
     constructor() {}
 
@@ -22,57 +6,57 @@ class ChartBuilderService {
             setTimeout(() => {
                 let container = document.getElementById(containerId);
                 if (container) {
-                    let builder;
+                    let Builder;
                     container.innerHTML = '';
                     switch (type) {
                         // D3Plus based
                         case 'MAP_TOPOJSON':
-                            builder = new TopoJsonChartBuilderService();
+                            Builder = require('./d3plus/topoJsonChartBuilderService');
                             break;
                         case 'LINE':
-                            builder = new LineChartBuilderService();
+                            Builder = require('./d3plus/lineChartBuilderService');
                             break;
                         case 'STACKED': // Unused
-                            builder = new StackedLineChartBuilderService();
+                            Builder = require('./d3plus/stackedLineChartBuilderService');
                             break;
                         case 'BAR':
-                            builder = new BarChartBuilderService();
+                            Builder = require('./d3plus/barChartBuilderService');
                             break;
                         case 'TREEMAP':
-                            builder = new TreemapChartBuilderService();
+                            Builder = require('./d3plus/treemapChartBuilderService');
                             break;
                         case 'SCATTERPLOT': // Unused
-                            builder = new ScatterChartBuilderService();
+                            Builder = require('./d3plus/scatterChartBuilderService');
                             break;
                         case 'BOXPLOT': // Unused
-                            builder = new BoxplotChartBuilderService();
+                            Builder = require('./d3plus/boxplotChartBuilderService');
                             break;
                         // D3 based
                         case 'CALENDAR': // Unused
-                            builder = new CalendarChartBuilderService();
+                            Builder = require('./d3/calendarChartBuilderService');
                             break;
                         case 'SANKEYD3': // Unused
-                            builder = new SankeyChartBuilderService();
+                            Builder = require('./d3/sankeyChartBuilderService');
                             break;
                         // Leaflet based
                         case 'MAP_BUBBLES':
-                            builder = new BubblesChartBuilderService();
+                            Builder = require('./leaflet/bubblesChartBuilderService');
                             break;
                         case 'MAP_CLUSTER':
-                            builder = new ClusterChartBuilderService();
+                            Builder = require('./leaflet/clusterChartBuilderService');
                             break;
                         case 'MAP_HEAT':
-                            builder = new HeatChartBuilderService();
+                            Builder = require('./leaflet/heatChartBuilderService');
                             break;
                         case 'MAP_POLYGON': // Unused
-                            builder = new PolygonsChartBuilderService();
+                            Builder = require('./leaflet/polygonsChartBuilderService');
                             break;
                         default:
                             break;
                     }
                     if (builder) {
                         try {
-                            let chart = builder.generateChart(containerId, dataset, options, additionalOptions);
+                            let chart = (new Builder()).generateChart(containerId, dataset, options, additionalOptions);
                             resolve(chart);
                         } catch (err) {
                             reject(err);

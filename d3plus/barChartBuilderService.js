@@ -190,4 +190,4 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
     }
 }
 
-export default BarChartBuilderService
+module.exports = BarChartBuilderService

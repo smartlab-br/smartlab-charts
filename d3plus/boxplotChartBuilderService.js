@@ -41,4 +41,4 @@ class BoxplotChartBuilderService extends D3PlusChartBuilderService {
     }
 }
 
-export default BoxplotChartBuilderService
+module.exports = BoxplotChartBuilderService

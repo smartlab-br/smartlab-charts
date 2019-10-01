@@ -23,4 +23,4 @@ class HeatChartBuilderService extends LeafletChartBuilderService {
     }
 }
 
-export default HeatChartBuilderService
+module.exports = HeatChartBuilderService

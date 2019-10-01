@@ -128,4 +128,4 @@ class TreemapChartBuilderService extends D3PlusChartBuilderService {
     }
 }
 
-export default TreemapChartBuilderService
+module.exports = TreemapChartBuilderService

@@ -1,7 +1,7 @@
 class GeneralChartBuilderService {
-    _fontFamily = "titulos-observatorio";
-
-    constructor() {}
+    constructor() {
+        this._fontFamily = "titulos-observatorio";
+    }
 
     static getSlicedDataset(dataset, options) {
         let slicedDS = dataset;
@@ -43,4 +43,4 @@ class GeneralChartBuilderService {
     }
 }
 
-export default  GeneralChartBuilderService
+module.exports =  GeneralChartBuilderService
