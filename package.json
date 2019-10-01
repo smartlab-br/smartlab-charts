@@ -8,7 +8,8 @@
     "test": "jest"
   },
   "engines": {
-    "npm": ">=4.0"
+    "node": ">=12.11",
+    "npm": ">=6.11"
   },
   "jest": {
     "testResultsProcessor": "jest-sonar-reporter",
@@ -24,10 +25,7 @@
     "collectCoverage": true,
     "coverageDirectory": "test/coverage",
     "collectCoverageFrom": [
-      "**/*.{js}",
-      "!**/node_modules/**",
-      "!**/vendor/**",
-      "!**/test/**"
+      "src/**/*.{js}"
     ],
     "moduleFileExtensions": [
       "js"
@@ -66,8 +64,13 @@
     "babel-preset-stage-2": "6.24.1",
     "babel-register": "6.26.0",
     "jest": "^23.6.0",
+    "jest-junit": "8.0.0",
     "jest-sonar-reporter": "^2.0.0",
-    "jest-junit": "8.0.0"
+    "source-map-loader": "0.2.4",
+    "ts-loader": "6.2.0",
+    "typescript": "3.6.3",
+    "webpack": "4.41.0",
+    "webpack-cli": "3.3.9"
   },
   "main": "chartBuilderService.js",
   "repository": {
@@ -79,7 +82,8 @@
     "charts",
     "d3",
     "d3plus",
-    "leaflet"
+    "leaflet",
+    "typescript"
   ],
   "license": "MIT",
   "bugs": {

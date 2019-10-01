@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="714" lines-covered="0" line-rate="0" branches-valid="654" branches-covered="0" branch-rate="0" timestamp="1569936151555" complexity="0" version="0.1">
+<coverage lines-valid="708" lines-covered="0" line-rate="0" branches-valid="652" branches-covered="0" branch-rate="0" timestamp="1569937833504" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\Rodrigo Fagundes\Documents\Projetos\smartlab-charts</source>
   </sources>
@@ -94,24 +94,24 @@
           <methods>
             <method name="GeneralChartBuilderService" hits="0" signature="()V">
               <lines>
-                <line number="6" hits="0"/>
+                <line number="4" hits="0"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="1" hits="0" branch="false"/>
-            <line number="6" hits="0" branch="false"/>
-            <line number="9" hits="0" branch="false"/>
-            <line number="10" hits="0" branch="true" condition-coverage="0% (0/7)"/>
+            <line number="4" hits="0" branch="false"/>
+            <line number="7" hits="0" branch="false"/>
+            <line number="8" hits="0" branch="true" condition-coverage="0% (0/7)"/>
+            <line number="11" hits="0" branch="false"/>
             <line number="13" hits="0" branch="false"/>
-            <line number="15" hits="0" branch="false"/>
-            <line number="20" hits="0" branch="false"/>
-            <line number="33" hits="0" branch="false"/>
-            <line number="41" hits="0" branch="true" condition-coverage="0% (0/12)"/>
+            <line number="17" hits="0" branch="true" condition-coverage="0% (0/4)"/>
+            <line number="18" hits="0" branch="false"/>
+            <line number="29" hits="0" branch="false"/>
+            <line number="37" hits="0" branch="true" condition-coverage="0% (0/12)"/>
+            <line number="38" hits="0" branch="false"/>
+            <line number="39" hits="0" branch="false"/>
+            <line number="40" hits="0" branch="false"/>
             <line number="42" hits="0" branch="false"/>
-            <line number="43" hits="0" branch="false"/>
-            <line number="44" hits="0" branch="false"/>
-            <line number="46" hits="0" branch="false"/>
           </lines>
         </class>
       </classes>
@@ -270,92 +270,92 @@
                 <line number="5" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_4)" hits="0" signature="()V">
+            <method name="(anonymous_5)" hits="0" signature="()V">
               <lines>
                 <line number="9" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_5)" hits="0" signature="()V">
+            <method name="(anonymous_6)" hits="0" signature="()V">
               <lines>
                 <line number="13" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_6)" hits="0" signature="()V">
+            <method name="(anonymous_7)" hits="0" signature="()V">
               <lines>
                 <line number="29" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_7)" hits="0" signature="()V">
+            <method name="(anonymous_8)" hits="0" signature="()V">
               <lines>
                 <line number="36" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_8)" hits="0" signature="()V">
+            <method name="(anonymous_9)" hits="0" signature="()V">
               <lines>
                 <line number="37" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_9)" hits="0" signature="()V">
+            <method name="(anonymous_10)" hits="0" signature="()V">
               <lines>
                 <line number="45" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_10)" hits="0" signature="()V">
+            <method name="(anonymous_11)" hits="0" signature="()V">
               <lines>
                 <line number="46" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_11)" hits="0" signature="()V">
+            <method name="(anonymous_12)" hits="0" signature="()V">
               <lines>
                 <line number="47" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_12)" hits="0" signature="()V">
+            <method name="(anonymous_13)" hits="0" signature="()V">
               <lines>
                 <line number="48" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_13)" hits="0" signature="()V">
+            <method name="(anonymous_14)" hits="0" signature="()V">
               <lines>
                 <line number="49" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_14)" hits="0" signature="()V">
+            <method name="(anonymous_15)" hits="0" signature="()V">
               <lines>
                 <line number="51" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_15)" hits="0" signature="()V">
+            <method name="(anonymous_16)" hits="0" signature="()V">
               <lines>
                 <line number="58" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_16)" hits="0" signature="()V">
+            <method name="(anonymous_17)" hits="0" signature="()V">
               <lines>
                 <line number="63" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_17)" hits="0" signature="()V">
+            <method name="(anonymous_18)" hits="0" signature="()V">
               <lines>
                 <line number="70" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_18)" hits="0" signature="()V">
+            <method name="(anonymous_19)" hits="0" signature="()V">
               <lines>
                 <line number="77" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_19)" hits="0" signature="()V">
+            <method name="(anonymous_20)" hits="0" signature="()V">
               <lines>
                 <line number="78" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_20)" hits="0" signature="()V">
+            <method name="(anonymous_21)" hits="0" signature="()V">
               <lines>
                 <line number="80" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_21)" hits="0" signature="()V">
+            <method name="(anonymous_22)" hits="0" signature="()V">
               <lines>
                 <line number="81" hits="0"/>
               </lines>
@@ -400,7 +400,6 @@
             <line number="78" hits="0" branch="false"/>
             <line number="80" hits="0" branch="true" condition-coverage="0% (0/2)"/>
             <line number="81" hits="0" branch="false"/>
-            <line number="86" hits="0" branch="false"/>
           </lines>
         </class>
       </classes>
@@ -1047,45 +1046,40 @@
           <methods>
             <method name="BubblesChartBuilderService" hits="0" signature="()V">
               <lines>
-                <line number="9" hits="0"/>
+                <line number="7" hits="0"/>
               </lines>
             </method>
           </methods>
           <lines>
             <line number="1" hits="0" branch="false"/>
-            <line number="3" hits="0" branch="false"/>
-            <line number="9" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="13" hits="0" branch="true" condition-coverage="0% (0/6)"/>
-            <line number="15" hits="0" branch="true" condition-coverage="0% (0/5)"/>
-            <line number="16" hits="0" branch="true" condition-coverage="0% (0/5)"/>
-            <line number="18" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="19" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="7" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="11" hits="0" branch="true" condition-coverage="0% (0/6)"/>
+            <line number="13" hits="0" branch="true" condition-coverage="0% (0/5)"/>
+            <line number="14" hits="0" branch="true" condition-coverage="0% (0/5)"/>
+            <line number="16" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="17" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="19" hits="0" branch="false"/>
             <line number="21" hits="0" branch="false"/>
-            <line number="23" hits="0" branch="false"/>
-            <line number="25" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="26" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="27" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="30" hits="0" branch="true" condition-coverage="0% (0/4)"/>
-            <line number="31" hits="0" branch="false"/>
-            <line number="34" hits="0" branch="false"/>
-            <line number="35" hits="0" branch="false"/>
-            <line number="36" hits="0" branch="false"/>
+            <line number="23" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="24" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="26" hits="0" branch="false"/>
+            <line number="27" hits="0" branch="false"/>
+            <line number="28" hits="0" branch="false"/>
+            <line number="29" hits="0" branch="false"/>
+            <line number="33" hits="0" branch="false"/>
+            <line number="34" hits="0" branch="true" condition-coverage="0% (0/6)"/>
+            <line number="35" hits="0" branch="true" condition-coverage="0% (0/2)"/>
             <line number="37" hits="0" branch="false"/>
-            <line number="41" hits="0" branch="false"/>
-            <line number="42" hits="0" branch="true" condition-coverage="0% (0/6)"/>
-            <line number="43" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="39" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="42" hits="0" branch="false"/>
             <line number="45" hits="0" branch="false"/>
-            <line number="47" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="50" hits="0" branch="false"/>
-            <line number="53" hits="0" branch="false"/>
-            <line number="77" hits="0" branch="false"/>
-            <line number="82" hits="0" branch="false"/>
-            <line number="86" hits="0" branch="false"/>
-            <line number="87" hits="0" branch="false"/>
-            <line number="88" hits="0" branch="true" condition-coverage="0% (0/2)"/>
-            <line number="89" hits="0" branch="false"/>
-            <line number="91" hits="0" branch="false"/>
-            <line number="99" hits="0" branch="false"/>
+            <line number="69" hits="0" branch="false"/>
+            <line number="74" hits="0" branch="false"/>
+            <line number="78" hits="0" branch="false"/>
+            <line number="79" hits="0" branch="false"/>
+            <line number="80" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="81" hits="0" branch="false"/>
+            <line number="83" hits="0" branch="false"/>
           </lines>
         </class>
         <class name="clusterChartBuilderService.js" filename="leaflet\clusterChartBuilderService.js" line-rate="0" branch-rate="0">
@@ -1141,12 +1135,12 @@
                 <line number="15" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_4)" hits="0" signature="()V">
+            <method name="(anonymous_5)" hits="0" signature="()V">
               <lines>
                 <line number="68" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_5)" hits="0" signature="()V">
+            <method name="(anonymous_6)" hits="0" signature="()V">
               <lines>
                 <line number="71" hits="0"/>
               </lines>
@@ -1156,17 +1150,17 @@
                 <line number="108" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_9)" hits="0" signature="()V">
+            <method name="(anonymous_10)" hits="0" signature="()V">
               <lines>
                 <line number="121" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_16)" hits="0" signature="()V">
+            <method name="(anonymous_17)" hits="0" signature="()V">
               <lines>
                 <line number="222" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_17)" hits="0" signature="()V">
+            <method name="(anonymous_18)" hits="0" signature="()V">
               <lines>
                 <line number="223" hits="0"/>
               </lines>
