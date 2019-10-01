@@ -1,4 +1,4 @@
-const d3 = require('d3');
+import * as d3 from 'd3';
 
 class CalendarChartBuilderService {
     quantileStyles = {
@@ -32,19 +32,19 @@ class CalendarChartBuilderService {
         }
 
         let contId = "#" + containerId;
-        let svg = d3.select(contId).selectAll("svg");
+        let svg = select(contId).selectAll("svg");
         svg.remove();
 
-        let day = d3.timeFormat("%w"),
-            week = d3.timeFormat("%U"),
-            format = d3.timeFormat("%Y-%m-%d");
+        let day = timeFormat("%w"),
+            week = timeFormat("%U"),
+            format = timeFormat("%Y-%m-%d");
 
-        var color = d3.scaleQuantize()
+        var color = scaleQuantize()
           .domain([0.00, 1.00])
-          .range(d3.range(9).map(function(d) { return "q" + d + "-9"; }));
+          .range(range(9).map(function(d) { return "q" + d + "-9"; }));
           
         //append a new one
-        svg = d3.select(contId).append("svg");
+        svg = select(contId).append("svg");
 
         setTimeout(() => {
             let width = document.getElementById(containerId).offsetWidth - 16;
@@ -68,7 +68,7 @@ class CalendarChartBuilderService {
                 .style("width", "100%");
 
             let g = svg.selectAll(".yearG")
-                .data(d3.range(Math.min.apply(null, years), Math.max.apply(null, years) + 1))
+                .data(range(Math.min.apply(null, years), Math.max.apply(null, years) + 1))
                 .enter()
                 .append("g")
                 .attr("class", "YlOrRd")
@@ -83,7 +83,7 @@ class CalendarChartBuilderService {
                 .text(function(d) { return d; });
 
             let rect = g.selectAll(".day")
-                .data(function(d) { return d3.timeDays(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
+                .data(function(d) { return timeDays(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
                 .enter()
                 .append("rect")
                 .attr("class", "day")
@@ -97,7 +97,7 @@ class CalendarChartBuilderService {
                 .attr("y", function(d) { return day(d) * cellSize; })
                 .datum(format);
 
-            let rdata = d3.nest()
+            let rdata = nest()
                 .key(function(d) { return d.day; })
                 .rollup(function(d) { return d[0]; })
                 .map(df);
@@ -107,7 +107,7 @@ class CalendarChartBuilderService {
             );
 
             g.selectAll(".month")
-                .data(function(d) { return d3.timeMonths(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
+                .data(function(d) { return timeMonths(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
                 .enter()
                 .append("path")
                 .attr("class", "month")
@@ -141,4 +141,4 @@ class CalendarChartBuilderService {
     }
 }
 
-module.exports = CalendarChartBuilderService
+export default CalendarChartBuilderService

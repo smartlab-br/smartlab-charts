@@ -1,5 +1,5 @@
-const GeneralChartBuilderService = require('../generalChartBuilderService');
-const d3plus = require('d3plus');
+import GeneralChartBuilderService from '../generalChartBuilderService';
+import * as d3plus from 'd3plus';
 
 class D3PlusChartBuilderService extends GeneralChartBuilderService{
     constructor() {
@@ -52,4 +52,4 @@ class D3PlusChartBuilderService extends GeneralChartBuilderService{
     }   
 }
 
-module.exports = D3PlusChartBuilderService
+export default D3PlusChartBuilderService

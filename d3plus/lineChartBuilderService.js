@@ -1,4 +1,4 @@
-const D3PlusChartBuilderService = require('./d3plusChartBuilderService');
+import D3PlusChartBuilderService from './d3plusChartBuilderService';
 
 class LineChartBuilderService extends D3PlusChartBuilderService {
     constructor() {
@@ -94,4 +94,4 @@ class LineChartBuilderService extends D3PlusChartBuilderService {
     }
 }
 
-module.exports = LineChartBuilderService
+export default LineChartBuilderService

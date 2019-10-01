@@ -1,4 +1,4 @@
-const LeafletChartBuilderService = require('./leafletChartBuilderService');
+import LeafletChartBuilderService from './leafletChartBuilderService';
 
 class PolygonsChartBuilderService extends LeafletChartBuilderService {
     constructor() {
@@ -78,4 +78,4 @@ class PolygonsChartBuilderService extends LeafletChartBuilderService {
 
 }
 
-module.exports = PolygonsChartBuilderService
+export default PolygonsChartBuilderService

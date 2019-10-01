@@ -1,4 +1,4 @@
-const LeafletChartBuilderService = require('./leafletChartBuilderService');
+import LeafletChartBuilderService from './leafletChartBuilderService';
 
 class HeatChartBuilderService extends LeafletChartBuilderService {
     constructor() {
@@ -23,4 +23,4 @@ class HeatChartBuilderService extends LeafletChartBuilderService {
     }
 }
 
-module.exports = HeatChartBuilderService
+export default HeatChartBuilderService
