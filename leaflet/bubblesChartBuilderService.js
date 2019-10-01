@@ -1,6 +1,4 @@
-const LeafletChartBuilderService = require('./leafletChartBuilderService');
-
-import IndicatorsModel from '../../../model/singleton/indicatorsModel' // TODO Decouple
+import LeafletChartBuilderService from './leafletChartBuilderService';
 
 class BubblesChartBuilderService extends LeafletChartBuilderService {
     radius = { multiplier: 1600000, base: 5000 };
@@ -24,12 +22,6 @@ class BubblesChartBuilderService extends LeafletChartBuilderService {
 
         let value_field = options.value_field ? options.value_field : 'api_calc_ln_norm_pos_part';
         let id_field = options.id_field ? options.id_field : 'cd_indicador';
-        let min_field = options.min_field ? options.min_field : 'calc_min_part';
-
-        // Prepares the dataset, if the layers have no range
-        if (min_field == 'minVal' || !value_field.includes('api_calc_')) {  
-            dataset = (new IndicatorsModel()).getMinMaxEachIndicator(dataset, value_field);
-        }
           
         for (const ident of options.indicadores) {
             let group = L.layerGroup();
@@ -96,4 +88,4 @@ class BubblesChartBuilderService extends LeafletChartBuilderService {
       
 }
 
-module.exports = BubblesChartBuilderService
+export default BubblesChartBuilderService

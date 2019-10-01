@@ -1,5 +1,5 @@
-const d3 = require('d3');
-const d3Sankey = require('d3-sankey');
+import * as d3 from 'd3';
+import * as d3Sankey from 'd3-sankey';
 
 class SankeyChartBuilderService {
     constructor() {}
@@ -12,22 +12,22 @@ class SankeyChartBuilderService {
             });
             let nos = additionalOptions.metadata.sankey_data.nodes.map(obj =>{ return {id: obj, title: obj}; });
 
-            const color = d3.scaleOrdinal(d3.schemeCategory10);
+            const color = scaleOrdinal(schemeCategory10);
 
             let height = 700;
             let width = document.getElementById(containerId).offsetWidth;
 
             let contId = "#" + containerId;
-            let svg = d3.select(contId).selectAll("svg");
+            let svg = select(contId).selectAll("svg");
             svg.remove();
 
-            svg = d3.select(contId).append("svg")
+            svg = select(contId).append("svg")
                 .attr("width", width)
                 .attr("height", height);
 
-            const sankey = d3Sankey.sankey()
+            const sankey = _sankey()
                 .nodeId(d => d.id)
-                .nodeAlign(d3Sankey.sankeyRight)
+                .nodeAlign(sankeyRight)
                 .nodeWidth(15)
                 .nodePadding(10)
                 .extent([[0, 5], [width, height - 5]]);
@@ -55,11 +55,11 @@ class SankeyChartBuilderService {
                 .selectAll("g")
                 .data(links)
                 .join("g")
-                .attr("stroke", d => d3.color(d.color) || "#dddddd")
+                .attr("stroke", d => _color(d.color) || "#dddddd")
                 .style("mix-blend-mode", "multiply");
 
             link.append("path")
-                .attr("d", d3Sankey.sankeyLinkHorizontal())
+                .attr("d", sankeyLinkHorizontal())
                 .attr("stroke-width", d => Math.max(1, d.width))
                 .attr("class", "sankey-link")
                 .style("fill", "none")
@@ -83,4 +83,4 @@ class SankeyChartBuilderService {
     }
 }
 
-module.exports = SankeyChartBuilderService
+export default SankeyChartBuilderService
