@@ -2,7 +2,7 @@
   "name": "@smartlabbr/smartlab-charts",
   "description": "Charts generators/configurators used in smartlabbr.org",
   "author": "MPT/SPAI",
-  "version": "0.0.3-alpha.12",
+  "version": "0.0.3-alpha.13",
   "private": false,
   "scripts": {
     "test": "jest"
@@ -82,8 +82,7 @@
     "charts",
     "d3",
     "d3plus",
-    "leaflet",
-    "typescript"
+    "leaflet"
   ],
   "license": "MIT",
   "bugs": {
