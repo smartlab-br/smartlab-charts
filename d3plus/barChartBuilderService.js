@@ -100,7 +100,7 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
         
         if (options.color !== null && options.color !== undefined) {
             if(options.color == "accent"){
-                let colorAccent = this.$vuetify.theme.accent;
+                let colorAccent = additionalOptions.theme.accent;
                 viz = viz.color(() => { return colorAccent; });
             } else{
                 viz = viz.color(() => { return options.color; });
