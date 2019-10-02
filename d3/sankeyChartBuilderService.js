@@ -1,8 +1,8 @@
-import * as d3 from 'd3';
-import * as d3Sankey from 'd3-sankey';
-
 class SankeyChartBuilderService {
-    constructor() {}
+    constructor() {
+        this.d3 = require('d3');
+        this.d3Sankey = require('d3-sankey');
+    }
 
     generateChart(containerId, dataset, options, additionalOptions) {
         if (additionalOptions.metadata.sankey_data.nodes.length > 0) {
@@ -12,27 +12,27 @@ class SankeyChartBuilderService {
             });
             let nos = additionalOptions.metadata.sankey_data.nodes.map(obj =>{ return {id: obj, title: obj}; });
 
-            const color = scaleOrdinal(schemeCategory10);
+            const color = d3.scaleOrdinal(schemeCategory10);
 
             let height = 700;
             let width = document.getElementById(containerId).offsetWidth;
 
             let contId = "#" + containerId;
-            let svg = select(contId).selectAll("svg");
+            let svg = this.d3.select(contId).selectAll("svg");
             svg.remove();
 
-            svg = select(contId).append("svg")
+            svg = this.d3.select(contId).append("svg")
                 .attr("width", width)
                 .attr("height", height);
 
-            const sankey = _sankey()
+            const sankey = this.d3Sankey._sankey()
                 .nodeId(d => d.id)
                 .nodeAlign(sankeyRight)
                 .nodeWidth(15)
                 .nodePadding(10)
                 .extent([[0, 5], [width, height - 5]]);
 
-            const {nodes, links} = sankey({
+            const {nodes, links} = this.d3Sankey.sankey({
                 nodes: nos.map(d => Object.assign({}, d)),
                 links: lns.map(d => Object.assign({}, d)),
                 layout: 32

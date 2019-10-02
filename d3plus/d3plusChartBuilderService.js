@@ -1,9 +1,9 @@
 const GeneralChartBuilderService = require('../generalChartBuilderService');
-//import * as d3plus from 'd3plus';
 
 class D3PlusChartBuilderService extends GeneralChartBuilderService{
     constructor() {
         super();
+        this.d3plus = require('d3plus');
     }
 
     generateChart(containerId, dataset, options, additionalOptions) {

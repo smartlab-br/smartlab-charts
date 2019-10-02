@@ -1,4 +1,4 @@
-import LeafletChartBuilderService from './leafletChartBuilderService';
+const LeafletChartBuilderService = require('./leafletChartBuilderService');
 
 class BubblesChartBuilderService extends LeafletChartBuilderService {
     constructor() {

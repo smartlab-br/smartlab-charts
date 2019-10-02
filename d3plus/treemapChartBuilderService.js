@@ -1,4 +1,4 @@
-import D3PlusChartBuilderService from './d3plusChartBuilderService';
+const D3PlusChartBuilderService = require('./d3plusChartBuilderService');
 
 class TreemapChartBuilderService extends D3PlusChartBuilderService {
     constructor() {
@@ -88,7 +88,7 @@ class TreemapChartBuilderService extends D3PlusChartBuilderService {
         let tooltip_context = additionalOptions.context ? additionalOptions.context : null;
         let removed_text_list = options.removed_text_list;
 
-        let viz = new d3plus.Treemap()
+        let viz = new this.d3plus.Treemap()
             .data({"opacity":0.8})  // data to use with the visualization
             .detectResize(true)
             .shapeConfig({ 

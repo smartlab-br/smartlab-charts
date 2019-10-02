@@ -1,4 +1,4 @@
-import D3PlusChartBuilderService from './d3plusChartBuilderService';
+const D3PlusChartBuilderService = require('./d3plusChartBuilderService');
 
 class LineChartBuilderService extends D3PlusChartBuilderService {
     constructor() {
@@ -64,7 +64,7 @@ class LineChartBuilderService extends D3PlusChartBuilderService {
         if (options.x_options && options.x_options.axis === false) xConfig= this.constructor.getTransparentXYConfig();
         if (options.y_options && options.y_options.axis === false) yConfig = this.constructor.getTransparentXYConfig();
         
-        let viz = new d3plus.LinePlot() 
+        let viz = new this.d3plus.LinePlot() 
             .legendConfig({ 
                 shapeConfig:{
                     labelConfig: { fontColor: additionalOptions.colorHandlers.assessZebraTitleColor(additionalOptions.sectionIndex, null, additionalOptions.theme) }

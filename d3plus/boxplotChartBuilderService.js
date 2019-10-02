@@ -1,4 +1,4 @@
-import D3PlusChartBuilderService from './d3plusChartBuilderService';
+const D3PlusChartBuilderService = require('./d3plusChartBuilderService');
 
 class BoxplotChartBuilderService extends D3PlusChartBuilderService {
     constructor() {
@@ -24,7 +24,7 @@ class BoxplotChartBuilderService extends D3PlusChartBuilderService {
         let tooltip_context = additionalOptions.context ? additionalOptions.context : null;
         let removed_text_list = options.removed_text_list; 
         
-        var viz = new d3plus.viz()
+        var viz = new this.d3plus.viz()
             .type("box")        // visualization type
             .tooltipConfig({
                 body: function(d) {

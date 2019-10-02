@@ -1,7 +1,4 @@
-import GeneralChartBuilderService from '../generalChartBuilderService';
-
-import * as d3 from 'd3';
-import * as d3chrom from 'd3-scale-chromatic';
+const LeafletChartBuilderService = require('./leafletChartBuilderService');
 
 class LeafletChartBuilderService extends GeneralChartBuilderService {
     constructor() {
@@ -16,6 +13,9 @@ class LeafletChartBuilderService extends GeneralChartBuilderService {
         this.L = Object.assign(this.L, require('../../../../node_modules/leaflet-easyprint/dist/bundle.js'));
         this.L = Object.assign(this.L, require('../../../../node_modules/leaflet.heat/dist/leaflet-heat.js'));
         this.L = Object.assign(this.L, require('../../../../node_modules/leaflet.markercluster/dist/leaflet.markercluster.js'));
+
+        this.d3 = require('d3');
+        this.d3chrom = require('d3-scale-chromatic');
     }
 
     generateChart(containerId, dataset, options, additionalOptions) {
@@ -43,7 +43,7 @@ class LeafletChartBuilderService extends GeneralChartBuilderService {
         let height = parseInt(chartContainer.offsetWidth / this.heightProportion);
         chartContainer.style.height = height + "px";
   
-        if (options.colorArray === null || options.colorArray === undefined) options.colorArray = d3chrom.schemeDark2;
+        if (options.colorArray === null || options.colorArray === undefined) options.colorArray = this.d3chrom.schemeDark2;
   
         let leaflet_map = this.L.map(containerId).setView([-15.793889, -47.882778], 5);
 		leaflet_map.options.minZoom = 4;
@@ -196,7 +196,7 @@ class LeafletChartBuilderService extends GeneralChartBuilderService {
 			let height = parseInt(chartContainer.offsetWidth / this.heightProportion);
 			chartContainer.style.height = height + "px";
 			
-			if (options.colorArray === null || options.colorArray === undefined) options.colorArray = d3chrom.schemeDark2;
+			if (options.colorArray === null || options.colorArray === undefined) options.colorArray = this.d3chrom.schemeDark2;
 
 			let leaflet_map = this.L.map(containerId).setView([-15.793889, -47.882778], 5);
 			leaflet_map.options.minZoom = 4;

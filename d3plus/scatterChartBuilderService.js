@@ -1,4 +1,4 @@
-import D3PlusChartBuilderService from './d3plusChartBuilderService';
+const D3PlusChartBuilderService = require('./d3plusChartBuilderService');
 
 class ScatterChartBuilderService extends D3PlusChartBuilderService {
     constructor() {
@@ -25,7 +25,7 @@ class ScatterChartBuilderService extends D3PlusChartBuilderService {
         let removed_text_list = options.removed_text_list; 
         
         var label = "";
-        var viz = new d3plus.viz()
+        var viz = new this.d3plus.viz()
             .data({"opacity":0.7})  // data to use with the visualization
             .type("scatter")        // visualization type
             .font( { fontFamily: additionalOptions.fontFamily ? additionalOptions.fontFamily : this._fontFamily })        // visualization type

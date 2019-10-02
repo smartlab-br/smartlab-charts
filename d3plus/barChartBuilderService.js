@@ -1,4 +1,4 @@
-import D3PlusChartBuilderService from './d3plusChartBuilderService';
+const D3PlusChartBuilderService = require('./d3plusChartBuilderService');
 
 class BarChartBuilderService extends D3PlusChartBuilderService {
     constructor() {
@@ -71,7 +71,7 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
         if (options.label_height !== undefined) barConfig.labelConfig.fontSize = options.label_height;
         if (options.orientation != 'vertical') barConfig.labelConfig.fontColor = "#fff";
 
-        let viz = new d3plus.BarChart()
+        let viz = new this.d3plus.BarChart()
               //.data({"opacity":0.7})  // data to use with the visualization
             .shapeConfig({ 
                 labelConfig: { fontFamily: additionalOptions.fontFamily ? additionalOptions.fontFamily : this._fontFamily },

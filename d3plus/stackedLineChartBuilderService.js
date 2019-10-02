@@ -1,4 +1,4 @@
-import D3PlusChartBuilderService from './d3plusChartBuilderService';
+const D3PlusChartBuilderService = require('./d3plusChartBuilderService');
 
 class StackedLineChartBuilderService extends D3PlusChartBuilderService {
     constructor() {
@@ -46,7 +46,7 @@ class StackedLineChartBuilderService extends D3PlusChartBuilderService {
           areaConfig.stroke = options.color;
         } 
 
-        let viz = new d3plus.StackedArea()
+        let viz = new this.d3plus.StackedArea()
           .shapeConfig({ 
             labelConfig: { fontFamily: additionalOptions.fontFamily ? additionalOptions.fontFamily : this._fontFamily },
             Area: areaConfig

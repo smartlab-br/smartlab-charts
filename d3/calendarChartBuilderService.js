@@ -1,5 +1,3 @@
-import * as d3 from 'd3';
-
 class CalendarChartBuilderService {
     constructor() {
         this.quantileStyles = {
@@ -13,6 +11,7 @@ class CalendarChartBuilderService {
             'q7-9': '#ffeda0',
             'q8-9': '#ffffcc'
         }
+        this.d3 = require('d3');
     }
 
     generateChart(containerId, dataset, options, additionalOptions) {
@@ -32,7 +31,7 @@ class CalendarChartBuilderService {
         }
 
         let contId = "#" + containerId;
-        let svg = select(contId).selectAll("svg");
+        let svg = this.d3.select(contId).selectAll("svg");
         svg.remove();
 
         let day = timeFormat("%w"),
@@ -44,7 +43,7 @@ class CalendarChartBuilderService {
           .range(range(9).map(function(d) { return "q" + d + "-9"; }));
           
         //append a new one
-        svg = select(contId).append("svg");
+        svg = this.d3.select(contId).append("svg");
 
         setTimeout(() => {
             let width = document.getElementById(containerId).offsetWidth - 16;
@@ -97,7 +96,7 @@ class CalendarChartBuilderService {
                 .attr("y", function(d) { return day(d) * cellSize; })
                 .datum(format);
 
-            let rdata = nest()
+            let rdata = this.d3.nest()
                 .key(function(d) { return d.day; })
                 .rollup(function(d) { return d[0]; })
                 .map(df);
