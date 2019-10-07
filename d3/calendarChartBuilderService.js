@@ -34,9 +34,9 @@ class CalendarChartBuilderService {
         let svg = this.d3.select(contId).selectAll("svg");
         svg.remove();
 
-        let day = timeFormat("%w"),
-            week = timeFormat("%U"),
-            format = timeFormat("%Y-%m-%d");
+        let day = this.d3.timeFormat("%w"),
+            week = this.d3.timeFormat("%U"),
+            format = this.d3.timeFormat("%Y-%m-%d");
 
         var color = scaleQuantize()
           .domain([0.00, 1.00])
