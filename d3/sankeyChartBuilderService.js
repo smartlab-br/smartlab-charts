@@ -28,7 +28,7 @@ class SankeyChartBuilderService {
 
             const sankey = this.d3Sankey.sankey()
                 .nodeId(d => d.id)
-                .nodeAlign(sankeyRight)
+                .nodeAlign(this.d3Sankey.sankeyRight)
                 .nodeWidth(15)
                 .nodePadding(10)
                 .extent([[0, 5], [width, height - 5]]);
