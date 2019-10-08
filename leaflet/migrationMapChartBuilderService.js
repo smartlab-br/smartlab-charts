@@ -124,7 +124,7 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
                             fillOpacity: options.fillOpacity != null ? 
                                 options.fillOpacity : 
                                 ( each_row.fillOpacity != null ? each_row.fillOpacity : 0.5 ),
-                            weight: each_row[loc_size_field]
+                            weight: each_row[value_field]
                         }
                     ).addTo(this.layers[ident]);
                 }
