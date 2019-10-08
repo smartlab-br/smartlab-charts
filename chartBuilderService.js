@@ -51,10 +51,13 @@ class ChartBuilderService {
                         case 'MAP_POLYGON': // Unused
                             Builder = require('./leaflet/polygonsChartBuilderService');
                             break;
+                        case 'MAP_MIGRATION': // New - untested
+                            Builder = require('./leaflet/migrationMapChartBuilderService');
+                            break;
                         default:
                             break;
                     }
-                    if (builder) {
+                    if (Builder) {
                         try {
                             let chart = (new Builder()).generateChart(containerId, dataset, options, additionalOptions);
                             resolve(chart);
@@ -72,7 +75,7 @@ class ChartBuilderService {
     static regenerateChart(chartHandler, type, containerId, dataset, options, additionalOptions = {}) {
         if (['MAP_TOPOJSON', 'LINE', 'STACKED', 'BAR', 'TREEMAP', 'SCATTERPLOT', 'BOXPLOT', 'CALENDAR', 'SANKEYD3'].includes(type)) {
             return ChartBuilderService.generateChart(type, containerId, dataset, options, additionalOptions);
-        } else if (['MAP_BUBBLES', 'MAP_CLUSTER', 'MAP_HEAT', 'MAP_POLYGON'].includes(type)) {
+        } else if (['MAP_BUBBLES', 'MAP_CLUSTER', 'MAP_HEAT', 'MAP_POLYGON', 'MAP_MIGRATION'].includes(type)) {
             chartHandler.removeChart();
             return ChartBuilderService.generateChart(type, containerId, dataset, options, additionalOptions);
         }

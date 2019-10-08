@@ -2,6 +2,7 @@ class SankeyChartBuilderService {
     constructor() {
         this.d3 = require('d3');
         this.d3Sankey = require('d3-sankey');
+        this.d3chrom = require('d3-scale-chromatic');
     }
 
     generateChart(containerId, dataset, options, additionalOptions) {
@@ -12,7 +13,7 @@ class SankeyChartBuilderService {
             });
             let nos = additionalOptions.metadata.sankey_data.nodes.map(obj =>{ return {id: obj, title: obj}; });
 
-            const color = d3.scaleOrdinal(schemeCategory10);
+            const color = this.d3.scaleOrdinal(this.d3chrom.schemeCategory10);
 
             let height = 700;
             let width = document.getElementById(containerId).offsetWidth;
@@ -32,7 +33,7 @@ class SankeyChartBuilderService {
                 .nodePadding(10)
                 .extent([[0, 5], [width, height - 5]]);
 
-            const {nodes, links} = this.d3Sankey.sankey({
+            const {nodes, links} = sankey({
                 nodes: nos.map(d => Object.assign({}, d)),
                 links: lns.map(d => Object.assign({}, d)),
                 layout: 32
@@ -59,7 +60,7 @@ class SankeyChartBuilderService {
                 .style("mix-blend-mode", "multiply");
 
             link.append("path")
-                .attr("d", sankeyLinkHorizontal())
+                .attr("d", this.d3Sankey.sankeyLinkHorizontal())
                 .attr("stroke-width", d => Math.max(1, d.width))
                 .attr("class", "sankey-link")
                 .style("fill", "none")

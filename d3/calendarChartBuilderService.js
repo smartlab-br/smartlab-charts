@@ -38,9 +38,9 @@ class CalendarChartBuilderService {
             week = this.d3.timeFormat("%U"),
             format = this.d3.timeFormat("%Y-%m-%d");
 
-        var color = scaleQuantize()
+        var color = this.d3.scaleQuantize()
           .domain([0.00, 1.00])
-          .range(range(9).map(function(d) { return "q" + d + "-9"; }));
+          .range(this.d3.range(9).map(function(d) { return "q" + d + "-9"; }));
           
         //append a new one
         svg = this.d3.select(contId).append("svg");
@@ -67,7 +67,7 @@ class CalendarChartBuilderService {
                 .style("width", "100%");
 
             let g = svg.selectAll(".yearG")
-                .data(range(Math.min.apply(null, years), Math.max.apply(null, years) + 1))
+                .data(this.d3.range(Math.min.apply(null, years), Math.max.apply(null, years) + 1))
                 .enter()
                 .append("g")
                 .attr("class", "YlOrRd")
@@ -81,6 +81,7 @@ class CalendarChartBuilderService {
                 .style("text-anchor", "middle")
                 .text(function(d) { return d; });
 
+            let timeDays = this.d3.timeDays;
             let rect = g.selectAll(".day")
                 .data(function(d) { return timeDays(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
                 .enter()
@@ -105,6 +106,7 @@ class CalendarChartBuilderService {
                 (d) => { return d + ": " + (rdata['$'+d] ? rdata['$'+d].qt : 0); }
             );
 
+            let timeMonths = this.d3.timeMonths;
             g.selectAll(".month")
                 .data(function(d) { return timeMonths(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
                 .enter()

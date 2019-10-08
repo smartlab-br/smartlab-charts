@@ -1,4 +1,4 @@
-const GeneralChartBuilderService = require('../leafletChartBuilderService');
+const GeneralChartBuilderService = require('../generalChartBuilderService');
 
 class LeafletChartBuilderService extends GeneralChartBuilderService {
     constructor() {
