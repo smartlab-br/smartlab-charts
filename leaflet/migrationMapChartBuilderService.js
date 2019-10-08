@@ -107,7 +107,25 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
                         [
                             [each_row[options.source.lat], each_row[options.source.long]],
                             [each_row[options.target.lat], each_row[options.target.long]]
-                        ]
+                        ],
+                        {
+                            color: options.color != null ? 
+                                options.color : 
+                                ( options.colorArray != null ? 
+                                    options.colorArray[pos] :
+                                    ( each_row.color != null ? each_row.color : '#4A148C' )
+                                ),
+                            fillColor: options.fillColor != null ?
+                                options.fillColor : 
+                                ( options.colorArray != null ?
+                                    options.colorArray[pos] :
+                                    ( each_row.fillColor != null ? each_row.fillColor : '#4A148C' )
+                                ),
+                            fillOpacity: options.fillOpacity != null ? 
+                                options.fillOpacity : 
+                                ( each_row.fillOpacity != null ? each_row.fillOpacity : 0.5 ),
+                            weight: each_row[loc_size_field]
+                        }
                     ).addTo(this.layers[ident]);
                 }
             }
