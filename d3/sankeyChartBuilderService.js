@@ -51,6 +51,7 @@ class SankeyChartBuilderService {
                 .append("title")
                     .text(d => `${d.title}`);
 
+            let _color = this.d3.color;
             let link = svg.append("g")
                 .attr("fill", "none")
                 .selectAll("g")
