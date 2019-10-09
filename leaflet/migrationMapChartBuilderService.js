@@ -101,6 +101,9 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
         }
 
         // Iterates over the dataset, to build connections to the circles
+        let thetaOffset = (3.14/10),
+            durationBase = (options && options.path && options.path.animation && options.path.animation.base_duration) ? options.path.animation.base_duration : 2000;
+   	    
         for(let each_row of dataset) {
             if (each_row[options.source.lat] && each_row[options.source.long] &&
                 each_row[options.source.lat] != 0 && each_row[options.source.long] != 0 &&
@@ -120,10 +123,30 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
                             value = (((each_row[value_field] - limits[each_row[id_field]].min) / (limits[each_row[id_field]].max - limits[each_row[id_field]].min)) + 1) * ((options.path && options.path.multiplier) ? options.path.multiplier : 1);
                         }
 
-                        this.L.polyline(
+                        // Calculating the curve
+                        let latlng1 = [each_row[options.source.lat], each_row[options.source.long]],
+	                        latlng2 = [each_row[options.target.lat], each_row[options.target.long]];
+
+                        let offsetX = latlng2[1] - latlng1[1],
+	                        offsetY = latlng2[0] - latlng1[0];
+
+                        let r = Math.sqrt( Math.pow(offsetX, 2) + Math.pow(offsetY, 2) ),
+	                        theta = Math.atan2(offsetY, offsetX);
+
+                        let theta2 = theta + thetaOffset,
+                            r2 = (r/2)/(Math.cos(thetaOffset)),
+                            duration = Math.sqrt(Math.log(r)) * durationBase;;
+
+                        let midpointX = (r2 * Math.cos(theta2)) + latlng1[1],
+                            midpointY = (r2 * Math.sin(theta2)) + latlng1[0];
+
+                        var midpointLatLng = [midpointY, midpointX];
+
+                        this.L.curve(
                             [
-                                [each_row[options.source.lat], each_row[options.source.long]],
-                                [each_row[options.target.lat], each_row[options.target.long]]
+                                'M', latlng1,
+                                'Q', midpointLatLng,
+                                latlng2
                             ],
                             {
                                 color: options.color != null ? 
@@ -135,7 +158,13 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
                                 opacity: options.fillOpacity != null ? 
                                     options.fillOpacity : 
                                     ( each_row.fillOpacity != null ? each_row.fillOpacity : 0.5 ),
-                                weight: value
+                                weight: value,
+                                animate: {
+                                    "duration": duration,
+                                    iterations: Infinity,
+                                    easing: 'ease-in-out',
+                                    direction: 'alternate'
+                                }
                             }
                         ).addTo(this.layers[ident]);
                     }

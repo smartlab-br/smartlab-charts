@@ -13,6 +13,7 @@ class LeafletChartBuilderService extends GeneralChartBuilderService {
         this.L = Object.assign(this.L, require('../../../../node_modules/leaflet-easyprint/dist/bundle.js'));
         this.L = Object.assign(this.L, require('../../../../node_modules/leaflet.heat/dist/leaflet-heat.js'));
         this.L = Object.assign(this.L, require('../../../../node_modules/leaflet.markercluster/dist/leaflet.markercluster.js'));
+        this.L = Object.assign(this.L, require('../../../../node_modules/leaflet-curve/leaflet.curve.js'));
 
         this.d3 = require('d3');
         this.d3chrom = require('d3-scale-chromatic');
