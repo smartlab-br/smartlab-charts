@@ -30,8 +30,19 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
         }
 
         let builtCircles = {};
+        let limits = {};
+
         // Iterates over the dataset, to build each circle and apply to the respective layer
         for(let each_row of dataset) {
+            // get limits to normalize values
+            if (limits[each_row[id_field]]) { // Alerady exists
+                if (limits[each_row[id_field]].min > each_row[value_field]) limits[each_row[id_field]].min = each_row[value_field];
+                if (limits[each_row[id_field]].max < each_row[value_field]) limits[each_row[id_field]].max = each_row[value_field];
+            } else {
+                limits[each_row[id_field]] = { min: each_row[value_field], max: each_row[value_field] }
+            }
+
+            // Evaluate and draw points
             if (each_row[options.source.lat] && each_row[options.source.long] &&
                 each_row[options.source.lat] != 0 && each_row[options.source.long] != 0) {
                 // Iterates over the layers
@@ -100,33 +111,34 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
                     // Checks if the row is for the layer (moves to next if different)
                     if (ident != each_row[id_field]) continue;
 
-                    // Gets the value for each layer
-                    let value = each_row[value_field];
-
-                    this.L.polyline(
-                        [
-                            [each_row[options.source.lat], each_row[options.source.long]],
-                            [each_row[options.target.lat], each_row[options.target.long]]
-                        ],
-                        {
-                            color: options.color != null ? 
-                                options.color : 
-                                ( options.colorArray != null ? 
-                                    options.colorArray[pos] :
-                                    ( each_row.color != null ? each_row.color : '#4A148C' )
-                                ),
-                            fillColor: options.fillColor != null ?
-                                options.fillColor : 
-                                ( options.colorArray != null ?
-                                    options.colorArray[pos] :
-                                    ( each_row.fillColor != null ? each_row.fillColor : '#4A148C' )
-                                ),
-                            fillOpacity: options.fillOpacity != null ? 
-                                options.fillOpacity : 
-                                ( each_row.fillOpacity != null ? each_row.fillOpacity : 0.5 ),
-                            weight: each_row[value_field]
+                    // Gets normalized value for each layer
+                    if (limits[each_row[id_field]]) {
+                        let value;
+                        if (limits[each_row[id_field]].min == limits[each_row[id_field]].max) {
+                            value = 1.5;
+                        } else {
+                            value = (((each_row[value_field] - limits[each_row[id_field]].min) / (limits[each_row[id_field]].max - limits[each_row[id_field]].min)) + 1) * ((options.path && options.path.multiplier) ? options.path.multiplier : 1);
                         }
-                    ).addTo(this.layers[ident]);
+
+                        this.L.polyline(
+                            [
+                                [each_row[options.source.lat], each_row[options.source.long]],
+                                [each_row[options.target.lat], each_row[options.target.long]]
+                            ],
+                            {
+                                color: options.color != null ? 
+                                    options.color : 
+                                    ( options.colorArray != null ? 
+                                        options.colorArray[pos] :
+                                        ( each_row.color != null ? each_row.color : '#4A148C' )
+                                    ),
+                                opacity: options.fillOpacity != null ? 
+                                    options.fillOpacity : 
+                                    ( each_row.fillOpacity != null ? each_row.fillOpacity : 0.5 ),
+                                weight: value
+                            }
+                        ).addTo(this.layers[ident]);
+                    }
                 }
             }
         }
