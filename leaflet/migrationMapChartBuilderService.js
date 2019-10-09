@@ -135,7 +135,7 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
 
                         let theta2 = theta + thetaOffset,
                             r2 = (r/2)/(Math.cos(thetaOffset)),
-                            duration = Math.sqrt(Math.log(r + 1)) * durationBase;;
+                            duration = Math.round(Math.sqrt(Math.log(r + 1)) * durationBase);
 
                         let midpointX = (r2 * Math.cos(theta2)) + latlng1[1],
                             midpointY = (r2 * Math.sin(theta2)) + latlng1[0];
@@ -148,7 +148,7 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
                                 'Q', midpointLatLng,
                                 latlng2
                             ],
-                            {
+                            { rowData: each_row,
                                 color: options.color != null ? 
                                     options.color : 
                                     ( options.colorArray != null ? 
@@ -164,7 +164,8 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
                                     iterations: Infinity,
                                     easing: 'ease-in-out',
                                     direction: 'alternate'
-                                }
+                                },
+                                customOptions: options
                             }
                         ).addTo(this.layers[ident]);
                     }
