@@ -4,7 +4,7 @@ class BubblesChartBuilderService extends LeafletChartBuilderService {
     constructor() {
         super();
         this.radius = { multiplier: 1600000, base: 5000 };
-        this.fCircleSize = d3.scaleLog().range([1, 4001]);
+        this.fCircleSize = this.d3.scaleLog().range([1, 4001]);
     }
 
     fillLayers(dataset, options, boundsZoom = null) {

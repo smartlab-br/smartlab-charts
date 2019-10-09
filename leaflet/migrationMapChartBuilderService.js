@@ -5,9 +5,13 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
         super();
         this.radius = { multiplier: 1600000, base: 5000 };
         this.fCircleSize = this.d3.scaleLog().range([1, 4001]);
+
+        this.TWEEN = require('@tweenjs/tween.js');
     }
 
     fillLayers(dataset, options, boundsZoom = null) {
+        this.L.provideTween(this.TWEEN);
+        
         // Sets the bubbles size handlers
         if (options && options.radius && options.radius.multiplier) this.radius.multiplier = options.radius.multiplier;
         if (options && options.radius && options.radius.base) this.radius.base = options.radius.base;
