@@ -54,48 +54,48 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
                     let value = each_row[loc_size_field];
                     
                     // Builds the circle (if not already built)
-                    let alreadyBuilt = false;
+                    // let alreadyBuilt = false;
                     
-                    for (let eachLayer in builtCircles) {
-                        if (eachLayer == each_row[id_field] && builtCircles[eachLayer].includes(each_row[options.source.id])) {
-                            alreadyBuilt = true;
-                            break;
-                        }
-                    }
+                    // for (let eachLayer in builtCircles) {
+                    //     if (eachLayer == each_row[id_field] && builtCircles[eachLayer].includes(each_row[options.source.id])) {
+                    //         alreadyBuilt = true;
+                    //         break;
+                    //     }
+                    // }
 
-                    if(!alreadyBuilt) {
-                        if (builtCircles[each_row[id_field]]) {
-                            builtCircles[each_row[id_field]].push(each_row[options.source.id]);
-                        } else {
-                            builtCircles[each_row[id_field]] = [each_row[options.source.id]];
-                        }
+                    // if(!alreadyBuilt) {
+                    //     if (builtCircles[each_row[id_field]]) {
+                    //         builtCircles[each_row[id_field]].push(each_row[options.source.id]);
+                    //     } else {
+                    //         builtCircles[each_row[id_field]] = [each_row[options.source.id]];
+                    //     }
 
-                        let eachCircle = new circleDataPoint(
-                            [each_row[options.source.lat], each_row[options.source.long]],
-                            { rowData: each_row,
-                                color: options.color != null ? 
-                                        options.color : 
-                                        ( options.colorArray != null ? 
-                                            options.colorArray[pos] :
-                                            ( each_row.color != null ? each_row.color : '#4A148C' )
-                                        ),
-                                weight: options.weight != null ? options.weight : (each_row.weight != null ? each_row.weight : 0),
-                                fillColor: options.fillColor != null ?
-                                            options.fillColor : 
-                                            ( options.colorArray != null ?
-                                                options.colorArray[pos] :
-                                                ( each_row.fillColor != null ? each_row.fillColor : '#4A148C' )
-                                            ),
-                                fillOpacity: options.fillOpacity != null ? 
-                                                options.fillOpacity : 
-                                                ( each_row.fillOpacity != null ? each_row.fillOpacity : 0.5 ),
-                                radius: value != null ? value > 0 ? value * multiplier + this.radius.base : this.radius.base : 0,
-                                customOptions: options
-                            }
-                        ).on("click", this.circleClick);
+                    //     let eachCircle = new circleDataPoint(
+                    //         [each_row[options.source.lat], each_row[options.source.long]],
+                    //         { rowData: each_row,
+                    //             color: options.color != null ? 
+                    //                     options.color : 
+                    //                     ( options.colorArray != null ? 
+                    //                         options.colorArray[pos] :
+                    //                         ( each_row.color != null ? each_row.color : '#4A148C' )
+                    //                     ),
+                    //             weight: options.weight != null ? options.weight : (each_row.weight != null ? each_row.weight : 0),
+                    //             fillColor: options.fillColor != null ?
+                    //                         options.fillColor : 
+                    //                         ( options.colorArray != null ?
+                    //                             options.colorArray[pos] :
+                    //                             ( each_row.fillColor != null ? each_row.fillColor : '#4A148C' )
+                    //                         ),
+                    //             fillOpacity: options.fillOpacity != null ? 
+                    //                             options.fillOpacity : 
+                    //                             ( each_row.fillOpacity != null ? each_row.fillOpacity : 0.5 ),
+                    //             radius: value != null ? value > 0 ? value * multiplier + this.radius.base : this.radius.base : 0,
+                    //             customOptions: options
+                    //         }
+                    //     ).on("click", this.circleClick);
 
-                        eachCircle.addTo(this.layers[ident]);
-                    }
+                    //     eachCircle.addTo(this.layers[ident]);
+                    // }
                 }
             }
         }
@@ -142,7 +142,7 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
 
                         var midpointLatLng = [midpointY, midpointX];
 
-                        this.L.curve(
+                        let eachCurve = this.L.curve(
                             [
                                 'M', latlng1,
                                 'Q', midpointLatLng,
@@ -159,15 +159,17 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
                                     options.fillOpacity : 
                                     ( each_row.fillOpacity != null ? each_row.fillOpacity : 0.5 ),
                                 weight: value,
-                                animate: {
-                                    "duration": duration,
-                                    iterations: Infinity,
-                                    easing: 'ease-in-out',
-                                    direction: 'alternate'
-                                },
+                                // animate: {
+                                //     "duration": duration,
+                                //     iterations: Infinity,
+                                //     easing: 'ease-in-out',
+                                //     direction: 'alternate'
+                                // },
                                 customOptions: options
                             }
-                        ).addTo(this.layers[ident]);
+                        ).on("click", this.circleClick);
+                        
+                        eachCurve.addTo(this.layers[ident]);
                     }
                 }
             }
