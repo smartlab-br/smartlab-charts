@@ -118,7 +118,7 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
                     if (limits[each_row[id_field]]) {
                         let value;
                         if (limits[each_row[id_field]].min == limits[each_row[id_field]].max) {
-                            value = 1.5;
+                            value = 4;
                         } else {
                             value = (((each_row[value_field] - limits[each_row[id_field]].min) / (limits[each_row[id_field]].max - limits[each_row[id_field]].min)) + 1) * ((options.path && options.path.multiplier) ? options.path.multiplier : 1);
                         }
@@ -155,21 +155,39 @@ class MigrationMapChartBuilderService extends LeafletChartBuilderService {
                                         options.colorArray[pos] :
                                         ( each_row.color != null ? each_row.color : '#4A148C' )
                                     ),
-                                opacity: options.fillOpacity != null ? 
-                                    options.fillOpacity : 
-                                    ( each_row.fillOpacity != null ? each_row.fillOpacity : 0.5 ),
+                                opacity: 0.3,
                                 weight: value,
-                                // animate: {
-                                //     "duration": duration,
-                                //     iterations: Infinity,
-                                //     easing: 'ease-in-out',
-                                //     direction: 'alternate'
-                                // },
-                                customOptions: options
+                                customOptions: options,
+                                className: 'migration-path'
+                                
                             }
                         ).on("click", this.circleClick);
-                        
+
                         eachCurve.addTo(this.layers[ident]);
+
+                        let eachPulseCurve = this.L.curve(
+                            [
+                                'M', latlng1,
+                                'Q', midpointLatLng,
+                                latlng2
+                            ],
+                            { rowData: each_row,
+                                color: options.color != null ? 
+                                    options.color : 
+                                    ( options.colorArray != null ? 
+                                        options.colorArray[pos] :
+                                        ( each_row.color != null ? each_row.color : '#4A148C' )
+                                    ),
+                                opacity:0.7,
+                                weight: value,
+                                customOptions: options,
+                                className: 'migration-animate-path',
+                                dashArray: "10, 20",
+                                dashOffset: "100%"
+                            }
+                        ).on("click", this.circleClick);
+
+                        eachPulseCurve.addTo(this.layers[ident]);
                     }
                 }
             }

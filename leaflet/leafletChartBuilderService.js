@@ -84,7 +84,7 @@ class LeafletChartBuilderService extends GeneralChartBuilderService {
         this.chart = leaflet_map;
 		this.fillLayers(dataset, Object.assign(options, additionalOptions), bounds ? leaflet_map.getBoundsZoom(bounds) : null);
   
-		window.addEventListener('resize', this.resizeMapArea, null, containerId);
+		window.addEventListener('resize', this.resizeMapArea(containerId));
 		
 		return this;
     }
