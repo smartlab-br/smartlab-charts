@@ -180,7 +180,7 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
             d.id = 1
             var vl_indicador = dataset[i].vl_indicador
             d.vl_indicador = accum;
-            d.fmt_vl_indicador = NumberTransformService.formatNumber(accum, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false)
+            d.fmt_vl_indicador = this.formatNumber(accum, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false)
             accum = accum + vl_indicador;
 
             dataset.push(d);
@@ -188,6 +188,121 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
 
         return dataset;
     }
+
+    formatNumber(value, format, num_digits, multiplier = 1, collapse = null, signed = false, uiTags = true){
+
+        if (format == 'cep'){
+          value = ('00000000' + value.toString()).slice(-8);
+          value = value.slice(0,5) + '-' + value.slice(-3);
+          return value;
+        }
+    
+    
+        if (multiplier === null || multiplier === undefined) {
+          multiplier = 1;
+        }
+    
+        if (signed === null || signed === undefined) {
+          signed = false;
+        }
+    
+        if (uiTags === null || uiTags === undefined) {
+          uiTags = true;
+        }
+    
+        var openUiTags = '';
+        var closeUiTags = '';
+    
+        let unitPrefix = '';
+    
+        if(value === null || value === undefined){
+          return "-"; 
+        }
+        value = parseFloat(value) * multiplier;
+        
+        // Verifica a ordem de grandeza do número, para poder reduzir o tamanho da string
+        let collapseSuffix = '';
+        let magnitude = 0;
+        if (collapse) {
+          magnitude = Math.floor((Math.floor(Math.abs(value)).toString().length - 1)/3);
+    
+          if (magnitude > 0) {
+            if ((collapse.uiTags === null || collapse.uiTags === undefined || collapse.uiTags) && uiTags) {
+              uiTags = true;
+            } else {
+              uiTags = false;
+            }
+    
+          }
+    
+          if (uiTags) {
+            openUiTags = '<span>';
+            closeUiTags = '</span>';
+          }
+    
+          value = value / Math.pow(10, magnitude * 3);
+          // Define o termo usado no final da string
+          switch (magnitude) {
+            case 1:
+              collapseSuffix = openUiTags + 'mil' + closeUiTags;
+              break;
+            case 2:
+              collapseSuffix = openUiTags + 'mi' + closeUiTags;
+              break;
+            case 3:
+              collapseSuffix = openUiTags + 'bi' + closeUiTags;
+              break;
+            case 4:
+              collapseSuffix = openUiTags + 'tri' + closeUiTags;
+              break;
+          }
+    
+          // Se contrair o dado, ver o format resultante
+          if (magnitude > 0) {
+            num_digits = collapse.num_digits ? collapse.num_digits : null;
+            format = collapse.format ? collapse.format : null;
+          }
+          unitPrefix = format == 'monetario' ? openUiTags + "R$" + closeUiTags : '';
+          // if (magnitude > 0) {
+          //   unitPrefix = "&plusmn;" + unitPrefix;
+          // }
+        } else {
+          if (uiTags) {
+            openUiTags = '<span>';
+            closeUiTags = '</span>';
+          }
+    
+          // Define um prefixo de unidade
+          unitPrefix = format == 'monetario' ? openUiTags + "R$" + closeUiTags : '';
+          if (signed && value > 0) {
+            unitPrefix = "+";
+          }
+        }
+        
+        num_digits = num_digits ? num_digits : 1;
+        // Define a configuração do locale
+        let localeConfig = {
+          maximumFractionDigits: num_digits
+        }
+    
+    
+        if (format == 'inteiro') {
+          localeConfig.maximumFractionDigits = 0;
+        } else {
+          // if (format == 'real' || format == 'porcentagem' || format == 'monetario') {
+          //   if (Math.floor((value - Math.floor(value))*(Math.pow(10, num_digits))) == 0) {
+          //     // Se o número for efetivamente um inteiro e não tiver collapse, retira a casa decimal
+          //     localeConfig.maximumFractionDigits = 0;
+          //   }
+          // }
+          localeConfig.minimumFractionDigits = localeConfig.maximumFractionDigits;
+        }
+    
+        // Substitui o collapseConfig apenas na porcentagem
+        if (format == 'porcentagem') collapseSuffix = openUiTags + "%" + closeUiTags;
+        return unitPrefix + value.toLocaleString('pt-br', localeConfig) + collapseSuffix;
+      }
+    
 }
 
 module.exports = BarChartBuilderService
