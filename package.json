@@ -6,7 +6,7 @@
   "private": false,
   "scripts": {
     "test": "jest",
-    "lint": "eslint --output-file=../lint/report.json --format=json --config=../lint/.eslintrc.js \"**/*.{js,vue}\"",
+    "lint": "eslint --output-file=../lint/report.json --format=json --config=../lint/.eslintrc.js \"**/*.{js,vue}\""
   },
   "engines": {
     "node": ">=12.11",
