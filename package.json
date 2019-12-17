@@ -6,7 +6,7 @@
   "private": false,
   "scripts": {
     "test": "jest",
-    "lint": "eslint --output-file=./lint/report.json --format=json --config=./lint/.eslintrc.js \"**/*.{js,vue}\""
+    "lint": "eslint --output-file=./lint/report.json --format=json --config=./lint/.eslintrc.js \"**/*.js\""
   },
   "engines": {
     "node": ">=12.11",
@@ -26,21 +26,26 @@
     "collectCoverage": true,
     "coverageDirectory": "test/coverage",
     "collectCoverageFrom": [
-      "src/**/*.{js}"
+      "**/*.{js}"
     ],
     "moduleFileExtensions": [
       "js"
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
-    }
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1",
+      "\\.(yaml)$": "<rootDir>/test/__mock__/yamlMock.js"
+    },
+    "snapshotSerializers": []
   },
   "jestSonar": {
     "reportPath": "test",
     "reportFile": "report.xml"
   },
   "jest-junit": {
-    "output": "test/coverage/junit/junit.xml",
+    "output": "./test/coverage/junit/junit.xml",
     "usePathForSuiteName": "true"
   },
   "dependencies": {
