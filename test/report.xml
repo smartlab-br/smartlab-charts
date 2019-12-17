@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="C:\Users\Rodrigo Fagundes\Documents\Projetos\smartlab-charts\test\proto\sum.test.js">
-    <testCase name="adds 1 + 2 to equal 3" duration="1"/>
+    <testCase name="adds 1 + 2 to equal 3" duration="2"/>
   </file>
 </testExecutions>
