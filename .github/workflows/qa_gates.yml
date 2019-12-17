@@ -25,7 +25,8 @@ jobs:
         npm install --save-dev
     - name: Linting (eslint)
       run: |
-        npm install --save-dev eslint eslint-plugin-vue
+        npm install --save-dev eslint
+        ls -la *
         npm run lint || true
     - name: Unit tests
       run: |
