@@ -1,7 +1,7 @@
 node_modules
 .scannerwork
 test/report.xml
-*/coverage
+*/**/coverage
 */**/coverage/lcov-report
 */**/coverage/clover.xml
 */**/coverage/coverage-final.json
@@ -10,3 +10,4 @@ test/report.xml
 */**/coverage/cobertura-coverage.xml
 */**/test/report.xml
 .vscode
+*/**/junit.xml
