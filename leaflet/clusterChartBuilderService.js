@@ -16,10 +16,10 @@ class ClusterChartBuilderService extends LeafletChartBuilderService {
 			shadowSize: [41, 41]
 		});
 
-		if (options.visibleLayers[options.indicadores[0]] == null || options.visibleLayers[options.indicadores[0]] == undefined) {
-			for (let indicator in options.indicadores) {
+		if (options.markerIcons && options.indicadores) {
+			for (let indicator of options.indicadores) {
 				
-				if(options.markerIcons && options.markerIcons[indicator]) {
+				if(options.markerIcons[indicator] && typeof options.markerIcons[indicator] == "string") {
 					options.markerIcons[indicator] = new this.L.Icon({
 						iconUrl: '/static/markers/marker-icon-2x-'+ options.markerIcons[indicator].toString() +'.png',
 						shadowUrl: '/static/markers/marker-shadow.png',
@@ -41,7 +41,7 @@ class ClusterChartBuilderService extends LeafletChartBuilderService {
 					this.L.marker(
 						[ each_row[options.lat], each_row[options.long] ],
 						{ rowData: each_row,
-						  icon: options.markerIcons ? options.markerIcons[each_row[id_field]]: defaultIcon,
+						  icon: (options.markerIcons && options.markerIcons[each_row[id_field]] && typeof options.markerIcons[each_row[id_field]] !== "string") ? options.markerIcons[each_row[id_field]]: defaultIcon,
 						  customOptions: options
 						}
 					).on("click", this.circleClick)
