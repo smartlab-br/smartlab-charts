@@ -34,8 +34,12 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
         }
 
         if (options.accum) {
-            slicedDS = this.sortDataset(slicedDS);
-            slicedDS = this.prepareAccumData(slicedDS, options);
+          if (options.orientation == "vertical"){
+            slicedDS = this.sortDataset(slicedDS, options.x);
+          } else {
+            slicedDS = this.sortDataset(slicedDS, options.y);
+          }
+          slicedDS = this.prepareAccumData(slicedDS, options);
         }
   
         let grafico = viz
@@ -147,9 +151,9 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
     }
 
     // Custom functions
-    sortDataset(dataset){
+    sortDataset(dataset, sort_field = "nu_competencia"){
         //array temporário que armazena o índice e o valor para ordenação
-        let map = dataset.map((d, i) => { return { index: i, value: parseInt(d.nu_competencia) }; });
+        let map = dataset.map((d, i) => { return { index: i, value: parseInt(d[sort_field]) }; });
         
         //ordenação do array temporario
         map.sort((a, b) => { return +(a.value > b.value) || +(a.value === b.value) - 1; });
@@ -168,20 +172,30 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
         var accumDataType = options.accumDataType ? options.accumDataType : "inteiro";
         var accumDataPrecision = options.accumDataPrecision ? options.accumDataPrecision : 1;
         var accumDataCollapse = options.accumDataCollapse ? options.accumDataCollapse : false;
+        if (options.desc_field == undefined) options.desc_field = "ds_indicador_radical" 
 
         for (var i = 0; i < originalLength; i++) { 
             var d = {}; 
             dataset[i].id = 2;
             
-            d.cd_indicador = dataset[i].cd_indicador;
-            d.ds_indicador_radical = dataset[i].ds_indicador_radical + ' - Acumulado'
-            d.ds_agreg_primaria = dataset[i].ds_agreg_primaria + ' - Acumulado'
-            d.nu_competencia = dataset[i].nu_competencia;
-            d.id = 1
-            var vl_indicador = dataset[i].vl_indicador
-            d.vl_indicador = accum;
-            d.fmt_vl_indicador = this.formatNumber(accum, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false)
-            accum = accum + vl_indicador;
+            // d.cd_indicador = dataset[i].cd_indicador;
+            d[options.desc_field] = dataset[i][options.desc_field] + ' - Acumulado';
+            d[options.legend_field] = dataset[i][options.legend_field] + ' - Acumulado';
+            if (options.orientation == 'vertical') {
+              d[options.x] = dataset[i][options.x];
+              d.id = 1;
+              var vl_indicador = dataset[i][options.y];
+              d[options.y] = accum;
+              d[options.text] = this.formatNumber(accum, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false)
+              accum = accum + vl_indicador;
+            } else {
+              d[options.y] = dataset[i][options.y];
+              d.id = 1;
+              var vl_indicador = dataset[i][options.x];
+              d[options.x] = accum;
+              d[options.text] = this.formatNumber(accum, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false)
+              accum = accum + vl_indicador;
+            }
 
             dataset.push(d);
         }
