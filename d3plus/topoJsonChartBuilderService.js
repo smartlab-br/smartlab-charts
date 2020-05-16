@@ -39,6 +39,9 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
                 }
             }).legend(false);
         } else {
+            if (additionalOptions.colorScaleSelectedName){
+                options.colorScale.name = additionalOptions.colorScaleSelectedName;
+            } 
             let aColorScale = additionalOptions.colorHandlers.getColorScale(options.colorScale.name, options.colorScale.type, options.colorScale.order, 9);
 
             let distValues = [];

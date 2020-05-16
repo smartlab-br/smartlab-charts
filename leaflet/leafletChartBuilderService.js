@@ -147,13 +147,16 @@ class LeafletChartBuilderService extends GeneralChartBuilderService {
 
 	addDeafultMarker(localidade, map) {
 		let icon = this.L.icon({
-			iconUrl: '/static/markers/black.png',
-			
-			iconSize:     [25, 25], // size of the icon
-			iconAnchor:   [9, 24], // point of the icon which will correspond to marker's location
-			popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-		});
-		this.defaultMarker = this.L.marker([localidade.latitude, localidade.longitude], { icon: icon }).addTo(map);
+			iconUrl: '/static/markers/marker-icon-black.png',
+			shadowUrl: '/static/markers/marker-shadow.png',
+			iconSize: [15, 25],
+			iconAnchor: [7, 25],
+			popupAnchor: [1, -21],
+			shadowSize: [25, 25]
+        });
+        let marker = this.L.marker([localidade.latitude, localidade.longitude], { icon: icon });
+        marker.on("click",marker.bindPopup(localidade.nm_localidade).openPopup());
+        marker.addTo(map);
 	}
 
 	download(printPlugin) {
