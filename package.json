@@ -2,7 +2,7 @@
   "name": "@smartlabbr/smartlab-charts",
   "description": "Charts generators/configurators used in smartlabbr.org",
   "author": "MPT/SPAI",
-  "version": "0.4.0-beta.28",
+  "version": "0.4.0",
   "private": false,
   "scripts": {
     "test": "jest",

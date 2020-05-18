@@ -149,7 +149,7 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
                 }
             })
             .tileUrl(options.tiles_url ? options.tiles_url : this._tilesUrl)
-            .topojson(options.topology && options.topology == 'uf' ? additionalOptions.topologyUf : additionalOptions.topology) 
+            .topojson(additionalOptions.topology) 
             .tooltipConfig({
                 body: function(d) {
                     if (tooltip_function instanceof String) {
