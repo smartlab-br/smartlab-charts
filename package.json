@@ -2,7 +2,7 @@
   "name": "@smartlabbr/smartlab-charts",
   "description": "Charts generators/configurators used in smartlabbr.org",
   "author": "MPT/SPAI",
-  "version": "0.4.0",
+  "version": "0.5.0-beta.33",
   "private": false,
   "scripts": {
     "test": "jest",
@@ -61,7 +61,8 @@
     "leaflet-curve": "1.0.0",
     "leaflet-easyprint": "2.1.9",
     "leaflet.heat": "0.2.0",
-    "leaflet.markercluster": "1.4.0"
+    "leaflet.markercluster": "1.4.0",
+    "topojson": "3.0.2"
   },
   "devDependencies": {
     "autoprefixer": "9.1.5",
