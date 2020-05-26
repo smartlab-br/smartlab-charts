@@ -39,11 +39,15 @@ class PolygonsChartBuilderService extends LeafletChartBuilderService {
 			}  
 		});
 		
-		let layer = new this.L.TopoJSON();
-		layer.addData(options.topology);
-		layer.addTo(this.chart);
-		layer.eachLayer(this.handlePolygon, this);
-		  
+		try {
+			let layer = new this.L.TopoJSON();
+			layer.addData(options.topology);
+			layer.addTo(this.chart);
+			layer.eachLayer(this.handlePolygon, this);
+		}
+		catch(err){
+			options.fnSendError(err.message);
+		}		
 	}
 	
 	handlePolygon(layer) {

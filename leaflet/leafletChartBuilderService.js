@@ -68,7 +68,7 @@ class LeafletChartBuilderService extends GeneralChartBuilderService {
 				findLoc.then(response => {
 					this.addDeafultMarker(response, leaflet_map);
 				})
-				.catch(error => { this.sendError(error); });
+				.catch(error => { additionalOptions.fnSendError(error); });
             } else {
               	this.addDeafultMarker(findLoc, leaflet_map);
             }
@@ -223,7 +223,7 @@ class LeafletChartBuilderService extends GeneralChartBuilderService {
 					let findLoc = additionalOptions.au;
 					if (findLoc && (findLoc instanceof Promise || findLoc.then)) {
 						findLoc.then(response => { this.addDeafultMarker(response, leaflet_map); })
-							.catch(error => { this.sendError(error); });
+							.catch(error => { additionalOptions.fnSendError(error); });
 					} else {
 						this.addDeafultMarker(findLoc, leaflet_map);
 					}
