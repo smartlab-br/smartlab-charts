@@ -46,7 +46,7 @@ class PolygonsChartBuilderService extends LeafletChartBuilderService {
 			layer.eachLayer(this.handlePolygon, this);
 		}
 		catch(err){
-			options.fnSendError(err.message);
+			options.fnSendError(err);
 		}		
 	}
 	
@@ -72,6 +72,10 @@ class PolygonsChartBuilderService extends LeafletChartBuilderService {
 			if (options.colorScale && options.colorScale.name){
 				scaleName = options.colorScale.name;
 			}
+			if (options.colorScaleSelectedName){
+				scaleName = options.colorScaleSelectedName;
+			} 
+
 
 			let fillColor = "";
 			if (this.d3chrom['interpolate' + scaleName]){
