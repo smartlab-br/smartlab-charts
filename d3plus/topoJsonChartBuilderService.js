@@ -15,6 +15,22 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
             options.colorScale.type = 'singleHue';
         }
         
+        let dataset = JSON.parse(JSON.stringify(slicedDS));
+        if (options.colorScale.range && options.colorScale.range.min_value) {
+           let regMinValue = Object.assign({},dataset[0]);
+           regMinValue[options.id_field] = "min_value";
+           regMinValue[options.value_field] = options.colorScale.range.min_value; 
+           dataset.push(regMinValue);
+        }
+
+        if (options.colorScale.range && options.colorScale.range.max_value) {
+            let regMaxValue = Object.assign({},dataset[0]);
+            regMaxValue[options.id_field] = "max_value";
+            regMaxValue[options.value_field] = options.colorScale.range.max_value; 
+            dataset.push(regMaxValue);
+        }
+
+
         if (options.colorScale.type == "fixed"){
             viz = viz.shapeConfig({ 
                 Path: {
@@ -45,7 +61,7 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
             let aColorScale = additionalOptions.colorHandlers.getColorScale(options.colorScale.name, options.colorScale.type, options.colorScale.order, 9);
 
             let distValues = [];
-            for (let reg of slicedDS) {  
+            for (let reg of dataset) {  
                 if (!distValues.includes(reg[options.value_field])){
                     distValues.push(reg[options.value_field]);
                 }
@@ -76,7 +92,7 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
                     if (options.colorScale.inv_function.args[indxInvArg].fixed) {
                         inv_args.push(options.colorScale.inv_function.args[indxInvArg].fixed);
                     } else if (options.colorScale.inv_function.args[indxInvArg].first_row_prop) {
-                        inv_args.push(slicedDS[0][options.colorScale.inv_function.args[indxInvArg].first_row_prop]);
+                        inv_args.push(dataset[0][options.colorScale.inv_function.args[indxInvArg].first_row_prop]);
                     }
                 }            
                 objAxisConfig.tickFormat = (t) => {
@@ -100,20 +116,6 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
                     }
                 }).legend(false);
             }
-        }
-        let dataset = JSON.parse(JSON.stringify(slicedDS));
-        if (options.colorScale.range && options.colorScale.range.min_value) {
-           let regMinValue = Object.assign({},dataset[0]);
-           regMinValue[options.id_field] = "min_value";
-           regMinValue[options.value_field] = options.colorScale.range.min_value; 
-           dataset.push(regMinValue);
-        }
-
-        if (options.colorScale.range && options.colorScale.range.max_value) {
-            let regMaxValue = Object.assign({},dataset[0]);
-            regMaxValue[options.id_field] = "max_value";
-            regMaxValue[options.value_field] = options.colorScale.range.max_value; 
-            dataset.push(regMaxValue);
         }
 
         let grafico = viz

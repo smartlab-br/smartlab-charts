@@ -58,7 +58,7 @@ class PolygonsChartBuilderService extends LeafletChartBuilderService {
 		let row = dataset.filter( function(obj) { if (obj[options.id_field] == layer.feature.properties[options.topo_key]) return obj;});
 		if (row.length !== 0){
 			row = row[0];
-			if (range){
+			if (range && (range[0] !== range[1])){
 				if (options.scale_order === undefined || options.scale_order === 'ASC') {
 					value = (row[options.value_field] - range[0]) / (range[1] - range[0]);
 				} else {
