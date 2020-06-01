@@ -11,11 +11,11 @@ class PolygonsChartBuilderService extends LeafletChartBuilderService {
       	// https://blog.webkid.io/maps-with-leaflet-and-topojson/
 		// Gera o range
 		let range = [null, null];
-		if (options.colorScale && options.colorScale.min_value){
-			range[0] = options.colorScale.min_value;
+		if (options.colorScale && options.colorScale.range && options.colorScale.range.min_value){
+			range[0] = options.colorScale.range.min_value;
 		}
-		if (options.colorScale && options.colorScale.max_value){
-			range[1] = options.colorScale.max_value;
+		if (options.colorScale && options.colorScale.range && options.colorScale.range.max_value){
+			range[1] = options.colorScale.range.max_value;
 		}
 
 		for (let each_row of dataset) {

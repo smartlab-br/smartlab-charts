@@ -104,14 +104,14 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
         let dataset = JSON.parse(JSON.stringify(slicedDS));
         if (options.colorScale.range && options.colorScale.range.min_value) {
            let regMinValue = Object.assign({},dataset[0]);
-           regMinValue[options.id_field] = null;
+           regMinValue[options.id_field] = "min_value";
            regMinValue[options.value_field] = options.colorScale.range.min_value; 
            dataset.push(regMinValue);
         }
 
         if (options.colorScale.range && options.colorScale.range.max_value) {
             let regMaxValue = Object.assign({},dataset[0]);
-            regMaxValue[options.id_field] = null;
+            regMaxValue[options.id_field] = "max_value";
             regMaxValue[options.value_field] = options.colorScale.range.max_value; 
             dataset.push(regMaxValue);
         }
