@@ -23,6 +23,14 @@ class PolygonsChartBuilderService extends LeafletChartBuilderService {
 			if (range[1] === null || range[1] < each_row[options.value_field]) range[1] = each_row[options.value_field];
 		}
 
+		if (options.colorScale && options.colorScale.range && options.colorScale.range.mid_value !== undefined){
+			if ((range[1] - options.colorScale.range.mid_value) > (options.colorScale.range.mid_value - range[0])){
+				range[0] = options.colorScale.range.mid_value - (range[1] - options.colorScale.range.mid_value);
+			} else if ((range[1] - options.colorScale.range.mid_value) < (options.colorScale.range.mid_value - range[0])){
+				range[1] = options.colorScale.range.mid_value + (options.colorScale.range.mid_value - range[0]);
+			}
+		}
+
 		this.range = range;
 
 		let this_ = this;
@@ -44,6 +52,52 @@ class PolygonsChartBuilderService extends LeafletChartBuilderService {
 			layer.addData(options.topology);
 			layer.addTo(this.chart);
 			layer.eachLayer(this.handlePolygon, this);
+
+			if (options.show_legend){
+
+				let scaleName = "RdYlBu";
+				if (options.colorScale && options.colorScale.name){
+					scaleName = options.colorScale.name;
+				}
+				if (options.colorScaleSelectedName){
+					scaleName = options.colorScaleSelectedName;
+				} 
+
+				if (this.d3chrom['interpolate' + scaleName] == null || this.d3chrom['interpolate' + scaleName] == undefined){
+					scaleName = "RdYlBu"
+				}
+	
+				let legend = L.control({position: 'topright'})
+				let d3chrom = this.d3chrom;
+				
+				legend.onAdd = function (map) {
+				
+						let div = L.DomUtil.create('div', 'legend');
+						let value = 0;
+						for (var i = range[0]; i <= range[1]; i = i + (range[1]-range[0])/20 ) {
+							if (options.scale_order === undefined || options.scale_order === 'ASC') {
+								value = (i - range[0]) / (range[1] - range[0]);
+							} else {
+								value = 1 - (i - range[0]) / (range[1] - range[0]);
+							}
+			
+							div.innerHTML +=
+									'<span style="display:inline-flex">' +
+									'<div style="width:9px;height:18px;display:inline-block;background:' + 
+									d3chrom['interpolate' + scaleName](value) + '"></div></span>';
+						}
+						
+						div.style.padding = '6px 8px';
+						div.style.background = 'rgba(255,255,255,0.8)';
+						div.style.boxShadow = '0 0 15px rgba(0,0,0,0.2)';
+						div.style.borderRadius = '5px';
+
+						return div;
+				};
+				
+				legend.addTo(this.chart);            
+			}
+
 		}
 		catch(err){
 			options.fnSendError(err);
