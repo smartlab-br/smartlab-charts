@@ -52,6 +52,9 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
             .y(options.y)    // key to use for y-axis
             .x(options.x)         // key to use for x-axis
             .detectResize(true);
+        if (options.y2){
+          grafico = grafico.y2(options.y2);
+        }
 
         return grafico;
     }
@@ -139,12 +142,14 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
           viz = viz
             .discrete("x")
             .xConfig(xConfig)
-            .yConfig(yConfig);
+            .yConfig(yConfig)
+            .y2Config(yConfig);
         } else {
           viz = viz
             .discrete("y")
             .xConfig(xConfig)
-            .yConfig(yConfig);
+            .yConfig(yConfig)
+            .y2Config(yConfig);
         }
 
         return viz;
