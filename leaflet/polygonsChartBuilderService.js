@@ -53,7 +53,7 @@ class PolygonsChartBuilderService extends LeafletChartBuilderService {
 			layer.addTo(this.chart);
 			layer.eachLayer(this.handlePolygon, this);
 
-			if (options.show_legend){
+			if (options.show_legend && range[0] !== range[1]){
 
 				let scaleName = "RdYlBu";
 				if (options.colorScale && options.colorScale.name){
