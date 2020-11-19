@@ -13,14 +13,19 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
             options.colorScale.name = 'Set1';
         }
 
-        if (options.colorScale && options.colorScale.name) {
+        let colorCat = {};
+        if (options.colorScale) {
+          if(options.colorScale.name){
             colorArray = additionalOptions.colorHandlers.getColorScale(options.colorScale.name, options.colorScale.type, options.colorScale.order, options.colorScale.levels);
+          } else if (options.colorScale.type == "fixed" && options.colorScale.color_array){
+            colorArray = options.colorScale.color_array;
+            colorCat = colorArray;
+          }
         } else if (options.colorArray) {
             colorArray = options.colorArray;
         }
         
         if (colorArray != null) {
-            let colorCat = {};
             let colorIndx = 0;
             for (let row of slicedDS) {
                 if (colorCat[row[options.id]]) {
