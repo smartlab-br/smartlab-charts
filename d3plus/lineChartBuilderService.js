@@ -24,7 +24,7 @@ class LineChartBuilderService extends D3PlusChartBuilderService {
             }
         }
 
-        let lineConfig = { strokeWidth: options.stroke ? options.stroke : 4 };
+        let lineConfig = { strokeWidth: options.stroke ? options.stroke : 3, curve: "catmullRom"};
         if (options.colorScale || options.colorArray) {
           lineConfig.stroke = (d) => { return colorCat[d[options.id]]; };
         } else if (options.color !== null && options.color !== undefined) {
