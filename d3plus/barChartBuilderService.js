@@ -60,7 +60,16 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
         if (options.y2){
           grafico = grafico.y2(options.y2);
         }
-
+        if (options.sort_field){
+          let sortFuction = function(a, b) {
+              return a[options.sort_field] - b[options.sort_field];
+            };
+          if (options.orientation == "vertical"){
+            grafico = grafico.xSort(sortFuction);
+          } else {
+            grafico = grafico.ySort(sortFuction);
+          }
+        }
         return grafico;
     }
         
