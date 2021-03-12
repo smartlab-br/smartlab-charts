@@ -40,15 +40,15 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
                     }
                 }
             }).legend(false);
-        } else if (options.colorScale.type == "bipolar"){
+        } else if (options.colorScale.type == "bipolar" || additionalOptions.colorScaleSelectedName == "bipolar"){
             viz = viz.shapeConfig({ 
                 Path: {
                     fill: function(d) { 
-                        let color = options.colorScale.color_array.zero;
+                        let color = (options.colorScale.color_array.zero, options.colorScale.color_array.zero, "#ffffff");
                         if (d[options.value_field] > 0) {
-                            color = options.colorScale.color_array.positive;
+                            color = (options.colorScale.color_array.positive, options.colorScale.color_array.positive, "#6CB1D9");
                         } else if (d[options.value_field] < 0) {
-                            color = options.colorScale.color_array.negative;
+                            color = (options.colorScale.color_array.negative, options.colorScale.color_array.negative, "#DB6565");;
                         }
                         return color;
                     }
