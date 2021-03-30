@@ -61,18 +61,22 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
             let aColorScale = additionalOptions.colorHandlers.getColorScale(options.colorScale.name, options.colorScale.type, options.colorScale.order, 9);
 
             let distValues = [];
+            let zeroValue = false;
             for (let reg of dataset) {  
                 if (!distValues.includes(reg[options.value_field])){
                     distValues.push(reg[options.value_field]);
                 }
-                if (distValues.length > 2){
-                    break;
+                if (reg[options.value_field] == 0 || reg[options.value_field] == Math.log(0.01)){
+                    zeroValue = true;
                 }
+                // if (distValues.length > 2){
+                //     break;
+                // }
             }
 
             // if (distValues.length == 2){
             if (distValues.length > 1){
-                aColorScale = aColorScale.slice(1,-1);
+                aColorScale = zeroValue? aColorScale.slice(0,-1) : aColorScale.slice(1,-1);
             } else if (distValues.length == 1){
                 if (options.single_data_color && options.single_data_color[distValues[0]]) {
                     aColorScale = options.single_data_color[distValues[0]];
