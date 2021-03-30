@@ -50,7 +50,7 @@ class BubblesChartBuilderService extends LeafletChartBuilderService {
                                         options.colorArray[pos] :
                                         ( each_row.color != null ? each_row.color : '#4A148C' )
                                     ),
-                            weight: options.weight != null ? options.weight : (each_row.weight != null ? each_row.weight : 0),
+                            weight: options.weight != null ? options.weight : (each_row.weight != null ? each_row.weight : 1),
                             fillColor: options.fillColor != null ?
                                         options.fillColor : 
                                         ( options.colorArray != null ?
@@ -59,9 +59,9 @@ class BubblesChartBuilderService extends LeafletChartBuilderService {
                                         ),
                             fillOpacity: options.fillOpacity != null ? 
                                             options.fillOpacity : 
-                                            ( each_row.fillOpacity != null ? each_row.fillOpacity : 0.5 ),
+                                            ( each_row.fillOpacity != null ? each_row.fillOpacity : 0.3 ),
                             radius: value != null ? value > 0 ? value * multiplier + this.radius.base : this.radius.base : 0,
-                            customOptions: options
+                            customOptions: options,
                         }
                     ).on("click", this.circleClick);
 
