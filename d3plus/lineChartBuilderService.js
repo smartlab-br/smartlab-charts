@@ -98,15 +98,18 @@ class LineChartBuilderService extends D3PlusChartBuilderService {
         if (options.y_options && options.y_options.axis === false) yConfig = this.constructor.getTransparentXYConfig();
 
         let viz = new this.d3plus.LinePlot() 
-            .legendConfig({ 
-                shapeConfig:{
-                    labelConfig: { fontColor: additionalOptions.colorHandlers.assessZebraTitleColor(additionalOptions.sectionIndex, null, additionalOptions.theme) }
-                }
-            })
+            // .legendConfig({ 
+            //     shapeConfig:{
+            //         labelConfig: { fontColor: additionalOptions.colorHandlers.assessZebraTitleColor(additionalOptions.sectionIndex, null, additionalOptions.theme) }
+            //     }
+            // })
             .legendConfig({ 
                 label: function (d) { return options.legend_field ? d[options.legend_field] : d[options.id] },
                 shapeConfig:{
-                    labelConfig: { fontColor: additionalOptions.colorHandlers.assessZebraTitleColor(additionalOptions.sectionIndex, null, additionalOptions.theme) }
+                    labelConfig: { 
+                        fontSize: 14,
+                        fontColor: additionalOptions.colorHandlers.assessZebraTitleColor(additionalOptions.sectionIndex, null, additionalOptions.theme) 
+                    }
                 }
             })
             .legendPosition("top")
