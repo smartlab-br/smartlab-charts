@@ -83,8 +83,8 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
             textAnchor: "left",
             fontFamily: additionalOptions.fontFamily ? additionalOptions.fontFamily : this._fontFamily,
             //fontSize: 20
-            fontMin: 2,
-            fontMax: 20,
+            fontMin: options.fontMin ? options.fontMin : 5,
+            fontMax: options.fontMin ? options.fontMin : 45,
             fontResize: true
           }
         };
