@@ -13,6 +13,12 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
             options.colorScale.name = 'Set1';
         }
 
+        if (options.accum) options.fullBarLabel = true;
+        if (options.fullBarLabel) {
+          options.text = 'full_bar_label';
+          options.text_series = 'bar_label';
+        }
+
         let colorCat = {};
         if (options.colorScale) {
           if(options.colorScale.name){
@@ -84,7 +90,7 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
             fontFamily: additionalOptions.fontFamily ? additionalOptions.fontFamily : this._fontFamily,
             //fontSize: 20
             fontMin: options.fontMin ? options.fontMin : 5,
-            fontMax: options.fontMin ? options.fontMin : 45,
+            fontMax: options.fontMax ? options.fontMax : 45,
             fontResize: true
           }
         };
@@ -193,33 +199,55 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
         var accumDataCollapse = options.accumDataCollapse ? options.accumDataCollapse : false;
         if (options.desc_field == undefined) options.desc_field = "ds_indicador_radical" 
 
+        let accumDS = [];
+        let valID = 1;
+        let accumID = 2;
+        if (options.accumBottom) {
+          valID = 2;
+          accumID = 1;
+        }
         for (var i = 0; i < originalLength; i++) { 
             var d = {}; 
-            dataset[i].id = 2;
+            dataset[i].id = valID;
             
             // d.cd_indicador = dataset[i].cd_indicador;
             d[options.desc_field] = dataset[i][options.desc_field] + ' - Acumulado';
             d[options.legend_field] = dataset[i][options.legend_field] + ' - Acumulado';
             if (options.orientation == 'vertical') {
               d[options.x] = dataset[i][options.x];
-              d.id = 1;
+              d.id = accumID;
+              dataset[i][options.text] = this.formatNumber(dataset[i][options.y], accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false);
               var vl_indicador = dataset[i][options.y];
               d[options.y] = accum;
-              d[options.text] = this.formatNumber(accum, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false)
+              if (options.fullBarLabel) {
+                d[options.text] = this.formatNumber(accum + vl_indicador, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false);
+                d[options.text_series] = this.formatNumber(accum, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false);
+                dataset[i][options.text_series] = dataset[i][options.text]
+              } else {
+                d[options.text] = this.formatNumber(accum, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false);
+              }
               accum = accum + vl_indicador;
             } else {
               d[options.y] = dataset[i][options.y];
-              d.id = 1;
+              d.id = accumID;
+              dataset[i][options.text] = this.formatNumber(dataset[i][options.x], accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false);
               var vl_indicador = dataset[i][options.x];
               d[options.x] = accum;
-              d[options.text] = this.formatNumber(accum, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false)
+              if (options.fullBarLabel) {
+                d[options.text] = this.formatNumber(accum + vl_indicador, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false);
+                d[options.text_series] = this.formatNumber(accum, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false);
+                dataset[i][options.text_series] = dataset[i][options.text]
+              } else {
+                d[options.text] = this.formatNumber(accum, accumDataType, accumDataPrecision, 1, accumDataCollapse, true, false);
+              }
               accum = accum + vl_indicador;
             }
 
-            dataset.push(d);
+            accumDS.push(d);
         }
 
-        return dataset;
+        if (options.accumBottom) return dataset.concat(accumDS);
+        return accumDS.concat(dataset);
     }
 
     formatNumber(value, format, num_digits, multiplier = 1, collapse = null, signed = false, uiTags = true){
