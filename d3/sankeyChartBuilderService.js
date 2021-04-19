@@ -6,12 +6,36 @@ class SankeyChartBuilderService {
     }
 
     generateChart(containerId, dataset, options, additionalOptions) {
-        if (additionalOptions.metadata.sankey_data.nodes.length > 0) {
-            let lns = additionalOptions.metadata.sankey_data.links.map(obj =>{ 
+        let sankey_data = additionalOptions.metadata.sankey_data;
+        let sankey_nodes = [];
+        let sankey_links = [];
+        let flags = [];
+        if (sankey_data == undefined || sankey_data == null){
+           let source_field = options.source_field ? options.source_field : "source";
+           let target_field = options.target_field ? options.target_field : "target";
+           let value_field = options.value_field ? options.value_field : "agr_count";
+
+            for(let reg of dataset) {
+                sankey_links.push({"source":reg[source_field],"target":reg[target_field],"agr_count":reg[value_field]})
+                if(flags[reg[source_field]] == undefined){
+                    flags[reg[source_field]] = true;
+                    sankey_nodes.push(reg[source_field]);
+                }
+                if( flags[reg[target_field]] == undefined){
+                    flags[reg[target_field]] = true;
+                    sankey_nodes.push(reg[target_field]);
+                }
+            }            
+        } else {
+            sankey_nodes = additionalOptions.metadata.sankey_data.nodes;
+            sankey_links = additionalOptions.metadata.sankey_data.links;
+        }
+        if (sankey_nodes.length > 0) {
+            let lns = sankey_links.map(obj =>{ 
                 var lnk = {source: obj.source, target: obj.target, value: obj.agr_count};
                 return lnk;
             });
-            let nos = additionalOptions.metadata.sankey_data.nodes.map(obj =>{ return {id: obj, title: obj}; });
+            let nos = sankey_nodes.map(obj =>{ return {id: obj, title: obj}; });
 
             const color = this.d3.scaleOrdinal(this.d3chrom.schemeCategory10);
 
