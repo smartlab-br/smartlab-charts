@@ -13,7 +13,7 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
             options.colorScale.name = 'Set1';
         }
 
-        if (options.accum) options.fullBarLabel = true;
+        if (options.accum && options.fullBarLabel === undefined) options.fullBarLabel = true;
         if (options.fullBarLabel) {
           options.text = 'full_bar_label';
           options.text_series = 'bar_label';
