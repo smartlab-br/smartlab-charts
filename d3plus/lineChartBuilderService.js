@@ -98,7 +98,9 @@ class LineChartBuilderService extends D3PlusChartBuilderService {
         if (options.y_options && options.y_options.axis === false) yConfig = this.constructor.getTransparentXYConfig();
 
         let viz = new this.d3plus.LinePlot() 
-            // .legendConfig({ 
+            .noDataHTML(this.noDataMessage)
+            .loadingHTML(this.loadingMessage)
+        // .legendConfig({ 
             //     shapeConfig:{
             //         labelConfig: { fontColor: additionalOptions.colorHandlers.assessZebraTitleColor(additionalOptions.sectionIndex, null, additionalOptions.theme) }
             //     }

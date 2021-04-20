@@ -111,6 +111,8 @@ class TreemapChartBuilderService extends D3PlusChartBuilderService {
         let removed_text_list = options.removed_text_list;
 
         let viz = new this.d3plus.Treemap()
+            .noDataHTML(this.noDataMessage)
+            .loadingHTML(this.loadingMessage)
             .data({"opacity":0.8})  // data to use with the visualization
             .detectResize(true)
             .shapeConfig({ 

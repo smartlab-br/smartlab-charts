@@ -26,6 +26,8 @@ class ScatterChartBuilderService extends D3PlusChartBuilderService {
         
         var label = "";
         var viz = new this.d3plus.viz()
+            .noDataHTML(this.noDataMessage)
+            .loadingHTML(this.loadingMessage)
             .data({"opacity":0.7})  // data to use with the visualization
             .type("scatter")        // visualization type
             .font( { fontFamily: additionalOptions.fontFamily ? additionalOptions.fontFamily : this._fontFamily })        // visualization type

@@ -7,14 +7,14 @@ class BoxplotChartBuilderService extends D3PlusChartBuilderService {
 
     prepareChart(viz, slicedDS, containerId, options, additionalOptions) {
         let grafico = viz
-          .container(containerId)  // container DIV to hold the visualization
-          .data(dataset)  // data to use with the visualization
-          .id(options.id)         // key for which our data is unique on
-          // .text(this.options.text)
-          .font({ "family": "titulos-observatorio" })
-          .y(options.y)    // key to use for y-axis
-          .x(options.x)         // key to use for x-axis
-          .detectResize(true);
+            .container(containerId)  // container DIV to hold the visualization
+            .data(dataset)  // data to use with the visualization
+            .id(options.id)         // key for which our data is unique on
+            // .text(this.options.text)
+            .font({ "family": "titulos-observatorio" })
+            .y(options.y)    // key to use for y-axis
+            .x(options.x)         // key to use for x-axis
+            .detectResize(true);
   
         return grafico;
     }
@@ -25,6 +25,8 @@ class BoxplotChartBuilderService extends D3PlusChartBuilderService {
         let removed_text_list = options.removed_text_list; 
         
         var viz = new this.d3plus.viz()
+            .noDataHTML(this.noDataMessage)
+            .loadingHTML(this.loadingMessage)
             .type("box")        // visualization type
             .tooltipConfig({
                 body: function(d) {
@@ -35,8 +37,8 @@ class BoxplotChartBuilderService extends D3PlusChartBuilderService {
                     }
                 },
                 title: function(d) { return ""; }
-            });              
-
+            });    
+  
         return viz;
     }
 }

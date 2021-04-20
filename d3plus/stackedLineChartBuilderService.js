@@ -13,13 +13,13 @@ class StackedLineChartBuilderService extends D3PlusChartBuilderService {
         }
 
         let grafico = viz
-            .select(containerId)  // container DIV to hold the visualization
-            .data(slicedDS)  // data to use with the visualization
-            .label((d) => { return additionalOptions.cleanLabel(d[options.text],options.removed_text_list); })
-            .groupBy(options.id)         // key for which our data is unique on
-            .y(options.y)    // key to use for y-axis
-            .x(options.x)         // key to use for x-axis
-            .detectResize(true);
+          .select(containerId)  // container DIV to hold the visualization
+          .data(slicedDS)  // data to use with the visualization
+          .label((d) => { return additionalOptions.cleanLabel(d[options.text],options.removed_text_list); })
+          .groupBy(options.id)         // key for which our data is unique on
+          .y(options.y)    // key to use for y-axis
+          .x(options.x)         // key to use for x-axis
+          .detectResize(true);
 
         return grafico;
     }
@@ -47,6 +47,8 @@ class StackedLineChartBuilderService extends D3PlusChartBuilderService {
         } 
 
         let viz = new this.d3plus.StackedArea()
+          .noDataHTML(this.noDataMessage)
+          .loadingHTML(this.loadingMessage)
           .shapeConfig({ 
             labelConfig: { fontFamily: additionalOptions.fontFamily ? additionalOptions.fontFamily : this._fontFamily },
             Area: areaConfig

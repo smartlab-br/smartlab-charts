@@ -160,6 +160,7 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
         let removed_text_list = options.removed_text_list;
 
         let viz = new this.d3plus.Geomap()
+            .loadingHTML(this.loadingMessage)
             .shapeConfig({ 
                 labelConfig: { fontFamily: additionalOptions.fontFamily ? additionalOptions.fontFamily : this._fontFamily },
                 Path: {

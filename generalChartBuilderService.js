@@ -1,6 +1,8 @@
 class GeneralChartBuilderService {
     constructor() {
         this._fontFamily = "titulos-observatorio";
+        this.noDataMessage = "Não há dados com esses critérios para a localidade selecionada";
+        this.loadingMessage = "Carregando...";
     }
 
     static getSlicedDataset(dataset, options) {

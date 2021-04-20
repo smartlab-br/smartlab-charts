@@ -90,7 +90,7 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
             fontFamily: additionalOptions.fontFamily ? additionalOptions.fontFamily : this._fontFamily,
             //fontSize: 20
             fontMin: options.fontMin ? options.fontMin : 5,
-            fontMax: options.fontMax ? options.fontMax : 45,
+            fontMax: options.fontMax ? options.fontMax : 28,
             fontResize: true
           }
         };
@@ -99,7 +99,9 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
         if (options.orientation != 'vertical') barConfig.labelConfig.fontColor = "#fff";
 
         let viz = new this.d3plus.BarChart()
-              //.data({"opacity":0.7})  // data to use with the visualization
+            .noDataHTML(this.noDataMessage)
+            .loadingHTML(this.loadingMessage)
+          //.data({"opacity":0.7})  // data to use with the visualization
             .shapeConfig({ 
                 labelConfig: { fontFamily: additionalOptions.fontFamily ? additionalOptions.fontFamily : this._fontFamily },
                 Bar: barConfig
@@ -171,6 +173,10 @@ class BarChartBuilderService extends D3PlusChartBuilderService {
             .yConfig(yConfig)
             .y2Config(yConfig);
         }
+
+        viz = viz
+          .noDataHTML(this.noDataMessage)
+          .loadingHTML(this.loadingMessage);
 
         return viz;
     }
