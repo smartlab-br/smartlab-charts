@@ -63,7 +63,7 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
             let distValues = [];
             let zeroValue = false;
             for (let reg of dataset) {  
-                if (!distValues.includes(reg[options.value_field])){
+                if ( (reg[options.value_field] !== null) && (!distValues.includes(reg[options.value_field])) ){
                     distValues.push(reg[options.value_field]);
                 }
                 if (reg[options.value_field] == 0 || reg[options.value_field] == Math.log(0.01)){
@@ -106,7 +106,7 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
                 };
             }
 
-            if (distValues.length != 1){
+            if (distValues.length > 1){
                 viz = viz.colorScaleConfig({
                     color: aColorScale,
                     axisConfig: objAxisConfig,            
