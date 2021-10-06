@@ -66,7 +66,7 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
                 if ( (reg[options.value_field] !== null) && (!distValues.includes(reg[options.value_field])) ){
                     distValues.push(reg[options.value_field]);
                 }
-                if (reg[options.value_field] == 0 || reg[options.value_field] == Math.log(0.01)){
+                if (reg[options.value_field] === 0 || reg[options.value_field] == Math.log(0.01)){
                     zeroValue = true;
                 }
                 // if (distValues.length > 2){
@@ -82,6 +82,8 @@ class TopoJsonChartBuilderService extends D3PlusChartBuilderService {
                     aColorScale = options.single_data_color[distValues[0]];
                 } else if (options.single_data_color && options.single_data_color.default) {
                     aColorScale = options.single_data_color.default;
+                } else if (distValues[0] === 0 || distValues[0] == Math.log(0.01)) {
+                    aColorScale = aColorScale[0];
                 } else {
                     aColorScale = aColorScale[4];
                 }
