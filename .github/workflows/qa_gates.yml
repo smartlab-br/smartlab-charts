@@ -2,44 +2,42 @@ name: Node CI
 
 on: 
   push:
-    refs/heads:
+    branches:
       - master
+      - main
       - staging
-      - development
-      - contrib
 
 jobs:
   test:
+    name: Quality checks
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.11.0]
     steps:
-    - uses: actions/checkout@master
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - name: Checkout code
+      uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3.1.0
+
+    - name: Set up Node.js
+      uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # v3.5.1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16
+        cache: npm
+
     - name: Install dependencies
-      run: |
-        npm install --save-dev
-    - name: Linting (eslint)
-      run: |
-        npm install --save-dev eslint
-        ls -la *
-        npm run lint || true
-    - name: Unit tests
-      run: |
-        npm run test
-      # env:
-      #   CI: true
-    - name: Transform paths in reports
+      run: npm install
+
+    - name: Run lint
+      run: npm run lint
+
+    - name: Run unit tests
+      run: npm run test
+
+    - name: Fix paths on report
       run: |
         sed -i 's/\/home\/runner\/work\/smartlab-charts\/smartlab-charts/./' ./test/coverage/lcov.info
         sed -i 's/\/home\/runner\/work\/smartlab-charts\/smartlab-charts/./' ./test/coverage/cobertura-coverage.xml
         sed -i 's/\/home\/runner\/work\/smartlab-charts\/smartlab-charts/./' ./test/report.xml
         sed -i 's/\/home\/runner\/work\/smartlab-charts\/smartlab-charts/./' ./lint/report.json
-    - name: SonarCloud Scan
+
+    - name: Run SonarCloud
       uses: sonarsource/sonarcloud-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

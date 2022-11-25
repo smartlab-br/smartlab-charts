@@ -12,3 +12,4 @@ test/report.xml
 .vscode
 */**/junit.xml
 junit.xml
+test/report.xml
